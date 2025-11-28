@@ -10,17 +10,13 @@ interface Props {
 
 export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-2 mt-4">
+        <div className="grid grid-cols-4 gap-3 mt-6">
             {CAMO_ORDER.map((camoName) => {
                 const status = getCamoStatus(weapon, camoName, progress);
                 const reqText = weapon.camos[camoName].requirement;
                 const isCompleted = status === "completed";
                 const isLocked = status === "locked";
 
-                // Singularity is auto-unlocked, so we don't allow toggling it manually if it's locked (it's impossible) 
-                // or if it's completed (it's global).
-                // Actually, user might want to toggle others.
-                // Singularity is special.
                 const isInteractive = camoName !== "Singularity";
 
                 return (
@@ -29,48 +25,52 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         disabled={isLocked || !isInteractive}
                         onClick={() => onToggle(weapon.name, camoName)}
                         className={`
-              group relative aspect-square rounded-lg border overflow-hidden transition-all
+              group relative aspect-square rounded-xl border-2 overflow-visible transition-all duration-300
               ${isCompleted
-                                ? 'border-green-500/50 shadow-[0_0_10px_rgba(34,197,94,0.2)]'
+                                ? 'border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)] z-0'
                                 : isLocked
-                                    ? 'border-slate-800 opacity-50 cursor-not-allowed grayscale'
-                                    : 'border-slate-600 hover:border-slate-400 hover:shadow-lg cursor-pointer'
+                                    ? 'border-slate-800 opacity-40 cursor-not-allowed grayscale z-0'
+                                    : 'border-slate-600 hover:border-slate-300 hover:shadow-xl hover:scale-105 hover:z-10 cursor-pointer'
                             }
             `}
-                        title={`${camoName}: ${reqText}`}
                     >
                         {/* Background Image */}
-                        <div className="absolute inset-0 bg-slate-900">
+                        <div className="absolute inset-0 rounded-lg overflow-hidden bg-slate-900">
                             <img
                                 src={CAMO_IMAGES[camoName]}
                                 alt={camoName}
-                                className={`w-full h-full object-cover transition-transform duration-300 ${isCompleted ? 'scale-110' : 'group-hover:scale-110'}`}
+                                className={`w-full h-full object-cover transition-transform duration-500 ${isCompleted ? 'scale-110' : 'group-hover:scale-110'}`}
                                 loading="lazy"
                             />
-                            {/* Overlay for Locked/Completed */}
-                            <div className={`absolute inset-0 transition-colors ${isCompleted ? 'bg-green-500/10' : isLocked ? 'bg-black/60' : 'group-hover:bg-white/5'
+                            {/* Overlay */}
+                            <div className={`absolute inset-0 transition-colors duration-300 ${isCompleted ? 'bg-green-500/10' : isLocked ? 'bg-black/70' : 'group-hover:bg-white/5'
                                 }`} />
                         </div>
 
                         {/* Status Icon */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                             {isLocked && (
-                                <svg className="w-6 h-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="w-8 h-8 text-slate-500/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
                             )}
                             {isCompleted && (
-                                <div className="bg-green-500/80 rounded-full p-1 shadow-sm">
-                                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div className="bg-green-500 rounded-full p-1.5 shadow-lg transform scale-110">
+                                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
                             )}
                         </div>
 
-                        {/* Tooltip on Hover (Simple CSS based) */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/80 text-[10px] text-center py-1 text-slate-200 opacity-0 group-hover:opacity-100 transition-opacity truncate px-1">
-                            {camoName}
+                        {/* Enhanced Tooltip */}
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none z-50">
+                            <div className="bg-slate-900/95 backdrop-blur-md border border-slate-600 text-slate-200 text-xs rounded-lg p-3 shadow-2xl text-center">
+                                <div className="font-bold text-orange-400 mb-1 text-sm">{camoName}</div>
+                                <div className="text-slate-300 leading-relaxed">{reqText}</div>
+                                {/* Arrow */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-600" />
+                            </div>
                         </div>
                     </button>
                 );

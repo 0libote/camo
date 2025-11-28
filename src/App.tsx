@@ -5,8 +5,19 @@ import { WeaponList } from './components/WeaponList';
 import { MasterySummary } from './components/MasterySummary';
 
 function App() {
-  const { progress, toggleCamo, resetProgress } = useProgress();
+  const { progress, toggleCamo, resetProgress, exportProgress, importProgress } = useProgress();
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
+
+  const handleImportClick = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (file) importProgress(file);
+    };
+    input.click();
+  };
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 p-4 md:p-8 font-sans">
@@ -17,12 +28,26 @@ function App() {
           </h1>
           <p className="text-slate-400 mt-2">Track your multiplayer mastery progression</p>
         </div>
-        <button
-          onClick={resetProgress}
-          className="text-xs text-red-500 hover:text-red-400 underline"
-        >
-          Reset Progress
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={exportProgress}
+            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm transition-colors border border-slate-700"
+          >
+            Export JSON
+          </button>
+          <button
+            onClick={handleImportClick}
+            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm transition-colors border border-slate-700"
+          >
+            Import JSON
+          </button>
+          <button
+            onClick={resetProgress}
+            className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg text-sm transition-colors border border-red-500/20"
+          >
+            Reset
+          </button>
+        </div>
       </header>
 
       <main className="max-w-7xl mx-auto space-y-8">
@@ -39,8 +64,8 @@ function App() {
               key={cls}
               onClick={() => setSelectedClass(cls)}
               className={`px-4 py-2 rounded-full whitespace-nowrap transition-all ${selectedClass === cls
-                  ? 'bg-orange-600 text-white shadow-lg shadow-orange-900/50'
-                  : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                ? 'bg-orange-600 text-white shadow-lg shadow-orange-900/50'
+                : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
                 }`}
             >
               {cls}
@@ -57,9 +82,7 @@ function App() {
         />
       </main>
 
-      <footer className="max-w-7xl mx-auto mt-12 text-center text-slate-600 text-sm">
-        <p>BO7 Camo Tracker &copy; 2025</p>
-      </footer>
+
     </div>
   );
 }

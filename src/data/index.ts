@@ -17,14 +17,16 @@ export const CAMO_ORDER: (keyof import('../types').WeaponCamos)[] = [
     "Singularity"
 ];
 
-// Image mapping to handle the typo in "millitary.webp"
+// Image mapping using GitHub raw URLs
+const BASE_URL = "https://raw.githubusercontent.com/0libote/camo/refs/heads/main/datastuff";
+
 export const CAMO_IMAGES: Record<string, string> = {
-    "Military": "/camo/datastuff/millitary.webp", // Note the typo in filename
-    "Diamondback": "/camo/datastuff/diamondback.webp",
-    "Raptor": "/camo/datastuff/raptor.webp",
-    "Mainframe": "/camo/datastuff/mainframe.webp",
-    "Shattered Gold": "/camo/datastuff/Shattered-Gold.webp",
-    "Arclight": "/camo/datastuff/Arclight.webp",
-    "Tempest": "/camo/datastuff/Tempest.webp",
-    "Singularity": "/camo/datastuff/Singularity.webp",
+    "Military": `${BASE_URL}/millitary.webp`, // Note the typo in filename
+    "Diamondback": `${BASE_URL}/diamondback.webp`,
+    "Raptor": `${BASE_URL}/raptor.webp`,
+    "Mainframe": `${BASE_URL}/mainframe.webp`,
+    "Shattered Gold": `${BASE_URL}/Shattered-Gold.webp`,
+    "Arclight": `${BASE_URL}/Arclight.webp`,
+    "Tempest": `${BASE_URL}/Tempest.webp`,
+    "Singularity": `${BASE_URL}/Singularity.webp`,
 };
