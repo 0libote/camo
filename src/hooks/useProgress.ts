@@ -5,8 +5,15 @@ const STORAGE_KEY = 'bo7_camo_tracker_progress';
 
 export function useProgress() {
     const [progress, setProgress] = useState<UserProgress>(() => {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        return stored ? JSON.parse(stored) : {};
+        try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored ? JSON.parse(stored) : {};
+        } catch (e) {
+            // If localStorage is corrupted, clear it and start fresh
+            console.warn('Corrupted progress data, resetting...', e);
+            localStorage.removeItem(STORAGE_KEY);
+            return {};
+        }
     });
 
     useEffect(() => {
