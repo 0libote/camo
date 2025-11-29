@@ -63,7 +63,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                             )}
                         </div>
 
-                        {/* Enhanced Tooltip */}
+                        {/* Enhanced Tooltip - Always readable even if locked */}
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none z-50">
                             <div className="bg-slate-900/95 backdrop-blur-md border border-slate-600 text-slate-200 text-xs rounded-lg p-3 shadow-2xl text-center">
                                 <div className="font-bold text-orange-400 mb-1 text-sm">{camoName}</div>

@@ -23,7 +23,7 @@ function App() {
     <div className="min-h-screen bg-slate-900 text-slate-100 p-4 md:p-8 font-sans">
       <header className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-amber-300 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold text-orange-500">
             BO7 Camo Tracker
           </h1>
           <p className="text-slate-400 mt-2">Track your multiplayer mastery progression</p>
