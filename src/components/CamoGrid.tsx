@@ -29,13 +29,13 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
               ${isCompleted
                                 ? 'border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)] z-0'
                                 : isLocked
-                                    ? 'border-slate-800 opacity-40 cursor-not-allowed grayscale z-0'
+                                    ? 'border-slate-800 cursor-not-allowed z-0'
                                     : 'border-slate-600 hover:border-slate-300 hover:shadow-xl hover:scale-105 hover:z-10 cursor-pointer'
                             }
             `}
                     >
                         {/* Background Image */}
-                        <div className="absolute inset-0 rounded-lg overflow-hidden bg-slate-900">
+                        <div className={`absolute inset-0 rounded-lg overflow-hidden bg-slate-900 ${isLocked ? 'opacity-40 grayscale' : ''}`}>
                             <img
                                 src={CAMO_IMAGES[camoName]}
                                 alt={camoName}
@@ -48,7 +48,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         </div>
 
                         {/* Status Icon */}
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div className={`absolute inset-0 flex items-center justify-center pointer-events-none ${isLocked ? 'opacity-40' : ''}`}>
                             {isLocked && (
                                 <svg className="w-8 h-8 text-slate-500/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />

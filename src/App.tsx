@@ -3,10 +3,12 @@ import { WEAPON_CLASSES, CAMO_DATA } from './data';
 import { useProgress } from './hooks/useProgress';
 import { WeaponList } from './components/WeaponList';
 import { MasterySummary } from './components/MasterySummary';
+import { CamoGallery } from './components/CamoGallery';
 
 function App() {
   const { progress, toggleCamo, resetProgress, exportProgress, importProgress } = useProgress();
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   const handleImportClick = () => {
     const input = document.createElement('input');
@@ -21,6 +23,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 p-4 md:p-8 font-sans">
+      <CamoGallery isOpen={isGalleryOpen} onClose={() => setIsGalleryOpen(false)} />
+
       <header className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
           <h1 className="text-4xl font-bold text-orange-500">
@@ -29,6 +33,12 @@ function App() {
           <p className="text-slate-400 mt-2">Track your multiplayer mastery progression</p>
         </div>
         <div className="flex gap-4">
+          <button
+            onClick={() => setIsGalleryOpen(true)}
+            className="px-4 py-2 bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 rounded-lg text-sm transition-colors border border-orange-500/20"
+          >
+            View All Camos
+          </button>
           <button
             onClick={exportProgress}
             className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm transition-colors border border-slate-700"
