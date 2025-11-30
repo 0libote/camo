@@ -34,8 +34,8 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                             }
             `}
                     >
-                        {/* Background Image */}
-                        <div className={`absolute inset-0 bg-black ${isLocked ? 'opacity-20 grayscale' : ''}`}>
+                        {/* Background Image Container - Overflow Hidden for Zoom Effect */}
+                        <div className={`absolute inset-0 overflow-hidden bg-black ${isLocked ? 'opacity-20 grayscale' : ''}`}>
                             <img
                                 src={CAMO_IMAGES[camoName]}
                                 alt={camoName}
