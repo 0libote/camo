@@ -1,4 +1,4 @@
-import camosJson from '../../datastuff/camos.json';
+import camosJson from './camos.json';
 import type { CamoData } from '../types';
 
 // Cast the JSON to our type
@@ -17,8 +17,9 @@ export const CAMO_ORDER: (keyof import('../types').WeaponCamos)[] = [
     "Singularity"
 ];
 
-// Image mapping using GitHub raw URLs
-const BASE_URL = "https://raw.githubusercontent.com/0libote/camo/refs/heads/main/datastuff";
+// Image mapping using local public folder
+// Note: 'base' in vite.config.ts is '/camo/', so public assets are at /camo/...
+const BASE_URL = "/camo/camos";
 
 export const CAMO_IMAGES: Record<string, string> = {
     "Military": `${BASE_URL}/millitary.webp`, // Note the typo in filename
