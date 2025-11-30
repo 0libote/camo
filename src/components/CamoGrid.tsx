@@ -25,7 +25,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         disabled={isLocked || !isInteractive}
                         onClick={() => onToggle(weapon.name, camoName)}
                         className={`
-              group relative aspect-square border overflow-hidden transition-all duration-300
+              group relative aspect-square border transition-all duration-300
               ${isCompleted
                                 ? 'border-bo7-orange shadow-[0_0_15px_rgba(255,159,0,0.3)] z-10'
                                 : isLocked
