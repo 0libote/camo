@@ -19,36 +19,43 @@ export function WeaponList({ className, weapons, progress, onToggle }: Props) {
     const isArclightReady = shatteredGoldCount === totalWeapons;
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-8">
             {/* Class Header / Stats */}
-            <div className="flex flex-col md:flex-row items-center justify-between bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 gap-4">
+            <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/10 pb-4 gap-6">
                 <div>
-                    <h2 className="text-2xl font-bold text-white">{className}</h2>
-                    <p className="text-sm text-slate-400">
-                        Complete Shattered Gold on all weapons to unlock Arclight
-                    </p>
+                    <h2 className="text-4xl font-bo7 text-white uppercase tracking-wider">{className}</h2>
+                    <div className="flex items-center gap-2 mt-1">
+                        <div className="w-2 h-2 bg-bo7-orange"></div>
+                        <p className="text-sm text-slate-400 font-tech uppercase tracking-widest">
+                            Class Mastery Protocol
+                        </p>
+                    </div>
                 </div>
 
                 {/* Arclight Progress Bar (Mastery Style) */}
-                <div className="flex-1 max-w-md w-full relative overflow-hidden bg-slate-900 rounded-xl border border-slate-700 p-3 flex items-center gap-4 group hover:border-purple-500/50 transition-colors">
-                    <div className="w-12 h-12 shrink-0 rounded-lg overflow-hidden border border-slate-600 bg-black">
-                        <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                <div className="flex-1 max-w-md w-full border-tech p-3 flex items-center gap-4 group hover:bg-white/5 transition-colors">
+                    <div className="w-12 h-12 shrink-0 border border-white/10 bg-black relative">
+                        <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     </div>
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1 min-w-0 font-tech">
                         <div className="flex justify-between items-center mb-1">
-                            <h3 className={`font-bold truncate ${isArclightReady ? 'text-purple-400' : 'text-slate-500'}`}>
+                            <h3 className={`font-bold uppercase tracking-wider ${isArclightReady ? 'text-purple-400' : 'text-slate-500'}`}>
                                 Arclight Access
                             </h3>
-                            <span className="text-xs font-mono text-slate-400">{shatteredGoldCount} / {totalWeapons}</span>
+                            <span className="text-xs font-mono text-slate-400">{shatteredGoldCount}<span className="text-slate-600">/</span>{totalWeapons}</span>
                         </div>
-                        <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
-                            <div
-                                className={`h-full transition-all duration-500 ${isArclightReady ? 'bg-purple-500' : 'bg-slate-600'}`}
-                                style={{ width: `${Math.min(100, (shatteredGoldCount / totalWeapons) * 100)}%` }}
-                            />
+                        {/* Segmented Bar */}
+                        <div className="flex gap-0.5 h-1.5 mb-1">
+                            {Array.from({ length: totalWeapons }).map((_, i) => (
+                                <div
+                                    key={i}
+                                    className={`flex-1 ${i < shatteredGoldCount ? 'bg-purple-500' : 'bg-slate-800'}`}
+                                />
+                            ))}
                         </div>
-                        <p className="text-[10px] text-slate-500 truncate">
-                            {isArclightReady ? "UNLOCKED - Challenge Available" : "LOCKED - Requires Class Mastery"}
+                        <p className="text-[10px] text-slate-500 uppercase tracking-widest truncate">
+                            {isArclightReady ? "Access Granted" : "Requires Class Mastery"}
                         </p>
                     </div>
                 </div>

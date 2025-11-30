@@ -19,35 +19,39 @@ export function Header({ onOpenGallery }: Props) {
     };
 
     return (
-        <header className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <header className="max-w-7xl mx-auto mb-10 flex flex-col md:flex-row justify-between items-end gap-6 border-b border-white/10 pb-6">
             <div>
-                <h1 className="text-4xl font-bold text-orange-500">
+                <h1 className="text-5xl font-bo7 text-bo7-orange tracking-wider uppercase drop-shadow-[0_0_10px_rgba(255,159,0,0.5)]">
                     BO7 Camo Tracker
                 </h1>
-                <p className="text-slate-400 mt-2">Track your multiplayer mastery progression</p>
+                <div className="flex items-center gap-2 mt-2">
+                    <div className="h-1 w-8 bg-bo7-orange"></div>
+                    <p className="text-slate-400 font-tech uppercase tracking-widest text-sm">Multiplayer Mastery Protocol</p>
+                </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
                 <button
                     onClick={onOpenGallery}
-                    className="px-4 py-2 bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 rounded-lg text-sm transition-colors border border-orange-500/20"
+                    className="px-6 py-2 bg-bo7-orange/10 hover:bg-bo7-orange/20 text-bo7-orange font-bold uppercase tracking-wider text-sm transition-all border border-bo7-orange/30 hover:border-bo7-orange clip-path-slant"
                 >
-                    View All Camos
+                    View Intel
                 </button>
+                <div className="h-8 w-px bg-white/10 mx-2"></div>
                 <button
                     onClick={exportProgress}
-                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm transition-colors border border-slate-700"
+                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-tech uppercase tracking-wider text-sm transition-colors border border-slate-700 hover:border-slate-500"
                 >
-                    Export JSON
+                    Export Data
                 </button>
                 <button
                     onClick={handleImportClick}
-                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm transition-colors border border-slate-700"
+                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-tech uppercase tracking-wider text-sm transition-colors border border-slate-700 hover:border-slate-500"
                 >
-                    Import JSON
+                    Import Data
                 </button>
                 <button
                     onClick={resetProgress}
-                    className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg text-sm transition-colors border border-red-500/20"
+                    className="px-4 py-2 bg-bo7-red/10 hover:bg-bo7-red/20 text-bo7-red font-tech uppercase tracking-wider text-sm transition-colors border border-bo7-red/30 hover:border-bo7-red"
                 >
                     Reset
                 </button>

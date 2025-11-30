@@ -15,56 +15,70 @@ export function MasterySummary({ progress }: Props) {
     const SINGULARITY_REQ = 30;
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-tech">
             {/* Arclight */}
-            <div className="relative overflow-hidden bg-slate-900 rounded-xl border border-slate-700 p-4 flex items-center gap-4 group hover:border-purple-500/50 transition-colors">
-                <div className="w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-slate-600 bg-black">
-                    <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+            <div className="border-tech p-4 flex items-center gap-4 group hover:bg-white/5 transition-colors">
+                <div className="w-16 h-16 shrink-0 border border-white/10 bg-black relative">
+                    <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bold text-purple-400 truncate">Arclight</h3>
-                        <span className="text-xs font-mono text-slate-400">{arclightCount}/{TEMPEST_REQ}</span>
+                        <h3 className="font-bold text-xl text-purple-400 tracking-wider uppercase">Arclight</h3>
+                        <span className="text-sm font-mono text-slate-400">{arclightCount}<span className="text-slate-600">/</span>{TEMPEST_REQ}</span>
                     </div>
-                    <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
-                        <div className="bg-purple-500 h-full transition-all duration-500" style={{ width: `${Math.min(100, (arclightCount / TEMPEST_REQ) * 100)}%` }} />
+                    {/* Segmented Bar */}
+                    <div className="flex gap-0.5 h-2 mb-1">
+                        {Array.from({ length: 10 }).map((_, i) => (
+                            <div
+                                key={i}
+                                className={`flex-1 ${i < (arclightCount / TEMPEST_REQ) * 10 ? 'bg-purple-500' : 'bg-slate-800'}`}
+                            />
+                        ))}
                     </div>
-                    <p className="text-[10px] text-slate-500 truncate">Global progress for Tempest</p>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Global Tempest Progress</p>
                 </div>
             </div>
 
             {/* Tempest */}
-            <div className="relative overflow-hidden bg-slate-900 rounded-xl border border-slate-700 p-4 flex items-center gap-4 group hover:border-cyan-500/50 transition-colors">
-                <div className="w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-slate-600 bg-black">
-                    <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+            <div className="border-tech p-4 flex items-center gap-4 group hover:bg-white/5 transition-colors">
+                <div className="w-16 h-16 shrink-0 border border-white/10 bg-black relative">
+                    <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bold text-cyan-400 truncate">Tempest</h3>
-                        <span className="text-xs font-mono text-slate-400">{tempestCount}/{SINGULARITY_REQ}</span>
+                        <h3 className="font-bold text-xl text-bo7-cyan tracking-wider uppercase">Tempest</h3>
+                        <span className="text-sm font-mono text-slate-400">{tempestCount}<span className="text-slate-600">/</span>{SINGULARITY_REQ}</span>
                     </div>
-                    <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-1">
-                        <div className="bg-cyan-500 h-full transition-all duration-500" style={{ width: `${Math.min(100, (tempestCount / SINGULARITY_REQ) * 100)}%` }} />
+                    {/* Segmented Bar */}
+                    <div className="flex gap-0.5 h-2 mb-1">
+                        {Array.from({ length: 10 }).map((_, i) => (
+                            <div
+                                key={i}
+                                className={`flex-1 ${i < (tempestCount / SINGULARITY_REQ) * 10 ? 'bg-bo7-cyan' : 'bg-slate-800'}`}
+                            />
+                        ))}
                     </div>
-                    <p className="text-[10px] text-slate-500 truncate">Global progress for Singularity</p>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Global Singularity Progress</p>
                 </div>
             </div>
 
             {/* Singularity */}
-            <div className={`relative overflow-hidden rounded-xl border p-4 flex items-center gap-4 transition-all duration-500 ${singularityUnlocked
-                    ? 'bg-amber-950/30 border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.15)]'
-                    : 'bg-slate-900 border-slate-700 opacity-75'
+            <div className={`border-tech p-4 flex items-center gap-4 transition-all duration-500 ${singularityUnlocked
+                    ? 'bg-bo7-orange/5 border-bo7-orange/30'
+                    : 'opacity-75'
                 }`}>
-                <div className={`w-16 h-16 shrink-0 rounded-lg overflow-hidden border bg-black ${singularityUnlocked ? 'border-amber-500/50' : 'border-slate-600'}`}>
+                <div className={`w-16 h-16 shrink-0 border bg-black relative ${singularityUnlocked ? 'border-bo7-orange' : 'border-white/10'}`}>
                     <img src={CAMO_IMAGES["Singularity"]} alt="Singularity" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className={`font-bold truncate ${singularityUnlocked ? 'text-amber-400' : 'text-slate-500'}`}>Singularity</h3>
-                        {singularityUnlocked && <span className="text-[10px] px-1.5 py-0.5 bg-amber-500/20 text-amber-300 rounded border border-amber-500/30">UNLOCKED</span>}
+                        <h3 className={`font-bold text-xl tracking-wider uppercase ${singularityUnlocked ? 'text-bo7-orange' : 'text-slate-500'}`}>Singularity</h3>
+                        {singularityUnlocked && <span className="text-[10px] px-2 py-0.5 bg-bo7-orange/20 text-bo7-orange border border-bo7-orange/30 tracking-widest">UNLOCKED</span>}
                     </div>
-                    <p className="text-xs text-slate-400 line-clamp-2">
-                        {singularityUnlocked ? "The final mastery is yours." : "Complete Tempest on 30 weapons."}
+                    <p className="text-xs text-slate-400 uppercase tracking-wide">
+                        {singularityUnlocked ? "Mastery Achieved" : "Complete Tempest on 30 weapons"}
                     </p>
                 </div>
             </div>

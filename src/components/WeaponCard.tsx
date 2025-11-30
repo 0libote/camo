@@ -16,30 +16,38 @@ export function WeaponCard({ weapon, progress, onToggle }: Props) {
         isCamoCompleted(weapon.name, camo as CamoName, progress)
     ).length;
 
-    const progressPercent = (completedCount / totalCamos) * 100;
     const isMastered = completedCount === totalCamos;
+    const isGoldComplete = isMastered; // Assuming 'Gold Auth' refers to all camos completed
 
     return (
-        <div className={`
-      bg-slate-800 rounded-xl border p-4 transition-all duration-300
-      ${isMastered ? 'border-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.1)]' : 'border-slate-700 hover:border-slate-600'}
-    `}>
-            <div className="flex justify-between items-start mb-4">
+        <div className="border-tech p-5 group hover:bg-white/5 transition-colors duration-300">
+            {/* Header */}
+            <div className="flex justify-between items-start mb-6">
                 <div>
-                    <h3 className="text-xl font-bold text-slate-100">{weapon.name}</h3>
-                    <p className="text-sm text-slate-400">{weapon.class} • Unlock Level {weapon.unlock_level}</p>
+                    <h3 className="text-2xl font-bo7 text-white uppercase tracking-wider group-hover:text-bo7-orange transition-colors">
+                        {weapon.name}
+                    </h3>
+                    <div className="flex items-center gap-2 mt-1">
+                        <span className={`text-xs font-mono px-1.5 py-0.5 border ${isGoldComplete ? 'border-bo7-orange text-bo7-orange bg-bo7-orange/10' : 'border-slate-700 text-slate-500'}`}>
+                            {isGoldComplete ? 'GOLD AUTH' : 'PENDING'}
+                        </span>
+                    </div>
                 </div>
                 <div className="text-right">
-                    <div className="text-2xl font-bold text-slate-200">{completedCount}<span className="text-slate-500 text-lg">/{totalCamos}</span></div>
+                    <div className="text-2xl font-bo7 text-white/20 group-hover:text-white/40 transition-colors">
+                        {completedCount}<span className="text-lg">/</span>{totalCamos}
+                    </div>
                 </div>
             </div>
 
-            {/* Progress Bar */}
-            <div className="w-full bg-slate-900 h-1.5 rounded-full mb-4 overflow-hidden">
-                <div
-                    className={`h-full transition-all duration-500 ${isMastered ? 'bg-amber-500' : 'bg-blue-500'}`}
-                    style={{ width: `${progressPercent}%` }}
-                />
+            {/* Progress Bar (Segmented) */}
+            <div className="flex gap-1 h-1 mb-6">
+                {Array.from({ length: totalCamos }).map((_, i) => (
+                    <div
+                        key={i}
+                        className={`flex-1 transition-all duration-500 ${i < completedCount ? 'bg-bo7-orange' : 'bg-slate-800'}`}
+                    />
+                ))}
             </div>
 
             <CamoGrid weapon={weapon} progress={progress} onToggle={onToggle} />
