@@ -1,6 +1,7 @@
 import type { Weapon, UserProgress, CamoName } from '../types';
 import { CamoGrid } from './CamoGrid';
 import { isCamoCompleted } from '../logic/progression';
+import { ProgressBar } from './ProgressBar';
 
 interface Props {
     weapon: Weapon;
@@ -40,14 +41,15 @@ export function WeaponCard({ weapon, progress, onToggle }: Props) {
                 </div>
             </div>
 
-            {/* Progress Bar (Segmented) */}
-            <div className="flex gap-1 h-1 mb-6">
-                {Array.from({ length: totalCamos }).map((_, i) => (
-                    <div
-                        key={i}
-                        className={`flex-1 transition-all duration-500 ${i < completedCount ? 'bg-bo7-orange' : 'bg-slate-800'}`}
-                    />
-                ))}
+
+
+            {/* Progress Bar */}
+            <div className="mb-6">
+                <ProgressBar
+                    progress={(completedCount / totalCamos) * 100}
+                    colorClass="bg-bo7-orange"
+                    heightClass="h-1.5"
+                />
             </div>
 
             <CamoGrid weapon={weapon} progress={progress} onToggle={onToggle} />

@@ -1,6 +1,7 @@
 import type { UserProgress } from '../types';
 import { getGlobalArclightCount, getGlobalTempestCount, isSingularityUnlocked } from '../logic/progression';
 import { CAMO_IMAGES } from '../data';
+import { ProgressBar } from './ProgressBar';
 
 interface Props {
     progress: UserProgress;
@@ -27,14 +28,15 @@ export function MasterySummary({ progress }: Props) {
                         <h3 className="font-bold text-xl text-purple-400 tracking-wider uppercase">Arclight</h3>
                         <span className="text-sm font-mono text-slate-400">{arclightCount}<span className="text-slate-600">/</span>{TEMPEST_REQ}</span>
                     </div>
-                    {/* Segmented Bar */}
-                    <div className="flex gap-0.5 h-2 mb-1">
-                        {Array.from({ length: 10 }).map((_, i) => (
-                            <div
-                                key={i}
-                                className={`flex-1 ${i < (arclightCount / TEMPEST_REQ) * 10 ? 'bg-purple-500' : 'bg-slate-800'}`}
-                            />
-                        ))}
+
+
+                    {/* Progress Bar */}
+                    <div className="mb-1">
+                        <ProgressBar
+                            progress={(arclightCount / TEMPEST_REQ) * 100}
+                            colorClass="bg-purple-500"
+                            heightClass="h-2"
+                        />
                     </div>
                     <p className="text-[10px] text-slate-500 uppercase tracking-widest">Global Tempest Progress</p>
                 </div>
@@ -51,14 +53,13 @@ export function MasterySummary({ progress }: Props) {
                         <h3 className="font-bold text-xl text-bo7-cyan tracking-wider uppercase">Tempest</h3>
                         <span className="text-sm font-mono text-slate-400">{tempestCount}<span className="text-slate-600">/</span>{SINGULARITY_REQ}</span>
                     </div>
-                    {/* Segmented Bar */}
-                    <div className="flex gap-0.5 h-2 mb-1">
-                        {Array.from({ length: 10 }).map((_, i) => (
-                            <div
-                                key={i}
-                                className={`flex-1 ${i < (tempestCount / SINGULARITY_REQ) * 10 ? 'bg-bo7-cyan' : 'bg-slate-800'}`}
-                            />
-                        ))}
+                    {/* Progress Bar */}
+                    <div className="mb-1">
+                        <ProgressBar
+                            progress={(tempestCount / SINGULARITY_REQ) * 100}
+                            colorClass="bg-bo7-cyan"
+                            heightClass="h-2"
+                        />
                     </div>
                     <p className="text-[10px] text-slate-500 uppercase tracking-widest">Global Singularity Progress</p>
                 </div>
@@ -66,8 +67,8 @@ export function MasterySummary({ progress }: Props) {
 
             {/* Singularity */}
             <div className={`border-tech p-4 flex items-center gap-4 transition-all duration-500 ${singularityUnlocked
-                    ? 'bg-bo7-orange/5 border-bo7-orange/30'
-                    : 'opacity-75'
+                ? 'bg-bo7-orange/5 border-bo7-orange/30'
+                : 'opacity-75'
                 }`}>
                 <div className={`w-16 h-16 shrink-0 border bg-black relative ${singularityUnlocked ? 'border-bo7-orange' : 'border-white/10'}`}>
                     <img src={CAMO_IMAGES["Singularity"]} alt="Singularity" className="w-full h-full object-cover" />

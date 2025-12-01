@@ -2,6 +2,7 @@ import type { Weapon, UserProgress, CamoName } from '../types';
 import { WeaponCard } from './WeaponCard';
 import { isCamoCompleted, getWeaponsInClass } from '../logic/progression';
 import { CAMO_IMAGES } from '../data';
+import { ProgressBar } from './ProgressBar';
 
 interface Props {
     className: string;
@@ -45,14 +46,15 @@ export function WeaponList({ className, weapons, progress, onToggle }: Props) {
                             </h3>
                             <span className="text-xs font-mono text-slate-400">{shatteredGoldCount}<span className="text-slate-600">/</span>{totalWeapons}</span>
                         </div>
-                        {/* Segmented Bar */}
-                        <div className="flex gap-0.5 h-1.5 mb-1">
-                            {Array.from({ length: totalWeapons }).map((_, i) => (
-                                <div
-                                    key={i}
-                                    className={`flex-1 ${i < shatteredGoldCount ? 'bg-purple-500' : 'bg-slate-800'}`}
-                                />
-                            ))}
+
+
+                        {/* Progress Bar */}
+                        <div className="mb-1">
+                            <ProgressBar
+                                progress={(shatteredGoldCount / totalWeapons) * 100}
+                                colorClass="bg-purple-500"
+                                heightClass="h-2"
+                            />
                         </div>
                         <p className="text-[10px] text-slate-500 uppercase tracking-widest truncate">
                             {isArclightReady ? "Access Granted" : "Requires Class Mastery"}
