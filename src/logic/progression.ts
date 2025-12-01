@@ -2,8 +2,8 @@ import type { Weapon, UserProgress, CamoName } from '../types';
 import { CAMO_DATA } from '../data';
 
 const SPECIAL_CAMOS: CamoName[] = ["Diamondback", "Raptor", "Mainframe"];
-const TEMPEST_REQ_COUNT = 30;
-const SINGULARITY_REQ_COUNT = 30;
+export const TEMPEST_REQ_COUNT = 30;
+export const SINGULARITY_REQ_COUNT = 30;
 
 // Helper to check if a specific camo is completed
 export function isCamoCompleted(weaponName: string, camo: CamoName, progress: UserProgress): boolean {
@@ -70,7 +70,7 @@ export function getCamoStatus(weapon: Weapon, camo: CamoName, progress: UserProg
     let available = false;
     switch (camo) {
         case "Military":
-            available = isMilitaryAvailable();
+            available = true;
             break;
         case "Diamondback":
         case "Raptor":

@@ -1,5 +1,5 @@
 import type { UserProgress } from '../types';
-import { getGlobalArclightCount, getGlobalTempestCount, isSingularityUnlocked } from '../logic/progression';
+import { getGlobalArclightCount, getGlobalTempestCount, isSingularityUnlocked, TEMPEST_REQ_COUNT, SINGULARITY_REQ_COUNT } from '../logic/progression';
 import { CAMO_IMAGES } from '../data';
 import { ProgressBar } from './ProgressBar';
 
@@ -12,9 +12,6 @@ export function MasterySummary({ progress }: Props) {
     const tempestCount = getGlobalTempestCount(progress);
     const singularityUnlocked = isSingularityUnlocked(progress);
 
-    const TEMPEST_REQ = 30;
-    const SINGULARITY_REQ = 30;
-
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-tech">
             {/* Arclight */}
@@ -26,14 +23,14 @@ export function MasterySummary({ progress }: Props) {
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
                         <h3 className="font-bold text-xl text-purple-400 tracking-wider uppercase">Arclight</h3>
-                        <span className="text-sm font-mono text-slate-400">{arclightCount}<span className="text-slate-600">/</span>{TEMPEST_REQ}</span>
+                        <span className="text-sm font-mono text-slate-400">{arclightCount}<span className="text-slate-600">/</span>{TEMPEST_REQ_COUNT}</span>
                     </div>
 
 
                     {/* Progress Bar */}
                     <div className="mb-1">
                         <ProgressBar
-                            progress={(arclightCount / TEMPEST_REQ) * 100}
+                            progress={(arclightCount / TEMPEST_REQ_COUNT) * 100}
                             colorClass="bg-purple-500"
                             heightClass="h-2"
                         />
@@ -51,12 +48,12 @@ export function MasterySummary({ progress }: Props) {
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
                         <h3 className="font-bold text-xl text-bo7-cyan tracking-wider uppercase">Tempest</h3>
-                        <span className="text-sm font-mono text-slate-400">{tempestCount}<span className="text-slate-600">/</span>{SINGULARITY_REQ}</span>
+                        <span className="text-sm font-mono text-slate-400">{tempestCount}<span className="text-slate-600">/</span>{SINGULARITY_REQ_COUNT}</span>
                     </div>
                     {/* Progress Bar */}
                     <div className="mb-1">
                         <ProgressBar
-                            progress={(tempestCount / SINGULARITY_REQ) * 100}
+                            progress={(tempestCount / SINGULARITY_REQ_COUNT) * 100}
                             colorClass="bg-bo7-cyan"
                             heightClass="h-2"
                         />
