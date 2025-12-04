@@ -43,8 +43,9 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                                 loading="lazy"
                             />
                             {/* Overlay */}
-                            <div className={`absolute inset-0 transition-colors duration-300 ${isCompleted ? 'bg-bo7-orange/10' : isLocked ? 'bg-black/80' : 'group-hover/camo:bg-white/5'
-                                }`} />
+                            <div className={`absolute inset-0 transition-colors duration-300 ${
+                                isCompleted ? 'bg-bo7-orange/10' : isLocked ? 'bg-black/80' : ''
+                            }`} />
 
                             {/* Locked Pattern */}
                             {isLocked && (
