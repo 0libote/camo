@@ -48,9 +48,9 @@ function App() {
     <div className="min-h-screen bg-bo7-black text-slate-200 p-4 md:p-8 relative selection:bg-bo7-orange/30 selection:text-bo7-orange">
       {/* Mouse Gradient */}
       <div
-        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 blur-xl"
         style={{
-          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 159, 0, 0.08), transparent 40%)`
+          background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 159, 0, 0.15), rgba(255, 159, 0, 0.05) 40%, transparent 60%)`
         }}
       />
 
@@ -71,8 +71,8 @@ function App() {
                 <button
                   onClick={() => setViewMode('classes')}
                   className={`px-4 py-2 text-sm font-bold uppercase tracking-wider transition-all rounded ${viewMode === 'classes'
-                      ? 'bg-bo7-orange text-black shadow-lg'
-                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                    ? 'bg-bo7-orange text-black shadow-lg'
+                    : 'text-slate-400 hover:text-white hover:bg-white/5'
                     }`}
                 >
                   Class View
@@ -80,8 +80,8 @@ function App() {
                 <button
                   onClick={() => setViewMode('all')}
                   className={`px-4 py-2 text-sm font-bold uppercase tracking-wider transition-all rounded ${viewMode === 'all'
-                      ? 'bg-bo7-orange text-black shadow-lg'
-                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                    ? 'bg-bo7-orange text-black shadow-lg'
+                    : 'text-slate-400 hover:text-white hover:bg-white/5'
                     }`}
                 >
                   All Weapons
@@ -112,8 +112,8 @@ function App() {
                     key={cls}
                     onClick={() => setSelectedClass(cls)}
                     className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all border ${selectedClass === cls
-                        ? 'bg-bo7-orange/20 border-bo7-orange text-bo7-orange shadow-[0_0_10px_rgba(255,159,0,0.2)]'
-                        : 'bg-slate-900/50 border-white/10 text-slate-400 hover:border-white/30 hover:text-white'
+                      ? 'bg-bo7-orange/20 border-bo7-orange text-bo7-orange shadow-[0_0_10px_rgba(255,159,0,0.2)]'
+                      : 'bg-slate-900/50 border-white/10 text-slate-400 hover:border-white/30 hover:text-white'
                       } clip-path-slant`}
                   >
                     {cls}
