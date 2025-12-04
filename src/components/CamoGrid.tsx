@@ -35,17 +35,16 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
             `}
                     >
                         {/* Background Image Container */}
-                        <div className={`absolute inset-0 overflow-hidden bg-black ${isLocked ? 'opacity-20 grayscale' : ''}`}>
+                        <div className={`absolute inset-0 overflow-hidden ${isLocked ? 'opacity-20 grayscale' : ''}`}>
                             <img
                                 src={CAMO_IMAGES[camoName]}
                                 alt={camoName}
-                                className={`w-full h-full object-cover transition-transform duration-500 ${isCompleted ? 'scale-110' : 'group-hover/camo:scale-110'}`}
+                                className={`w-full h-full object-cover transition-transform duration-500 bg-black ${isCompleted ? 'scale-110' : 'group-hover/camo:scale-110'}`}
                                 loading="lazy"
                             />
                             {/* Overlay */}
-                            <div className={`absolute inset-0 transition-colors duration-300 ${
-                                isCompleted ? 'bg-bo7-orange/10' : isLocked ? 'bg-black/80' : ''
-                            }`} />
+                            <div className={`absolute inset-0 transition-colors duration-300 pointer-events-none ${isCompleted ? 'bg-bo7-orange/10' : isLocked ? 'bg-black/80' : ''
+                                }`} />
 
                             {/* Locked Pattern */}
                             {isLocked && (
