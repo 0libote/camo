@@ -286,7 +286,7 @@
       "unlock_level": 0,
       "camos": {
         "Military": {
-          "requirement": "80 Headshots"
+          "requirement": "80 Point Blank Kills"
         },
         "Diamondback": {
           "requirement": "30 Clean Kills"
@@ -305,7 +305,7 @@
       "unlock_level": 22,
       "camos": {
         "Military": {
-          "requirement": "80 Headshots"
+          "requirement": "80 Point Blank Kills"
         },
         "Diamondback": {
           "requirement": "30 Objective Kills"
@@ -324,7 +324,7 @@
       "unlock_level": 48,
       "camos": {
         "Military": {
-          "requirement": "80 Headshots"
+          "requirement": "80 Point Blank Kills"
         },
         "Diamondback": {
           "requirement": "50 Kills while Moving"
@@ -552,7 +552,7 @@
       "unlock_level": 0,
       "camos": {
         "Military": {
-          "requirement": "80 Headshots"
+          "requirement": "50 Kills or Scorestreak Destructions"
         },
         "Diamondback": {
           "requirement": "10 Aerial Scorestreak"
@@ -571,7 +571,7 @@
       "unlock_level": 25,
       "camos": {
         "Military": {
-          "requirement": "80 Headshots"
+          "requirement": "50 Kills or Scorestreak Destructions"
         },
         "Diamondback": {
           "requirement": "10 Aerial Scorestreak"
@@ -590,7 +590,7 @@
       "unlock_level": 0,
       "camos": {
         "Military": {
-          "requirement": "80 Headshots"
+          "requirement": "80 Kills"
         },
         "Diamondback": {
           "requirement": "15 Kills shortly after Switching Weapons"
@@ -609,7 +609,7 @@
       "unlock_level": 4,
       "camos": {
         "Military": {
-          "requirement": "80 Headshots"
+          "requirement": "80 Kills"
         },
         "Diamondback": {
           "requirement": "15 Kills shortly after Switching Weapons"
