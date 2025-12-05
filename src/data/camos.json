@@ -1,3 +1,42 @@
+{
+  "common_camos": {
+    "Shattered Gold": {
+      "requirement": "3 Kills 10x Without Dying"
+    },
+    "Arclight": {
+      "requirement": "10x Double Kills"
+    },
+    "Tempest": {
+      "requirement": "5 Kills Without Dying 3x"
+    },
+    "Singularity": {
+      "requirement": "Unlock Tempest on 30 Weapons"
+    }
+  },
+  "weapons": [
+    {
+      "class": "Assault Rifles",
+      "name": "M15 Mod 0",
+      "unlock_level": 0,
+      "camos": {
+        "Military": {
+          "requirement": "80 Headshots"
+        },
+        "Diamondback": {
+          "requirement": "Get 50 Kills While Moving"
+        },
+        "Raptor": {
+          "requirement": "Get 30 Objective kills"
+        },
+        "Mainframe": {
+          "requirement": "Get 20 kills with an underbarrel launcher equipped"
+        }
+      }
+    },
+    {
+      "class": "Assault Rifles",
+      "name": "AK-27",
+      "unlock_level": 4,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -29,9 +68,6 @@
         },
         "Mainframe": {
           "requirement": "Get 20 kills with an underbarrel launcher equipped"
-        },
-        "Shattered Gold": {
-          "requirement": "3 Kills 10x Without Dying"
         }
       }
     },
@@ -44,7 +80,7 @@
           "requirement": "80 Headshots"
         },
         "Diamondback": {
-          "requirement": "30 Kills affected by your equipment/non‑lethal streak"
+          "requirement": "30 Kills affected by your equipment/non-lethal streak"
         },
         "Raptor": {
           "requirement": "50 Kills with 0 Attachment"
@@ -123,7 +159,7 @@
           "requirement": "50 Kills while Moving"
         },
         "Raptor": {
-          "requirement": "30 Kills affected by your equipment/non‑lethal streak"
+          "requirement": "30 Kills affected by your equipment/non-lethal streak"
         },
         "Mainframe": {
           "requirement": "50 Kills with 0 Attachments"
@@ -164,11 +200,8 @@
           "requirement": "10x - 2 Kills without Reloading"
         },
         "Mainframe": {
-          "requirement": "\"15x - 1 Kill after sliding, diving, walljumping\""
+          "requirement": "15x - 1 Kill after sliding, diving, walljumping"
         }
-      },
-      "camo_unlocks": {
-        "Tempest": true
       }
     },
     {
@@ -202,7 +235,7 @@
           "requirement": "50 Kills with Supressor"
         },
         "Raptor": {
-          "requirement": "\"25 Kills while or shortly after sliding, diving, walljump\""
+          "requirement": "25 Kills while or shortly after sliding, diving, walljump"
         },
         "Mainframe": {
           "requirement": "50 Kills w/ Gunfighter Wildcard"
@@ -226,15 +259,12 @@
         "Mainframe": {
           "requirement": "30 Kills shortly after Sprinting"
         }
-      },
-      "camo_unlocks": {
-        "Singularity": true
       }
     },
     {
       "class": "Shotguns",
       "name": "Echo 12",
-      "unlock_level": 22,
+      "unlock_level": 10,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -253,7 +283,7 @@
     {
       "class": "Shotguns",
       "name": "Akita",
-      "unlock_level": 48,
+      "unlock_level": 25,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -265,7 +295,7 @@
           "requirement": "30 Hipfire Kills"
         },
         "Mainframe": {
-          "requirement": "\"1 Kills while or shortly after sliding, diving, walljump\""
+          "requirement": "1 Kills while or shortly after sliding, diving, walljump"
         }
       }
     },
@@ -281,7 +311,7 @@
           "requirement": "30 Objective Kills"
         },
         "Raptor": {
-          "requirement": "\"5x - 2 Kills without Releasing the Trigger\""
+          "requirement": "5x - 2 Kills without Releasing the Trigger"
         },
         "Mainframe": {
           "requirement": "50 Kills with 5+ Attachments"
@@ -291,16 +321,16 @@
     {
       "class": "Light Machine Guns",
       "name": "XM325",
-      "unlock_level": 31,
+      "unlock_level": 13,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
         },
         "Diamondback": {
-          "requirement": "30 Kills affected by your equipment/non‑lethal streak"
+          "requirement": "30 Kills affected by your equipment/non-lethal streak"
         },
         "Raptor": {
-          "requirement": "\"5x - 2 Kills without Releasing the Trigger\""
+          "requirement": "5x - 2 Kills without Releasing the Trigger"
         },
         "Mainframe": {
           "requirement": "50 Kills with Gunfighter Wildcard"
@@ -310,7 +340,7 @@
     {
       "class": "Marksman Rifles",
       "name": "M8A1",
-      "unlock_level": 10,
+      "unlock_level": 0,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -329,7 +359,7 @@
     {
       "class": "Marksman Rifles",
       "name": "Warden 308",
-      "unlock_level": 25,
+      "unlock_level": 22,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -348,7 +378,7 @@
     {
       "class": "Marksman Rifles",
       "name": "M34 Novaline",
-      "unlock_level": 49,
+      "unlock_level": 40,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -379,14 +409,14 @@
           "requirement": "30 One Shot One Kill"
         },
         "Mainframe": {
-          "requirement": "\"10x - 2 Kills without Reloading\""
+          "requirement": "10x - 2 Kills without Reloading"
         }
       }
     },
     {
       "class": "Sniper Rifles",
       "name": "Shadow SK",
-      "unlock_level": 13,
+      "unlock_level": 31,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -398,14 +428,14 @@
           "requirement": "50 Kills with 0 Attachment"
         },
         "Mainframe": {
-          "requirement": "\"10x - 2 Kills without Reloading\""
+          "requirement": "10x - 2 Kills without Reloading"
         }
       }
     },
     {
       "class": "Sniper Rifles",
       "name": "XR-3 Ion",
-      "unlock_level": 43,
+      "unlock_level": 49,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -417,7 +447,7 @@
           "requirement": "15 Long Shot Kills"
         },
         "Mainframe": {
-          "requirement": "\"10x - 2 Kills without Reloading\""
+          "requirement": "10x - 2 Kills without Reloading"
         }
       }
     },
@@ -443,26 +473,26 @@
     {
       "class": "Pistols",
       "name": "Velox 5.7",
-      "unlock_level": 13,
+      "unlock_level": 43,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
         },
         "Diamondback": {
-          "requirement": "\"15 Kills shortly after sliding, diving, walljump\""
+          "requirement": "15 Kills shortly after sliding, diving, walljump"
         },
         "Raptor": {
           "requirement": "30 Kills shortly after Spinting"
         },
         "Mainframe": {
-          "requirement": "30 Kills affected by your equipment/non‑lethal streak"
+          "requirement": "30 Kills affected by your equipment/non-lethal streak"
         }
       }
     },
     {
       "class": "Pistols",
       "name": "Coda 9",
-      "unlock_level": 43,
+      "unlock_level": 58,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -493,14 +523,14 @@
           "requirement": "10 Direct Hit Kills"
         },
         "Mainframe": {
-          "requirement": "\"10 Scorestreak, equipment/non‑lethal streak, Vehicle or Field Upgrade\""
+          "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
         }
       }
     },
     {
       "class": "Launchers",
       "name": "A.R.C. M1",
-      "unlock_level": 25,
+      "unlock_level": 0,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -512,7 +542,7 @@
           "requirement": "30 Clean Kills"
         },
         "Mainframe": {
-          "requirement": "\"10 Scorestreak, equipment/non‑lethal streak, Vehicle or Field Upgrade\""
+          "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
         }
       }
     },
@@ -528,7 +558,7 @@
           "requirement": "15 Kills shortly after Switching Weapons"
         },
         "Raptor": {
-          "requirement": "\"15 Kills shortly after sliding, diving, walljump\""
+          "requirement": "15 Kills shortly after sliding, diving, walljump"
         },
         "Mainframe": {
           "requirement": "30 Clean Kills"
@@ -538,7 +568,7 @@
     {
       "class": "Melee",
       "name": "Flateline MK.11",
-      "unlock_level": 4,
+      "unlock_level": 0,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -547,7 +577,7 @@
           "requirement": "15 Kills shortly after Switching Weapons"
         },
         "Raptor": {
-          "requirement": "30 Kills affected by your equipment/non‑lethal streak"
+          "requirement": "30 Kills affected by your equipment/non-lethal streak"
         },
         "Mainframe": {
           "requirement": "50 Kills while Moving"
