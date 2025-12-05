@@ -34,7 +34,7 @@ export function CamoGallery({ isOpen, onClose }: Props) {
                 <div className="flex-1 overflow-y-auto p-8 bg-tech-grid">
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                         {CAMO_ORDER.map(camoName => (
-                            <div key={camoName} className="group bg-black border border-white/10 hover:border-bo7-orange transition-colors duration-300">
+                            <div key={camoName} className="group border-tech hover:border-bo7-orange transition-colors duration-300">
                                 <div className="aspect-square bg-black relative overflow-hidden">
                                     <img
                                         src={CAMO_IMAGES[camoName]}

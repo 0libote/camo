@@ -22,7 +22,7 @@ export function MasterySummary({ progress }: Props) {
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bold text-xl text-purple-400 tracking-wider uppercase">Arclight</h3>
+                        <h3 className="font-bo7 text-xl text-purple-400 tracking-wider uppercase">Arclight</h3>
                         <span className="text-sm font-mono text-slate-400">{arclightCount}<span className="text-slate-600">/</span>{TEMPEST_REQ_COUNT}</span>
                     </div>
 
@@ -47,7 +47,7 @@ export function MasterySummary({ progress }: Props) {
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bold text-xl text-bo7-cyan tracking-wider uppercase">Tempest</h3>
+                        <h3 className="font-bo7 text-xl text-bo7-cyan tracking-wider uppercase">Tempest</h3>
                         <span className="text-sm font-mono text-slate-400">{tempestCount}<span className="text-slate-600">/</span>{SINGULARITY_REQ_COUNT}</span>
                     </div>
                     {/* Progress Bar */}
@@ -72,7 +72,7 @@ export function MasterySummary({ progress }: Props) {
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className={`font-bold text-xl tracking-wider uppercase ${singularityUnlocked ? 'text-bo7-orange' : 'text-slate-500'}`}>Singularity</h3>
+                        <h3 className={`font-bo7 text-xl tracking-wider uppercase ${singularityUnlocked ? 'text-bo7-orange' : 'text-slate-500'}`}>Singularity</h3>
                         {singularityUnlocked && <span className="text-[10px] px-2 py-0.5 bg-bo7-orange/20 text-bo7-orange border border-bo7-orange/30 tracking-widest">UNLOCKED</span>}
                     </div>
                     <p className="text-xs text-slate-400 uppercase tracking-wide">

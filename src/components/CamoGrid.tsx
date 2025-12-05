@@ -29,12 +29,12 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         disabled={isLocked || !isInteractive}
                         onClick={() => onToggle(weapon.name, camoName)}
                         className={`
-              group/camo relative aspect-square border transition-all duration-300
+              group/camo relative aspect-square border transition-all duration-300 hover:z-[100]
               ${isCompleted
                                 ? 'border-bo7-orange shadow-[0_0_15px_rgba(255,159,0,0.3)] z-20'
                                 : isLocked
                                     ? 'border-white/5 cursor-not-allowed z-0'
-                                    : 'border-white/20 hover:border-bo7-orange hover:shadow-[0_0_10px_rgba(255,159,0,0.2)] hover:z-50 cursor-pointer'
+                                    : 'border-white/20 hover:border-bo7-orange hover:shadow-[0_0_10px_rgba(255,159,0,0.2)] cursor-pointer'
                             }
             `}
                     >
@@ -77,9 +77,9 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
 
                         {/* Enhanced Tooltip - Always readable even if locked */}
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 opacity-0 group-hover/camo:opacity-100 transition-all duration-200 pointer-events-none z-[9999]">
-                            <div className="bg-black/95 backdrop-blur-md border border-white/20 text-slate-200 text-xs p-3 shadow-2xl text-center font-tech">
-                                <div className="font-bold text-bo7-orange mb-1 text-sm uppercase tracking-wider">{camoName}</div>
-                                <div className="text-slate-300 leading-relaxed uppercase text-[10px] tracking-wide">{reqText}</div>
+                            <div className="bg-black/95 backdrop-blur-md border border-white/20 text-slate-200 text-sm p-4 shadow-2xl text-center font-tech min-w-[200px]">
+                                <div className="font-bold text-bo7-orange mb-1 text-base uppercase tracking-wider">{camoName}</div>
+                                <div className="text-slate-300 leading-relaxed uppercase text-xs tracking-wide">{reqText}</div>
                                 {/* Arrow */}
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-2 h-2 bg-black border-r border-b border-white/20 transform rotate-45"></div>
                             </div>

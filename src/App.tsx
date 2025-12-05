@@ -48,7 +48,7 @@ function App() {
     <div className="min-h-screen bg-bo7-black text-slate-200 p-4 md:p-8 relative selection:bg-bo7-orange/30 selection:text-bo7-orange">
       {/* Mouse Gradient */}
       <div
-        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 blur-xl"
+        className="pointer-events-none fixed inset-0 -z-10 transition-opacity duration-300 blur-xl"
         style={{
           background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 159, 0, 0.15), rgba(255, 159, 0, 0.05) 40%, transparent 60%)`
         }}
