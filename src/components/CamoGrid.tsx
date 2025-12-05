@@ -27,10 +27,10 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         className={`
               group/camo relative aspect-square border transition-all duration-300
               ${isCompleted
-                                ? 'border-bo7-orange shadow-[0_0_15px_rgba(255,159,0,0.3)] z-10'
+                                ? 'border-bo7-orange shadow-[0_0_15px_rgba(255,159,0,0.3)] z-20'
                                 : isLocked
                                     ? 'border-white/5 cursor-not-allowed z-0'
-                                    : 'border-white/20 hover:border-bo7-orange hover:shadow-[0_0_10px_rgba(255,159,0,0.2)] hover:z-10 cursor-pointer'
+                                    : 'border-white/20 hover:border-bo7-orange hover:shadow-[0_0_10px_rgba(255,159,0,0.2)] hover:z-50 cursor-pointer'
                             }
             `}
                     >
