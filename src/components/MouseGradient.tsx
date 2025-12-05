@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 export function MouseGradient() {
     const divRef = useRef<HTMLDivElement>(null);
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number | null>(null);
     const mousePos = useRef({ x: 0, y: 0 });
     const currentPos = useRef({ x: 0, y: 0 });
 
