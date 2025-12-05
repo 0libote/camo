@@ -18,6 +18,8 @@ function App() {
 
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
 
+  const [displayMode, setDisplayMode] = useState<'fraction' | 'percentage'>('fraction');
+
   // Mouse Gradient Effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -45,7 +47,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-bo7-black text-slate-200 p-4 md:p-8 relative selection:bg-bo7-orange/30 selection:text-bo7-orange">
+    <div className="min-h-screen text-slate-200 p-4 md:p-8 relative selection:bg-bo7-orange/30 selection:text-bo7-orange">
       {/* Mouse Gradient */}
       <div
         className="pointer-events-none fixed inset-0 -z-10 transition-opacity duration-300 blur-xl"
@@ -61,7 +63,7 @@ function App() {
         />
 
         <main className="max-w-7xl mx-auto space-y-12">
-          <MasterySummary progress={progress} />
+          <MasterySummary progress={progress} displayMode={displayMode} />
 
           {/* View Controls */}
           <div className="flex flex-col gap-6 border-b border-white/10 pb-6">
@@ -132,6 +134,7 @@ function App() {
                 weapons={CAMO_DATA.weapons.filter((w: Weapon) => w.class === selectedClass)}
                 progress={progress}
                 onToggle={toggleCamo}
+                displayMode={displayMode}
               />
             ) : (
               <div className="space-y-8">
@@ -141,6 +144,7 @@ function App() {
                     weapons={filteredWeapons}
                     progress={progress}
                     onToggle={toggleCamo}
+                    displayMode={displayMode}
                   />
                 ) : (
                   <div className="text-center py-20 text-slate-500 font-tech uppercase tracking-widest">
@@ -159,6 +163,8 @@ function App() {
           onExport={exportProgress}
           onImport={handleImportClick}
           onReset={resetProgress}
+          displayMode={displayMode}
+          setDisplayMode={setDisplayMode}
         />
       </div>
     </div>

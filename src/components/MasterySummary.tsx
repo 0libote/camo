@@ -5,25 +5,35 @@ import { ProgressBar } from './ProgressBar';
 
 interface Props {
     progress: UserProgress;
+    displayMode: 'fraction' | 'percentage';
 }
 
-export function MasterySummary({ progress }: Props) {
+export function MasterySummary({ progress, displayMode }: Props) {
     const arclightCount = getGlobalArclightCount(progress);
     const tempestCount = getGlobalTempestCount(progress);
     const singularityUnlocked = isSingularityUnlocked(progress);
 
+    const formatCount = (count: number, total: number) => {
+        if (displayMode === 'percentage') {
+            return `${Math.round((count / total) * 100)}%`;
+        }
+        return `${count} / ${total}`; // Clean simple fraction
+    }
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-tech">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-tech"> {/* Reduced gap */}
             {/* Arclight */}
             <div className="border-tech p-4 flex items-center gap-4 group hover:bg-white/5 transition-colors">
-                <div className="w-16 h-16 shrink-0 border border-white/10 bg-black relative">
+                <div className="w-14 h-14 shrink-0 border border-white/10 bg-black relative"> {/* Reduced size */}
                     <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bo7 text-xl text-purple-400 tracking-wider uppercase">Arclight</h3>
-                        <span className="text-sm font-mono text-slate-400">{arclightCount}<span className="text-slate-600">/</span>{TEMPEST_REQ_COUNT}</span>
+                        <h3 className="font-bo7 text-lg text-purple-400 tracking-wider uppercase">Arclight</h3>
+                        <span className="text-sm font-bold text-slate-400 font-mono"> {/* Consistent typography */}
+                            {formatCount(arclightCount, TEMPEST_REQ_COUNT)}
+                        </span>
                     </div>
 
 
@@ -32,7 +42,7 @@ export function MasterySummary({ progress }: Props) {
                         <ProgressBar
                             progress={(arclightCount / TEMPEST_REQ_COUNT) * 100}
                             colorClass="bg-purple-500"
-                            heightClass="h-2"
+                            heightClass="h-1.5"
                         />
                     </div>
                     <p className="text-[10px] text-slate-500 uppercase tracking-widest">Complete Arclight on 30 Weapons</p>
@@ -41,21 +51,23 @@ export function MasterySummary({ progress }: Props) {
 
             {/* Tempest */}
             <div className="border-tech p-4 flex items-center gap-4 group hover:bg-white/5 transition-colors">
-                <div className="w-16 h-16 shrink-0 border border-white/10 bg-black relative">
+                <div className="w-14 h-14 shrink-0 border border-white/10 bg-black relative">
                     <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bo7 text-xl text-bo7-cyan tracking-wider uppercase">Tempest</h3>
-                        <span className="text-sm font-mono text-slate-400">{tempestCount}<span className="text-slate-600">/</span>{SINGULARITY_REQ_COUNT}</span>
+                        <h3 className="font-bo7 text-lg text-bo7-cyan tracking-wider uppercase">Tempest</h3>
+                        <span className="text-sm font-bold text-slate-400 font-mono">
+                            {formatCount(tempestCount, SINGULARITY_REQ_COUNT)}
+                        </span>
                     </div>
                     {/* Progress Bar */}
                     <div className="mb-1">
                         <ProgressBar
                             progress={(tempestCount / SINGULARITY_REQ_COUNT) * 100}
                             colorClass="bg-bo7-cyan"
-                            heightClass="h-2"
+                            heightClass="h-1.5"
                         />
                     </div>
                     <p className="text-[10px] text-slate-500 uppercase tracking-widest">Complete Tempest on 30 Weapons</p>

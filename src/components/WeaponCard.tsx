@@ -7,9 +7,10 @@ interface Props {
     weapon: Weapon;
     progress: UserProgress;
     onToggle: (weaponName: string, camo: CamoName) => void;
+    displayMode: 'fraction' | 'percentage';
 }
 
-export function WeaponCard({ weapon, progress, onToggle }: Props) {
+export function WeaponCard({ weapon, progress, onToggle, displayMode }: Props) {
     // Calculate progress based on actually available camos for this weapon
     const availableCamos = Object.keys(weapon.camos) as CamoName[];
     const totalCamos = availableCamos.length;
@@ -35,8 +36,10 @@ export function WeaponCard({ weapon, progress, onToggle }: Props) {
                     </div>
                 </div>
                 <div className="text-right">
-                    <div className="text-2xl font-bo7 text-white/20 group-hover:text-white/40 transition-colors">
-                        {completedCount}<span className="text-lg">/</span>{totalCamos}
+                    <div className="text-xl font-bold text-white/30 group-hover:text-white/50 transition-colors font-mono">
+                        {displayMode === 'percentage'
+                            ? `${totalCamos > 0 ? Math.round((completedCount / totalCamos) * 100) : 0}%`
+                            : `${completedCount} / ${totalCamos}`}
                     </div>
                 </div>
             </div>

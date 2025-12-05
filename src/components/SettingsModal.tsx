@@ -6,9 +6,11 @@ interface Props {
     onExport: () => void;
     onImport: () => void;
     onReset: () => void;
+    displayMode: 'fraction' | 'percentage';
+    setDisplayMode: (mode: 'fraction' | 'percentage') => void;
 }
 
-export function SettingsModal({ isOpen, onClose, onExport, onImport, onReset }: Props) {
+export function SettingsModal({ isOpen, onClose, onExport, onImport, onReset, displayMode, setDisplayMode }: Props) {
     if (!isOpen) return null;
 
     const [confirmReset, setConfirmReset] = useState(false);
@@ -34,7 +36,7 @@ export function SettingsModal({ isOpen, onClose, onExport, onImport, onReset }: 
 
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-white/10 bg-white/5">
-                    <h2 className="text-xl font-bo7 text-white uppercase tracking-wider">Data Management</h2>
+                    <h2 className="text-xl font-bo7 text-white uppercase tracking-wider">System Configuration</h2>
                     <button
                         onClick={onClose}
                         className="text-slate-400 hover:text-white transition-colors"
@@ -47,6 +49,35 @@ export function SettingsModal({ isOpen, onClose, onExport, onImport, onReset }: 
 
                 {/* Content */}
                 <div className="p-6 space-y-6 bg-tech-grid">
+
+                    {/* Display Preferences */}
+                    <div className="space-y-4">
+                        <h3 className="text-sm font-tech text-bo7-orange uppercase tracking-widest border-b border-white/10 pb-2">Preferences</h3>
+                        <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10">
+                            <div className="text-sm font-tech text-slate-300 uppercase tracking-wide">Progress Display</div>
+                            <div className="flex bg-black border border-white/10 p-1 gap-1">
+                                <button
+                                    onClick={() => setDisplayMode('fraction')}
+                                    className={`px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all ${displayMode === 'fraction'
+                                            ? 'bg-bo7-orange text-black'
+                                            : 'text-slate-500 hover:text-white'
+                                        }`}
+                                >
+                                    Fraction
+                                </button>
+                                <button
+                                    onClick={() => setDisplayMode('percentage')}
+                                    className={`px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all ${displayMode === 'percentage'
+                                            ? 'bg-bo7-orange text-black'
+                                            : 'text-slate-500 hover:text-white'
+                                        }`}
+                                >
+                                    %
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="space-y-4">
                         <h3 className="text-sm font-tech text-bo7-orange uppercase tracking-widest border-b border-white/10 pb-2">Transfer Protocol</h3>
                         <div className="grid grid-cols-2 gap-4">
@@ -76,8 +107,8 @@ export function SettingsModal({ isOpen, onClose, onExport, onImport, onReset }: 
                         <button
                             onClick={handleReset}
                             className={`w-full p-4 border transition-all flex items-center justify-center gap-2 ${confirmReset
-                                    ? 'border-bo7-red bg-bo7-red/20 text-white'
-                                    : 'border-bo7-red/30 bg-bo7-red/5 text-bo7-red hover:bg-bo7-red/10'
+                                ? 'border-bo7-red bg-bo7-red/20 text-white'
+                                : 'border-bo7-red/30 bg-bo7-red/5 text-bo7-red hover:bg-bo7-red/10'
                                 }`}
                         >
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -9,9 +9,10 @@ interface Props {
     weapons: Weapon[];
     progress: UserProgress;
     onToggle: (weaponName: string, camo: CamoName) => void;
+    displayMode: 'fraction' | 'percentage';
 }
 
-export function WeaponList({ className, weapons, progress, onToggle }: Props) {
+export function WeaponList({ className, weapons, progress, onToggle, displayMode }: Props) {
     // Calculate Class Progress (Arclight readiness)
     const shatteredGoldCount = getClassShatteredGoldCount(className, progress);
     const requiredForArclight = ARCLIGHT_CLASS_REQUIREMENTS[className] || 0;
@@ -73,6 +74,7 @@ export function WeaponList({ className, weapons, progress, onToggle }: Props) {
                         weapon={weapon}
                         progress={progress}
                         onToggle={onToggle}
+                        displayMode={displayMode as 'fraction' | 'percentage'}
                     />
                 ))}
             </div>
