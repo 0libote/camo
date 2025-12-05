@@ -1,6 +1,6 @@
 import type { Weapon, UserProgress, CamoName } from '../types';
 import { WeaponCard } from './WeaponCard';
-import { isCamoCompleted, getWeaponsInClass } from '../logic/progression';
+import { getClassShatteredGoldCount, ARCLIGHT_CLASS_REQUIREMENTS } from '../logic/progression';
 import { CAMO_IMAGES } from '../data';
 import { ProgressBar } from './ProgressBar';
 
@@ -13,14 +13,12 @@ interface Props {
 
 export function WeaponList({ className, weapons, progress, onToggle }: Props) {
     // Calculate Class Progress (Arclight readiness)
-    // Arclight requires Shattered Gold on ALL weapons in class.
-    const weaponsInClass = getWeaponsInClass(className);
-    const shatteredGoldCount = weaponsInClass.filter(w => isCamoCompleted(w.name, "Shattered Gold", progress)).length;
-    const totalWeapons = weaponsInClass.length;
-    const isArclightReady = shatteredGoldCount === totalWeapons;
+    const shatteredGoldCount = getClassShatteredGoldCount(className, progress);
+    const requiredForArclight = ARCLIGHT_CLASS_REQUIREMENTS[className] || 0;
+    const isArclightReady = shatteredGoldCount >= requiredForArclight;
 
     // Only show Arclight card for actual weapon classes (not search results)
-    const isActualClass = weaponsInClass.length > 0 && !className.includes('Search Results');
+    const isActualClass = requiredForArclight > 0 && !className.includes('Search Results');
 
     return (
         <div className="space-y-8">
@@ -43,24 +41,24 @@ export function WeaponList({ className, weapons, progress, onToggle }: Props) {
                             <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                         </div>
-                        <div className="flex-1 min-w-0 font-tech">
-                            <div className="flex justify-between items-center mb-1">
-                                <h3 className={`font-bold text-xl uppercase tracking-wider ${isArclightReady ? 'text-purple-400' : 'text-slate-500'}`}>
-                                    Arclight
-                                </h3>
-                                <span className="text-sm font-mono text-slate-400">{shatteredGoldCount}<span className="text-slate-600">/</span>{totalWeapons}</span>
+                        <div className="flex-1">
+                            <div className="text-xl font-bo7 text-white mb-2 uppercase tracking-wider">Class Mastery</div>
+                            <div className="flex items-baseline gap-2 mb-2">
+                                <span className={`text-3xl font-bo7 transition-colors ${isArclightReady ? 'text-bo7-orange' : 'text-white'}`}>
+                                    {shatteredGoldCount}
+                                </span>
+                                <span className="text-lg text-white/40">/</span>
+                                <span className="text-lg text-white/40">{requiredForArclight}</span>
                             </div>
-
-                            {/* Progress Bar */}
-                            <div className="mb-1">
+                            <div className="mb-2">
                                 <ProgressBar
-                                    progress={(shatteredGoldCount / totalWeapons) * 100}
-                                    colorClass="bg-purple-500"
+                                    progress={(shatteredGoldCount / requiredForArclight) * 100}
+                                    colorClass="bg-bo7-orange"
                                     heightClass="h-2"
                                 />
                             </div>
                             <p className="text-[10px] text-slate-500 uppercase tracking-widest truncate">
-                                {isArclightReady ? "Class Mastery Achieved" : `Complete Gold on All ${className}`}
+                                {isArclightReady ? "Arclight Unlocked for Class" : `Get ${requiredForArclight} Gold Camos to Unlock Arclight`}
                             </p>
                         </div>
                     </div>

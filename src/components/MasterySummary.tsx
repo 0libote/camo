@@ -35,7 +35,7 @@ export function MasterySummary({ progress }: Props) {
                             heightClass="h-2"
                         />
                     </div>
-                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Weapons with Arclight Unlocked</p>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Complete Arclight on 30 Weapons</p>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@ export function MasterySummary({ progress }: Props) {
                             heightClass="h-2"
                         />
                     </div>
-                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Global Singularity Progress</p>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Complete Tempest on 30 Weapons</p>
                 </div>
             </div>
 
