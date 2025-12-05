@@ -48,7 +48,7 @@
           "requirement": "10x - 2 kills without Reloading"
         },
         "Mainframe": {
-          "requirement": "Get 20 kills with an underbarrel launcher equipped"
+          "requirement": "20 Kills with an underbarrel launcher equipped"
         }
       }
     },
@@ -67,7 +67,7 @@
           "requirement": "30 Kills while or shortly after sprinting"
         },
         "Mainframe": {
-          "requirement": "Get 20 kills with an underbarrel launcher equipped"
+          "requirement": "20 Kills with an underbarrel launcher equipped"
         }
       }
     },
@@ -118,13 +118,32 @@
           "requirement": "80 Headshots"
         },
         "Diamondback": {
-          "requirement": "50 Kills with 5+ attachments"
+          "requirement": "Get 50 Kills with 5+ attachments"
         },
         "Raptor": {
           "requirement": "30 Clean Kills"
         },
         "Mainframe": {
           "requirement": "20 Kills with an underbarrel launcher equipped"
+        }
+      }
+    },
+    {
+      "class": "Assault Rifles",
+      "name": "MADDOX RFB",
+      "unlock_level": 58,
+      "camos": {
+        "Military": {
+          "requirement": "80 Headshots"
+        },
+        "Diamondback": {
+          "requirement": "50 Kills with 0 Attachments"
+        },
+        "Raptor": {
+          "requirement": "30 Clean Kills"
+        },
+        "Mainframe": {
+          "requirement": "50 Kills while Moving"
         }
       }
     },
@@ -243,6 +262,25 @@
       }
     },
     {
+      "class": "Submachine Guns",
+      "name": "KOGOT-7",
+      "unlock_level": 61,
+      "camos": {
+        "Military": {
+          "requirement": "80 Headshots"
+        },
+        "Diamondback": {
+          "requirement": "50 Kills with Supressor"
+        },
+        "Raptor": {
+          "requirement": "10x - 2 Kills without Reloading"
+        },
+        "Mainframe": {
+          "requirement": "30 Hipfire Kills"
+        }
+      }
+    },
+    {
       "class": "Shotguns",
       "name": "M10 Breacher",
       "unlock_level": 0,
@@ -264,7 +302,7 @@
     {
       "class": "Shotguns",
       "name": "Echo 12",
-      "unlock_level": 10,
+      "unlock_level": 22,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -283,7 +321,7 @@
     {
       "class": "Shotguns",
       "name": "Akita",
-      "unlock_level": 25,
+      "unlock_level": 48,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -321,7 +359,7 @@
     {
       "class": "Light Machine Guns",
       "name": "XM325",
-      "unlock_level": 13,
+      "unlock_level": 31,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -340,7 +378,7 @@
     {
       "class": "Marksman Rifles",
       "name": "M8A1",
-      "unlock_level": 0,
+      "unlock_level": 10,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -359,7 +397,7 @@
     {
       "class": "Marksman Rifles",
       "name": "Warden 308",
-      "unlock_level": 22,
+      "unlock_level": 25,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -378,7 +416,7 @@
     {
       "class": "Marksman Rifles",
       "name": "M34 Novaline",
-      "unlock_level": 40,
+      "unlock_level": 49,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -416,7 +454,7 @@
     {
       "class": "Sniper Rifles",
       "name": "Shadow SK",
-      "unlock_level": 31,
+      "unlock_level": 13,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -435,7 +473,7 @@
     {
       "class": "Sniper Rifles",
       "name": "XR-3 Ion",
-      "unlock_level": 49,
+      "unlock_level": 43,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -473,7 +511,7 @@
     {
       "class": "Pistols",
       "name": "Velox 5.7",
-      "unlock_level": 43,
+      "unlock_level": 13,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -492,7 +530,7 @@
     {
       "class": "Pistols",
       "name": "Coda 9",
-      "unlock_level": 58,
+      "unlock_level": 43,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -530,7 +568,7 @@
     {
       "class": "Launchers",
       "name": "A.R.C. M1",
-      "unlock_level": 0,
+      "unlock_level": 25,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -568,7 +606,7 @@
     {
       "class": "Melee",
       "name": "Flateline MK.11",
-      "unlock_level": 0,
+      "unlock_level": 4,
       "camos": {
         "Military": {
           "requirement": "80 Headshots"
@@ -581,6 +619,25 @@
         },
         "Mainframe": {
           "requirement": "50 Kills while Moving"
+        }
+      }
+    },
+    {
+      "class": "Melee",
+      "name": "BALLISTIC KNIFE",
+      "unlock_level": 7,
+      "camos": {
+        "Military": {
+          "requirement": "80 Kills"
+        },
+        "Diamondback": {
+          "requirement": "15 Kills shortly after Sprinting"
+        },
+        "Raptor": {
+          "requirement": "30 Clean Kills"
+        },
+        "Mainframe": {
+          "requirement": "30 Kills affected by your equipment/non-lethal streak"
         }
       }
     }
