@@ -3,14 +3,14 @@ export interface CamoRequirement {
 }
 
 export interface WeaponCamos {
-    "Military": CamoRequirement;
-    "Diamondback": CamoRequirement;
-    "Raptor": CamoRequirement;
-    "Mainframe": CamoRequirement;
-    "Shattered Gold": CamoRequirement;
-    "Arclight": CamoRequirement;
-    "Tempest": CamoRequirement;
-    "Singularity": CamoRequirement;
+    "Military"?: CamoRequirement;
+    "Diamondback"?: CamoRequirement;
+    "Raptor"?: CamoRequirement;
+    "Mainframe"?: CamoRequirement;
+    "Shattered Gold"?: CamoRequirement;
+    "Arclight"?: CamoRequirement;
+    "Tempest"?: CamoRequirement;
+    "Singularity"?: CamoRequirement;
 }
 
 export type CamoName = keyof WeaponCamos;
@@ -20,9 +20,11 @@ export interface Weapon {
     name: string;
     unlock_level: number;
     camos: WeaponCamos;
+    camo_unlocks?: Record<CamoName, boolean>; // Optional field for explicit camo unlocks
 }
 
 export interface CamoData {
+    common_camos?: WeaponCamos; // Define common camos once
     weapons: Weapon[];
 }
 

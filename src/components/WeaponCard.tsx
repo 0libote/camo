@@ -10,15 +10,15 @@ interface Props {
 }
 
 export function WeaponCard({ weapon, progress, onToggle }: Props) {
-    // Calculate simple progress for the progress bar (excluding Singularity/Tempest from the "base" progress visual if desired, or include all)
-    // Let's include all 8 camos for the bar.
-    const totalCamos = 8;
-    const completedCount = Object.keys(weapon.camos).filter(camo =>
-        isCamoCompleted(weapon.name, camo as CamoName, progress)
+    // Calculate progress based on actually available camos for this weapon
+    const availableCamos = Object.keys(weapon.camos) as CamoName[];
+    const totalCamos = availableCamos.length;
+    const completedCount = availableCamos.filter(camo =>
+        isCamoCompleted(weapon.name, camo, progress)
     ).length;
 
-    const isMastered = completedCount === totalCamos;
-    const isGoldComplete = isMastered; // Assuming 'Gold Auth' refers to all camos completed
+    const isMastered = totalCamos > 0 && completedCount === totalCamos;
+    const isGoldComplete = isMastered;
 
     return (
         <div className="border-tech p-5 group hover:bg-white/5 transition-colors duration-300">
@@ -41,12 +41,10 @@ export function WeaponCard({ weapon, progress, onToggle }: Props) {
                 </div>
             </div>
 
-
-
             {/* Progress Bar */}
             <div className="mb-6">
                 <ProgressBar
-                    progress={(completedCount / totalCamos) * 100}
+                    progress={totalCamos > 0 ? (completedCount / totalCamos) * 100 : 0}
                     colorClass="bg-bo7-orange"
                     heightClass="h-1.5"
                 />

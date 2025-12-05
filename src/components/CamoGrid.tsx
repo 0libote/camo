@@ -12,8 +12,12 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
         <div className="grid grid-cols-4 gap-3 mt-6">
             {CAMO_ORDER.map((camoName) => {
+                // Skip camos that don't exist for this weapon
+                const camoData = weapon.camos[camoName];
+                if (!camoData) return null;
+
                 const status = getCamoStatus(weapon, camoName, progress);
-                const reqText = weapon.camos[camoName].requirement;
+                const reqText = camoData.requirement;
                 const isCompleted = status === "completed";
                 const isLocked = status === "locked";
 

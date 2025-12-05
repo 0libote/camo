@@ -1,8 +1,20 @@
 import camosJson from './camos.json';
-import type { CamoData } from '../types';
+import type { CamoData, Weapon } from '../types';
 
-// Cast the JSON to our type
-export const CAMO_DATA: CamoData = camosJson as unknown as CamoData;
+// Process the JSON to merge common camos with each weapon's specific camos
+const rawData = camosJson as unknown as CamoData;
+const processedWeapons: Weapon[] = rawData.weapons.map(weapon => ({
+    ...weapon,
+    camos: {
+        ...weapon.camos,
+        ...(rawData.common_camos || {}) // Merge common camos (if any)
+    }
+}));
+
+export const CAMO_DATA: CamoData = {
+    weapons: processedWeapons,
+    common_camos: rawData.common_camos
+};
 
 export const WEAPON_CLASSES = Array.from(new Set(CAMO_DATA.weapons.map(w => w.class)));
 
