@@ -19,7 +19,7 @@ function App() {
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
 
   const [displayMode, setDisplayMode] = useState<'fraction' | 'percentage'>('fraction');
-  const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
+  // Removed isHoveringInteractive state
 
   // Mouse Gradient Effect
   useEffect(() => {
@@ -47,14 +47,11 @@ function App() {
     w.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const onEnter = () => setIsHoveringInteractive(true);
-  const onLeave = () => setIsHoveringInteractive(false);
-
   return (
     <div className="min-h-screen text-slate-200 p-4 md:p-8 relative selection:bg-bo7-orange/30 selection:text-bo7-orange">
       {/* Mouse Gradient */}
       <div
-        className={`pointer-events-none fixed inset-0 -z-10 transition-opacity duration-300 blur-xl ${isHoveringInteractive ? 'opacity-0' : 'opacity-100'}`}
+        className="pointer-events-none fixed inset-0 -z-10 transition-opacity duration-300 blur-xl opacity-100"
         style={{
           background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 159, 0, 0.15), rgba(255, 159, 0, 0.05) 40%, transparent 60%)`
         }}
@@ -67,7 +64,7 @@ function App() {
         />
 
         <main className="max-w-7xl mx-auto space-y-12">
-          <div onMouseEnter={onEnter} onMouseLeave={onLeave}>
+          <div>
             <MasterySummary progress={progress} displayMode={displayMode} />
           </div>
 
@@ -114,7 +111,7 @@ function App() {
 
             {/* Class Selector (Only in Class View) */}
             {viewMode === 'classes' && (
-              <div className="flex flex-wrap gap-2" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+              <div className="flex flex-wrap gap-2">
                 {WEAPON_CLASSES.map(cls => (
                   <button
                     key={cls}
@@ -141,8 +138,6 @@ function App() {
                 progress={progress}
                 onToggle={toggleCamo}
                 displayMode={displayMode}
-                onHoverStart={onEnter}
-                onHoverEnd={onLeave}
               />
             ) : (
               <div className="space-y-8">
@@ -153,8 +148,6 @@ function App() {
                     progress={progress}
                     onToggle={toggleCamo}
                     displayMode={displayMode}
-                    onHoverStart={onEnter}
-                    onHoverEnd={onLeave}
                   />
                 ) : (
                   <div className="text-center py-20 text-slate-500 font-tech uppercase tracking-widest">

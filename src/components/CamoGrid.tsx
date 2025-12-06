@@ -76,12 +76,13 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         </div>
 
                         {/* Enhanced Tooltip - Always readable even if locked */}
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 opacity-0 group-hover/camo:opacity-100 transition-all duration-200 pointer-events-none z-[9999]">
-                            <div className="bg-black/95 backdrop-blur-md border border-white/20 text-slate-200 text-sm p-4 shadow-2xl text-center font-tech min-w-[200px]">
-                                <div className="font-bold text-bo7-orange mb-1 text-base uppercase tracking-wider">{camoName}</div>
-                                <div className="text-slate-300 leading-relaxed uppercase text-xs tracking-wide">{reqText}</div>
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 opacity-0 group-hover/camo:opacity-100 transition-all duration-200 pointer-events-none z-[9999]">
+                            <div className="bg-bo7-black/95 backdrop-blur-xl border border-bo7-orange/30 text-white p-5 shadow-[0_0_30px_rgba(0,0,0,0.8)] text-center font-tech min-w-[240px] relative">
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+                                <div className="font-bo7 text-bo7-orange mb-2 text-xl uppercase tracking-widest drop-shadow-md relative z-10">{camoName}</div>
+                                <div className="text-slate-200 leading-relaxed uppercase text-sm tracking-wide font-bold relative z-10">{reqText}</div>
                                 {/* Arrow */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-2 h-2 bg-black border-r border-b border-white/20 transform rotate-45"></div>
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-3 h-3 bg-bo7-black border-r border-b border-bo7-orange/30 transform rotate-45"></div>
                             </div>
                         </div>
                     </button>
