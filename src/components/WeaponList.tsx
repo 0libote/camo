@@ -2,7 +2,6 @@ import type { Weapon, UserProgress, CamoName } from '../types';
 import { WeaponCard } from './WeaponCard';
 import { ClassMasteryCard } from './ClassMasteryCard';
 import { getClassShatteredGoldCount, ARCLIGHT_CLASS_REQUIREMENTS } from '../logic/progression';
-import { ProgressBar } from './ProgressBar';
 
 interface Props {
     className: string;
