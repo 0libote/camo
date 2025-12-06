@@ -31,7 +31,7 @@ export function MasterySummary({ progress, displayMode }: Props) {
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
                         <h3 className="font-bo7 text-lg text-purple-400 tracking-wider uppercase">Arclight</h3>
-                        <span className="text-sm font-bold text-slate-400 font-mono"> {/* Consistent typography */}
+                        <span className="text-sm font-bold text-slate-400 font-tech"> {/* Consistent typography */}
                             {formatCount(arclightCount, TEMPEST_REQ_COUNT)}
                         </span>
                     </div>
@@ -58,7 +58,7 @@ export function MasterySummary({ progress, displayMode }: Props) {
                 <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-center mb-1">
                         <h3 className="font-bo7 text-lg text-bo7-cyan tracking-wider uppercase">Tempest</h3>
-                        <span className="text-sm font-bold text-slate-400 font-mono">
+                        <span className="text-sm font-bold text-slate-400 font-tech">
                             {formatCount(tempestCount, SINGULARITY_REQ_COUNT)}
                         </span>
                     </div>
