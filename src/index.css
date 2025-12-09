@@ -24,14 +24,17 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #050505; 
+  background: #050505;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #333; 
+  background: #333;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-bo7-orange); 
+  background: var(--color-bo7-orange);
 }
 
 @layer utilities {
@@ -39,29 +42,30 @@ body {
     font-family: 'Black Ops One', cursive;
     letter-spacing: 0.05em;
   }
+
   .font-tech {
     font-family: 'Rajdhani', sans-serif;
   }
-  
+
   /* Tactical Slant Utility */
   .clip-path-slant {
-    clip-path: polygon(
-      0 0, 
-      100% 0, 
-      100% calc(100% - 10px), 
-      calc(100% - 10px) 100%, 
-      0 100%
-    );
+    clip-path: polygon(0 0,
+        100% 0,
+        100% calc(100% - 10px),
+        calc(100% - 10px) 100%,
+        0 100%);
   }
-  
+
   .clip-path-slant-inv {
-     clip-path: polygon(
-      0 0, 
-      calc(100% - 15px) 0, 
-      100% 15px, 
-      100% 100%, 
-      0 100%
-    );
+    clip-path: polygon(0 0,
+        calc(100% - 15px) 0,
+        100% 15px,
+        100% 100%,
+        0 100%);
+  }
+
+  .clip-path-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
 
   /* Tactical Border Utility */
@@ -69,7 +73,9 @@ body {
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
   }
+
   .border-tech::after {
     content: '';
     position: absolute;
@@ -80,6 +86,7 @@ body {
     border-bottom: 2px solid var(--color-bo7-orange);
     border-right: 2px solid var(--color-bo7-orange);
   }
+
   .border-tech::before {
     content: '';
     position: absolute;
@@ -90,16 +97,47 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-left: 1px solid rgba(255, 255, 255, 0.3);
   }
+
+  /* Button Tech Utility */
+  .btn-tech {
+    @apply relative px-6 py-2 font-bold uppercase tracking-wider transition-all duration-300;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 2px solid transparent;
+  }
+
+  .btn-tech:hover {
+    background: var(--color-bo7-orange);
+    color: var(--color-bo7-black);
+    border-left-color: white;
+  }
+
+  .btn-tech-outline {
+    @apply relative px-6 py-2 font-bold uppercase tracking-wider transition-all duration-300;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+  }
+
+  .btn-tech-outline:hover {
+    border-color: var(--color-bo7-orange);
+    color: var(--color-bo7-orange);
+    box-shadow: 0 0 15px rgba(255, 159, 0, 0.1);
+  }
 }
 
 /* CRT / Scanline Effect (Subtle) */
 .scanlines {
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0),
-    rgba(255,255,255,0) 50%,
-    rgba(0,0,0,0.1) 50%,
-    rgba(0,0,0,0.1)
-  );
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2));
   background-size: 100% 4px;
+}
+
+.bg-tech-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
