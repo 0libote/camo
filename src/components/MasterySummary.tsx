@@ -17,78 +17,76 @@ export function MasterySummary({ progress, displayMode }: Props) {
         if (displayMode === 'percentage') {
             return `${Math.round((count / total) * 100)}%`;
         }
-        return `${count} / ${total}`; // Clean simple fraction
+        return `${count}/${total}`;
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-tech"> {/* Reduced gap */}
-            {/* Arclight */}
-            <div className="border-tech p-4 flex items-center gap-4 group hover:bg-white/5 transition-colors">
-                <div className="w-14 h-14 shrink-0 border border-white/10 bg-black relative"> {/* Reduced size */}
-                    <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                </div>
-                <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bo7 text-lg text-purple-400 tracking-wider uppercase">Arclight</h3>
-                        <span className="text-sm font-bold text-slate-400 font-tech"> {/* Consistent typography */}
-                            {formatCount(arclightCount, TEMPEST_REQ_COUNT)}
-                        </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-tech">
+            {/* Arclight Panel */}
+            <div className="border-tech p-6 flex flex-col justify-between group relative overflow-hidden h-32">
+                <div className="absolute top-0 right-0 p-2 opacity-10 font-bo7 text-4xl text-white">01</div>
+                <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-16 h-16 shrink-0 border border-white/10 bg-black relative p-1">
+                        <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                     </div>
-
-
-                    {/* Progress Bar */}
-                    <div className="mb-1">
+                    <div className="flex-1">
+                        <h3 className="font-bo7 text-xl text-purple-400 tracking-wider uppercase mb-1">Arclight</h3>
+                        <div className="flex justify-between items-end mb-2">
+                            <span className="text-xs text-slate-500 uppercase tracking-widest">Protocol Progress</span>
+                            <span className="text-lg font-bold text-white font-bo7">{formatCount(arclightCount, TEMPEST_REQ_COUNT)}</span>
+                        </div>
                         <ProgressBar
                             progress={(arclightCount / TEMPEST_REQ_COUNT) * 100}
                             colorClass="bg-purple-500"
-                            heightClass="h-1.5"
+                            heightClass="h-2"
                         />
                     </div>
-                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Complete Arclight on 30 Weapons</p>
                 </div>
             </div>
 
-            {/* Tempest */}
-            <div className="border-tech p-4 flex items-center gap-4 group hover:bg-white/5 transition-colors">
-                <div className="w-14 h-14 shrink-0 border border-white/10 bg-black relative">
-                    <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                </div>
-                <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-bo7 text-lg text-bo7-cyan tracking-wider uppercase">Tempest</h3>
-                        <span className="text-sm font-bold text-slate-400 font-tech">
-                            {formatCount(tempestCount, SINGULARITY_REQ_COUNT)}
-                        </span>
+            {/* Tempest Panel */}
+            <div className="border-tech p-6 flex flex-col justify-between group relative overflow-hidden h-32">
+                <div className="absolute top-0 right-0 p-2 opacity-10 font-bo7 text-4xl text-white">02</div>
+                <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-16 h-16 shrink-0 border border-white/10 bg-black relative p-1">
+                        <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                     </div>
-                    {/* Progress Bar */}
-                    <div className="mb-1">
+                    <div className="flex-1">
+                        <h3 className="font-bo7 text-xl text-bo7-cyan tracking-wider uppercase mb-1">Tempest</h3>
+                        <div className="flex justify-between items-end mb-2">
+                            <span className="text-xs text-slate-500 uppercase tracking-widest">Protocol Progress</span>
+                            <span className="text-lg font-bold text-white font-bo7">{formatCount(tempestCount, SINGULARITY_REQ_COUNT)}</span>
+                        </div>
                         <ProgressBar
                             progress={(tempestCount / SINGULARITY_REQ_COUNT) * 100}
                             colorClass="bg-bo7-cyan"
-                            heightClass="h-1.5"
+                            heightClass="h-2"
                         />
                     </div>
-                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Complete Tempest on 30 Weapons</p>
                 </div>
             </div>
 
-            {/* Singularity */}
-            <div className={`border-tech p-4 flex items-center gap-4 transition-all duration-500 ${singularityUnlocked
-                ? 'bg-bo7-orange/5 border-bo7-orange/30'
-                : 'opacity-75'
+            {/* Singularity Panel */}
+            <div className={`p-6 flex items-center gap-4 relative overflow-hidden h-32 transition-all duration-500 border border-white/10 ${singularityUnlocked
+                ? 'bg-bo7-orange/10 border-bo7-orange'
+                : 'bg-black/40 opacity-70'
                 }`}>
-                <div className={`w-16 h-16 shrink-0 border bg-black relative ${singularityUnlocked ? 'border-bo7-orange' : 'border-white/10'}`}>
+
+                {/* Status Indicator */}
+                <div className={`absolute top-0 right-0 px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${singularityUnlocked ? 'bg-bo7-orange text-black' : 'bg-slate-800 text-slate-500'}`}>
+                    {singularityUnlocked ? 'UNLOCKED' : 'LOCKED'}
+                </div>
+
+                <div className={`w-20 h-20 shrink-0 border bg-black relative p-1 ${singularityUnlocked ? 'border-bo7-orange shadow-[0_0_15px_rgba(255,159,0,0.3)]' : 'border-white/10'}`}>
                     <img src={CAMO_IMAGES["Singularity"]} alt="Singularity" className="w-full h-full object-cover" />
                 </div>
-                <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-center mb-1">
-                        <h3 className={`font-bo7 text-xl tracking-wider uppercase ${singularityUnlocked ? 'text-bo7-orange' : 'text-slate-500'}`}>Singularity</h3>
-                        {singularityUnlocked && <span className="text-[10px] px-2 py-0.5 bg-bo7-orange/20 text-bo7-orange border border-bo7-orange/30 tracking-widest">UNLOCKED</span>}
-                    </div>
-                    <p className="text-xs text-slate-400 uppercase tracking-wide">
-                        {singularityUnlocked ? "Mastery Achieved" : "Complete Tempest on 30 weapons"}
+
+                <div className="flex-1 z-10">
+                    <h3 className={`font-bo7 text-2xl tracking-widest uppercase mb-1 ${singularityUnlocked ? 'text-bo7-orange drop-shadow-lg' : 'text-slate-600'}`}>
+                        Singularity
+                    </h3>
+                    <p className="text-xs text-slate-400 font-tech uppercase tracking-wide">
+                        {singularityUnlocked ? "Ultimate Mastery Achieved" : "Requires full Tempest completion"}
                     </p>
                 </div>
             </div>

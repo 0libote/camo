@@ -6,6 +6,7 @@
 
 :root {
   --color-bo7-orange: #FF9F00;
+  --color-bo7-red: #FF3333;
   --color-bo7-black: #0a0a0a;
   --color-bo7-panel: #121212;
 }
@@ -15,23 +16,19 @@ body {
   color: #e5e5e5;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  letter-spacing: 0.02em;
 }
 
-/* Noise Overlay */
-/* Noise Overlay Removed for cleaner look */
-/* body::before { ... } */
-
-/* Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a; 
+  background: #050505; 
 }
 ::-webkit-scrollbar-thumb {
   background: #333; 
-  border: 1px solid #444;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-bo7-orange); 
@@ -40,25 +37,69 @@ body {
 @layer utilities {
   .font-bo7 {
     font-family: 'Black Ops One', cursive;
+    letter-spacing: 0.05em;
   }
   .font-tech {
     font-family: 'Rajdhani', sans-serif;
   }
   
+  /* Tactical Slant Utility */
+  .clip-path-slant {
+    clip-path: polygon(
+      0 0, 
+      100% 0, 
+      100% calc(100% - 10px), 
+      calc(100% - 10px) 100%, 
+      0 100%
+    );
+  }
+  
+  .clip-path-slant-inv {
+     clip-path: polygon(
+      0 0, 
+      calc(100% - 15px) 0, 
+      100% 15px, 
+      100% 100%, 
+      0 100%
+    );
+  }
+
   /* Tactical Border Utility */
   .border-tech {
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(18, 18, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
   }
   .border-tech::after {
     content: '';
     position: absolute;
     bottom: -1px;
     right: -1px;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-bottom: 2px solid var(--color-bo7-orange);
     border-right: 2px solid var(--color-bo7-orange);
   }
+  .border-tech::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* CRT / Scanline Effect (Subtle) */
+.scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0,0,0,0.1) 50%,
+    rgba(0,0,0,0.1)
+  );
+  background-size: 100% 4px;
 }
