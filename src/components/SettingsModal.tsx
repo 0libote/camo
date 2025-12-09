@@ -66,24 +66,27 @@ export function SettingsModal({ isOpen, onClose, onExport, onImport, onReset, di
 
                         <div className="flex items-center justify-between">
                             <span className="text-sm font-tech text-slate-300 uppercase tracking-wide">Progress Display</span>
-                            <div className="flex bg-white/5 p-1 border border-white/10 clip-path-slant min-w-[160px]">
+                            <div className="flex bg-black p-1 border border-white/10 clip-path-slant min-w-[200px] relative">
+                                {/* Active Glint */}
+                                <div className={`absolute top-0 bottom-0 w-1/2 bg-white/5 transition-transform duration-300 pointer-events-none ${displayMode === 'percentage' ? 'translate-x-full' : 'translate-x-0'}`}></div>
+
                                 <button
                                     onClick={() => setDisplayMode('fraction')}
-                                    className={`flex-1 px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all ${displayMode === 'fraction'
-                                        ? 'bg-bo7-orange text-black'
-                                        : 'text-slate-500 hover:text-white'
+                                    className={`flex-1 px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all relative z-10 ${displayMode === 'fraction'
+                                        ? 'bg-bo7-orange text-black shadow-[0_0_10px_rgba(255,159,0,0.4)]'
+                                        : 'text-slate-500 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
-                                    NUM
+                                    NUMERIC
                                 </button>
                                 <button
                                     onClick={() => setDisplayMode('percentage')}
-                                    className={`flex-1 px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all ${displayMode === 'percentage'
-                                        ? 'bg-bo7-orange text-black'
-                                        : 'text-slate-500 hover:text-white'
+                                    className={`flex-1 px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all relative z-10 ${displayMode === 'percentage'
+                                        ? 'bg-bo7-orange text-black shadow-[0_0_10px_rgba(255,159,0,0.4)]'
+                                        : 'text-slate-500 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
-                                    PCT
+                                    PERCENT
                                 </button>
                             </div>
                         </div>
@@ -117,8 +120,8 @@ export function SettingsModal({ isOpen, onClose, onExport, onImport, onReset, di
                         <button
                             onClick={handleReset}
                             className={`w-full py-3 px-4 font-bo7 uppercase tracking-wider transition-all border ${confirmReset
-                                    ? 'bg-bo7-red text-white border-bo7-red shadow-[0_0_15px_rgba(255,51,51,0.4)]'
-                                    : 'bg-transparent text-bo7-red border-bo7-red/30 hover:bg-bo7-red/10'
+                                ? 'bg-bo7-red text-white border-bo7-red shadow-[0_0_15px_rgba(255,51,51,0.4)]'
+                                : 'bg-transparent text-bo7-red border-bo7-red/30 hover:bg-bo7-red/10'
                                 }`}
                         >
                             {confirmReset ? "CONFIRM WIPE // EXECUTE" : "RESET PROGRESS"}

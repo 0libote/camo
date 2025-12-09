@@ -86,62 +86,91 @@ function App() {
           </section>
 
           {/* View Controls */}
-          <div className="flex flex-col gap-6 ">
+          <div className="flex flex-col gap-8 relative z-10">
             {/* Mode Toggle Bar */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-white/5 p-2 border border-white/5 backdrop-blur-sm">
-              <div className="flex gap-1 w-full md:w-auto">
+            <div className="flex flex-col lg:flex-row justify-between items-end gap-6 bg-gradient-to-r from-black/60 to-transparent p-4 border-l-2 border-bo7-orange backdrop-blur-sm">
+              <div className="flex gap-2 w-full lg:w-auto">
                 <button
                   onClick={() => setViewMode('classes')}
-                  className={`flex-1 md:flex-none px-8 py-2 text-sm font-bold uppercase tracking-widest transition-all clip-path-slant ${viewMode === 'classes'
-                    ? 'bg-bo7-orange text-black'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  className={`flex-1 lg:flex-none relative px-8 py-3 text-sm font-bold uppercase tracking-widest transition-all clip-path-slant ${viewMode === 'classes'
+                    ? 'bg-bo7-orange text-black clip-path-slant'
+                    : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
                     }`}
                 >
-                  Class View
+                  <span className="relative z-10 flex items-center gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-sm ${viewMode === 'classes' ? 'bg-black' : 'bg-bo7-orange'}`}></span>
+                    Class Loadout
+                  </span>
                 </button>
                 <button
                   onClick={() => setViewMode('all')}
-                  className={`flex-1 md:flex-none px-8 py-2 text-sm font-bold uppercase tracking-widest transition-all clip-path-slant-inv ${viewMode === 'all'
+                  className={`flex-1 lg:flex-none relative px-8 py-3 text-sm font-bold uppercase tracking-widest transition-all clip-path-slant-inv ${viewMode === 'all'
                     ? 'bg-bo7-orange text-black'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                    : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
                     }`}
                 >
-                  All Weapons
+                  <span className="relative z-10 flex items-center gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-sm ${viewMode === 'all' ? 'bg-black' : 'bg-bo7-orange'}`}></span>
+                    Database
+                  </span>
                 </button>
               </div>
 
               {viewMode === 'all' && (
-                <div className="relative w-full md:w-80 group">
-                  <div className="absolute inset-0 bg-bo7-orange/20 blur-md opacity-0 group-focus-within:opacity-100 transition-opacity"></div>
-                  <input
-                    type="text"
-                    placeholder="SEARCH DATABASE..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="relative w-full bg-black/80 border border-white/20 text-white px-4 py-2 pl-10 focus:border-bo7-orange focus:outline-none font-tech uppercase tracking-wider placeholder:text-slate-600 transition-colors"
-                  />
-                  <svg className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+                <div className="relative w-full lg:w-96 group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-bo7-orange/50 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity blur-sm"></div>
+                  <div className="relative flex items-center bg-black border border-white/10 clip-path-slant-inv">
+                    <span className="pl-4 text-bo7-orange">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="SEARCH WEAPON DATABASE..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full bg-transparent text-white px-4 py-3 focus:outline-none font-tech uppercase tracking-wider placeholder:text-slate-600"
+                    />
+                    <div className="pr-2">
+                      <div className="flex gap-0.5">
+                        <div className="w-1 h-1 bg-white/20"></div>
+                        <div className="w-1 h-1 bg-white/20"></div>
+                        <div className="w-1 h-1 bg-white/20"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* Class Selector (Only in Class View) */}
             {viewMode === 'classes' && (
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                {WEAPON_CLASSES.map(cls => (
-                  <button
-                    key={cls}
-                    onClick={() => setSelectedClass(cls)}
-                    className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all border skew-x-[-10deg] ${selectedClass === cls
-                      ? 'bg-white text-black border-white'
-                      : 'bg-black/50 border-white/10 text-slate-500 hover:border-bo7-orange hover:text-bo7-orange'
-                      }`}
-                  >
-                    <span className="block skew-x-[10deg]">{cls}</span>
-                  </button>
-                ))}
+              <div className="relative">
+                {/* Decorative background strip */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-px bg-white/5 -z-10"></div>
+
+                <div className="flex flex-wrap gap-2 justify-start items-center">
+                  <span className="text-[10px] bg-black px-2 font-tech text-slate-500 mr-2 uppercase tracking-widest border border-white/5">
+                    Class Filter
+                  </span>
+                  {WEAPON_CLASSES.map(cls => (
+                    <button
+                      key={cls}
+                      onClick={() => setSelectedClass(cls)}
+                      className={`relative px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 border transform skew-x-[-12deg] overflow-hidden group ${selectedClass === cls
+                        ? 'bg-white text-black border-white'
+                        : 'bg-black/80 border-white/10 text-slate-500 hover:border-bo7-orange hover:text-bo7-orange'
+                        }`}
+                    >
+                      {/* Active Indicator */}
+                      {selectedClass === cls && (
+                        <div className="absolute top-0 right-0 w-2 h-2 bg-bo7-orange"></div>
+                      )}
+                      <span className="block skew-x-[12deg] relative z-10">{cls}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </div>

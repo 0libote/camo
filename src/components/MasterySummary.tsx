@@ -38,6 +38,7 @@ export function MasterySummary({ progress, displayMode }: Props) {
                         <ProgressBar
                             progress={(arclightCount / TEMPEST_REQ_COUNT) * 100}
                             colorClass="bg-purple-500"
+                            shadowColor="rgba(168, 85, 247, 0.5)"
                             heightClass="h-2"
                         />
                     </div>
@@ -60,6 +61,7 @@ export function MasterySummary({ progress, displayMode }: Props) {
                         <ProgressBar
                             progress={(tempestCount / SINGULARITY_REQ_COUNT) * 100}
                             colorClass="bg-bo7-cyan"
+                            shadowColor="rgba(0, 240, 255, 0.5)"
                             heightClass="h-2"
                         />
                     </div>
