@@ -5,17 +5,37 @@
 @tailwind utilities;
 
 :root {
-  --color-accent: #FF5C00;
-  /* BO6 Orange */
+  --color-accent: #ff6b00;
+  /* Vibrant BO6 Orange */
   --font-display: 'Chakra Petch', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
 body {
-  @apply bg-slate-950 text-slate-200 font-sans tracking-tight;
+  @apply bg-[#050505] text-slate-200 font-sans tracking-tight;
   font-family: var(--font-body);
-  background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #020617 70%);
+  background-image:
+    linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
   background-attachment: fixed;
+}
+
+/* Minimal Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 /* Custom Tactical Scrollbar */
