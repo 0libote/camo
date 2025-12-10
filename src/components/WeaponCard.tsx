@@ -19,31 +19,23 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
     ).length;
 
     const isMastered = totalCamos > 0 && completedCount === totalCamos;
-
-    // Status Logic
     const progressPercent = totalCamos > 0 ? (completedCount / totalCamos) * 100 : 0;
 
     return (
         <div
-            className="group relative bg-black/40 border border-white/5 hover:border-bo7-orange/50 transition-all duration-300"
+            className="group bg-slate-800 border border-slate-700 rounded-lg overflow-hidden hover:border-slate-500 transition-colors"
             onMouseEnter={onHoverStart}
             onMouseLeave={onHoverEnd}
         >
-            {/* Tactical Corners */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20 group-hover:border-bo7-orange transition-colors"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/20 group-hover:border-bo7-orange transition-colors"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/20 group-hover:border-bo7-orange transition-colors"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20 group-hover:border-bo7-orange transition-colors"></div>
-
-            {/* Top Data Strip */}
-            <div className="flex justify-between items-center bg-white/5 px-4 py-1 border-b border-white/5">
+            {/* Header */}
+            <div className="flex justify-between items-center px-4 py-3 bg-slate-900 border-b border-slate-700">
                 <div className="flex items-center gap-2">
-                    <div className={`w-1.5 h-1.5 rounded-full ${isMastered ? 'bg-bo7-orange animate-pulse' : 'bg-slate-600'}`}></div>
-                    <span className="text-[10px] font-tech tracking-widest text-slate-500 uppercase">
-                        WPN_ID_0{weapon.name.length} // {isMastered ? 'MASTERED' : 'ACTIVE'}
+                    <div className={`w-2 h-2 rounded-full ${isMastered ? 'bg-green-500' : 'bg-slate-600'}`}></div>
+                    <span className="text-xs font-mono text-slate-400 uppercase">
+                        {isMastered ? 'Mastered' : 'Active'}
                     </span>
                 </div>
-                <div className="text-[10px] font-tech text-bo7-orange tracking-widest">
+                <div className="text-xs font-mono text-slate-400">
                     {displayMode === 'percentage'
                         ? `${Math.round(progressPercent)}%`
                         : `${completedCount}/${totalCamos}`
@@ -51,31 +43,21 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
                 </div>
             </div>
 
-            <div className="p-6 relative">
-                {/* Background Grid Pattern */}
-                <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none"></div>
-
-                <div className="flex justify-between items-end mb-6 relative z-10">
-                    <div>
-                        <h3 className="text-3xl font-bo7 text-white uppercase tracking-wider group-hover:text-bo7-orange transition-colors break-words leading-none">
-                            {weapon.name}
-                        </h3>
-                    </div>
-                </div>
+            <div className="p-4">
+                <h3 className="text-xl font-bold text-white mb-4">
+                    {weapon.name}
+                </h3>
 
                 {/* Integrated Progress Bar */}
-                <div className="mb-6 relative h-1 bg-white/10 w-full overflow-hidden">
+                <div className="mb-4 h-1 bg-slate-700 rounded-full overflow-hidden">
                     <div
-                        className="absolute inset-y-0 left-0 bg-bo7-orange shadow-[0_0_10px_rgba(255,159,0,0.5)] transition-all duration-500 ease-out"
+                        className="h-full bg-blue-500 transition-all duration-300"
                         style={{ width: `${progressPercent}%` }}
                     />
                 </div>
 
                 <CamoGrid weapon={weapon} progress={progress} onToggle={onToggle} />
             </div>
-
-            {/* Hover Decor */}
-            <div className="absolute inset-0 border border-bo7-orange/0 group-hover:border-bo7-orange/30 pointer-events-none transition-all duration-500 z-0"></div>
         </div>
     );
 }

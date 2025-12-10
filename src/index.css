@@ -1,227 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-bo7-orange: #FF9F00;
-  --color-bo7-orange-dim: #CC7F00;
-  --color-bo7-red: #FF3333;
-  --color-bo7-black: #0a0a0a;
-  --color-bo7-panel: #121212;
-  --color-bo7-panel-lighter: #1a1a1a;
-  --color-glass-dark: rgba(10, 10, 10, 0.85);
-  --color-glass-light: rgba(255, 255, 255, 0.05);
-}
-
 body {
-  background-color: var(--color-bo7-black);
-  color: #e5e5e5;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-  letter-spacing: 0.02em;
+  @apply bg-slate-900 text-slate-200;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - kept simple */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  @apply bg-slate-950;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  @apply bg-slate-700 rounded;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-bo7-orange);
-}
-
-@layer utilities {
-  .font-bo7 {
-    font-family: 'Black Ops One', cursive;
-    letter-spacing: 0.05em;
-  }
-
-  .font-tech {
-    font-family: 'Rajdhani', sans-serif;
-  }
-
-  /* Tactical Slant Utility */
-  .clip-path-slant {
-    clip-path: polygon(0 0,
-        100% 0,
-        100% calc(100% - 10px),
-        calc(100% - 10px) 100%,
-        0 100%);
-  }
-
-  .clip-path-slant-inv {
-    clip-path: polygon(0 0,
-        calc(100% - 15px) 0,
-        100% 15px,
-        100% 100%,
-        0 100%);
-  }
-
-  .clip-path-diamond {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  }
-
-  /* Tactical Border Utility */
-  .border-tech {
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-  }
-
-  .border-tech::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    width: 8px;
-    height: 8px;
-    border-bottom: 2px solid var(--color-bo7-orange);
-    border-right: 2px solid var(--color-bo7-orange);
-  }
-
-  .border-tech::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    width: 6px;
-    height: 6px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  /* Button Tech Utility */
-  .btn-tech {
-    @apply relative px-6 py-2 font-bold uppercase tracking-wider transition-all duration-200;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 2px solid transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .btn-tech:hover {
-    background: var(--color-bo7-orange);
-    color: var(--color-bo7-black);
-    border-left-color: white;
-    text-shadow: none;
-    padding-left: 1.75rem;
-    /* Slight shift for tactile feel */
-  }
-
-  .btn-tech-secondary {
-    @apply relative px-4 py-1 font-tech uppercase tracking-widest text-xs transition-all duration-300;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #888;
-  }
-
-  .btn-tech-secondary:hover {
-    border-color: var(--color-bo7-orange);
-    color: var(--color-bo7-orange);
-    background: rgba(255, 159, 0, 0.1);
-  }
-
-  .btn-tech-outline {
-    @apply relative px-6 py-2 font-bold uppercase tracking-wider transition-all duration-300;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: transparent;
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-  }
-
-  .btn-tech-outline:hover {
-    border-color: var(--color-bo7-orange);
-    color: var(--color-bo7-orange);
-    background: rgba(255, 159, 0, 0.05);
-    box-shadow: 0 0 15px rgba(255, 159, 0, 0.1);
-  }
-
-  /* Text Effects */
-  .text-glow {
-    text-shadow: 0 0 10px rgba(255, 159, 0, 0.5);
-  }
-
-  .text-glow-sm {
-    text-shadow: 0 0 5px rgba(255, 159, 0, 0.3);
-  }
-
-  /* Glass Panels */
-  .bg-glass-tech {
-    background: rgba(18, 18, 18, 0.7);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-}
-
-/* Animations */
-@keyframes scanline-move {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes glitch-skew {
-  0% {
-    transform: skew(0deg);
-  }
-
-  20% {
-    transform: skew(-2deg);
-  }
-
-  40% {
-    transform: skew(2deg);
-  }
-
-  60% {
-    transform: skew(-1deg);
-  }
-
-  80% {
-    transform: skew(1deg);
-  }
-
-  100% {
-    transform: skew(0deg);
-  }
-}
-
-.animate-scanline {
-  animation: scanline-move 8s linear infinite;
-}
-
-.hover-glitch:hover {
-  animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-}
-
-/* CRT / Scanline Effect (Subtle) */
-.scanlines {
-  background: linear-gradient(to bottom,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0) 50%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.2));
-  background-size: 100% 4px;
-}
-
-.bg-tech-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
+  @apply bg-slate-600;
 }
