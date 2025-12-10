@@ -28,12 +28,12 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
             onMouseLeave={onHoverEnd}
         >
             {/* Header */}
-            <div className="flex justify-between items-center px-4 py-3 bg-slate-900 border-b border-slate-700">
+            <div className="flex justify-between items-center px-4 py-3 border-b border-slate-700">
                 <div className="flex items-center gap-2">
                     <div className={`w-2 h-2 rounded-full ${isMastered ? 'bg-green-500' : 'bg-slate-600'}`}></div>
-                    <span className="text-xs font-mono text-slate-400 uppercase">
-                        {isMastered ? 'Mastered' : 'Active'}
-                    </span>
+                    <h3 className="text-base font-bold text-slate-200">
+                        {weapon.name}
+                    </h3>
                 </div>
                 <div className="text-xs font-mono text-slate-400">
                     {displayMode === 'percentage'
@@ -44,9 +44,7 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
             </div>
 
             <div className="p-4">
-                <h3 className="text-xl font-bold text-white mb-4">
-                    {weapon.name}
-                </h3>
+
 
                 {/* Integrated Progress Bar */}
                 <div className="mb-4 h-1 bg-slate-700 rounded-full overflow-hidden">

@@ -40,7 +40,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         <img
                             src={CAMO_IMAGES[camoName]}
                             alt={camoName}
-                            className={`w-full h-full object-cover transition-opacity ${isCompleted ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
+                            className={`w-full h-full object-cover transition-opacity ${isCompleted ? 'opacity-100' : 'opacity-100'}`}
                             loading="lazy"
                         />
 

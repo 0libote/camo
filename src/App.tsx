@@ -52,25 +52,28 @@ function App() {
           <div className="flex flex-col gap-6">
             {/* Mode Toggle Bar */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-700 pb-4">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setViewMode('classes')}
-                  className={`px-4 py-2 rounded font-medium transition-colors ${viewMode === 'classes'
-                    ? 'bg-slate-200 text-slate-900'
-                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
-                    }`}
-                >
-                  Class Loadout
-                </button>
-                <button
-                  onClick={() => setViewMode('all')}
-                  className={`px-4 py-2 rounded font-medium transition-colors ${viewMode === 'all'
-                    ? 'bg-slate-200 text-slate-900'
-                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
-                    }`}
-                >
-                  Database
-                </button>
+              <div className="flex items-center gap-4">
+                <span className="text-slate-400 text-sm font-medium">Sort By:</span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setViewMode('classes')}
+                    className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'classes'
+                      ? 'bg-slate-200 text-slate-900'
+                      : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                      }`}
+                  >
+                    Class
+                  </button>
+                  <button
+                    onClick={() => setViewMode('all')}
+                    className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'all'
+                      ? 'bg-slate-200 text-slate-900'
+                      : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                      }`}
+                  >
+                    All
+                  </button>
+                </div>
               </div>
 
               {viewMode === 'all' && (

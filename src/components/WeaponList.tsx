@@ -27,7 +27,7 @@ export function WeaponList({ className, weapons, progress, onToggle, displayMode
             <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-700 pb-4 gap-4">
                 <div>
                     <span className="text-xs text-slate-500 uppercase font-medium">{isActualClass ? 'Weapon Class' : 'Search Query'}</span>
-                    <h2 className="text-2xl font-bold text-white uppercase">{className}</h2>
+                    <h2 className="text-lg font-bold text-white uppercase">{className}</h2>
                 </div>
 
                 {/* Class Mastery Card */}
@@ -37,6 +37,7 @@ export function WeaponList({ className, weapons, progress, onToggle, displayMode
                             className={className}
                             shatteredGoldCount={shatteredGoldCount}
                             requiredForArclight={requiredForArclight}
+                            displayMode={displayMode}
                         />
                     </div>
                 )}
