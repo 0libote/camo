@@ -1,19 +1,31 @@
-import camosJson from './camos.json';
+import assaultRifles from './assault_rifles.json';
+import submachineGuns from './submachine_guns.json';
+import shotguns from './shotguns.json';
+import lightMachineGuns from './light_machine_guns.json';
+import marksmanRifles from './marksman_rifles.json';
+import sniperRifles from './sniper_rifles.json';
+import pistols from './pistols.json';
+import launchers from './launchers.json';
+import melee from './melee.json';
+
 import type { CamoData, Weapon } from '../types';
 
-// Process the JSON to merge common camos with each weapon's specific camos
-const rawData = camosJson as unknown as CamoData;
-const processedWeapons: Weapon[] = rawData.weapons.map(weapon => ({
-    ...weapon,
-    camos: {
-        ...weapon.camos,
-        ...(rawData.common_camos || {}) // Merge common camos (if any)
-    }
-}));
+// Combine all Weapons
+const allWeapons: Weapon[] = [
+    ...assaultRifles,
+    ...submachineGuns,
+    ...shotguns,
+    ...lightMachineGuns,
+    ...marksmanRifles,
+    ...sniperRifles,
+    ...pistols,
+    ...launchers,
+    ...melee
+] as Weapon[];
 
 export const CAMO_DATA: CamoData = {
-    weapons: processedWeapons,
-    common_camos: rawData.common_camos
+    weapons: allWeapons,
+    common_camos: {} // No longer using common_camos structure as it's denormalized
 };
 
 export const WEAPON_CLASSES = Array.from(new Set(CAMO_DATA.weapons.map(w => w.class)));

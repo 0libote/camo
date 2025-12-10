@@ -1,0 +1,219 @@
+[
+    {
+        "class": "Assault Rifles",
+        "name": "M15 Mod 0",
+        "unlock_level": 0,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "Get 50 Kills While Moving"
+            },
+            "Raptor": {
+                "requirement": "Get 30 Objective kills"
+            },
+            "Mainframe": {
+                "requirement": "Get 20 kills with an underbarrel launcher equipped"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Assault Rifles",
+        "name": "AK-27",
+        "unlock_level": 4,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "Get 30 Hipfire Kills"
+            },
+            "Raptor": {
+                "requirement": "10x - 2 kills without Reloading"
+            },
+            "Mainframe": {
+                "requirement": "20 Kills with an underbarrel launcher equipped"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Assault Rifles",
+        "name": "MXR-17",
+        "unlock_level": 16,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "Get 50 Kills with 5+ attachments"
+            },
+            "Raptor": {
+                "requirement": "30 Kills while or shortly after sprinting"
+            },
+            "Mainframe": {
+                "requirement": "20 Kills with an underbarrel launcher equipped"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Assault Rifles",
+        "name": "X9 Maverick",
+        "unlock_level": 28,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "30 Kills affected by your equipment/non-lethal streak"
+            },
+            "Raptor": {
+                "requirement": "50 Kills with 0 Attachment"
+            },
+            "Mainframe": {
+                "requirement": "30 Clean Kills"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Assault Rifles",
+        "name": "DS20 Mirage",
+        "unlock_level": 37,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "50 Kills with 4.0x Magnification Scope"
+            },
+            "Raptor": {
+                "requirement": "50 Kills with Supressor"
+            },
+            "Mainframe": {
+                "requirement": "50 Kills w/ Gunfighter Wildcard"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Assault Rifles",
+        "name": "PeaceKeeper MK1",
+        "unlock_level": 52,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "Get 50 Kills with 5+ attachments"
+            },
+            "Raptor": {
+                "requirement": "30 Clean Kills"
+            },
+            "Mainframe": {
+                "requirement": "20 Kills with an underbarrel launcher equipped"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Assault Rifles",
+        "name": "MADDOX RFB",
+        "unlock_level": 58,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "50 Kills with 0 Attachments"
+            },
+            "Raptor": {
+                "requirement": "30 Clean Kills"
+            },
+            "Mainframe": {
+                "requirement": "50 Kills while Moving"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    }
+]

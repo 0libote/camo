@@ -27,9 +27,7 @@ export function ClassMasteryCard({ className, shatteredGoldCount, requiredForArc
                             : `${shatteredGoldCount}/${requiredForArclight}`
                         }
                     </div>
-                    <div className={`text-xs font-bold px-2 py-0.5 rounded ${isArclightReady ? 'bg-green-500/20 text-green-400' : 'bg-slate-700 text-slate-400'}`}>
-                        {isArclightReady ? 'UNLOCKED' : 'LOCKED'}
-                    </div>
+
                 </div>
             </div>
         </div>

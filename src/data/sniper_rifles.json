@@ -1,0 +1,95 @@
+[
+    {
+        "class": "Sniper Rifles",
+        "name": "VS Recon",
+        "unlock_level": 0,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "50 Kills with 4.0x Magnification Scope"
+            },
+            "Raptor": {
+                "requirement": "30 One Shot One Kill"
+            },
+            "Mainframe": {
+                "requirement": "10x - 2 Kills without Reloading"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Sniper Rifles",
+        "name": "Shadow SK",
+        "unlock_level": 13,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "15 Long Shot Kills"
+            },
+            "Raptor": {
+                "requirement": "50 Kills with 0 Attachment"
+            },
+            "Mainframe": {
+                "requirement": "10x - 2 Kills without Reloading"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Sniper Rifles",
+        "name": "XR-3 Ion",
+        "unlock_level": 43,
+        "camos": {
+            "Military": {
+                "requirement": "80 Headshots"
+            },
+            "Diamondback": {
+                "requirement": "50 Kills with a Supressor"
+            },
+            "Raptor": {
+                "requirement": "15 Long Shot Kills"
+            },
+            "Mainframe": {
+                "requirement": "10x - 2 Kills without Reloading"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    }
+]

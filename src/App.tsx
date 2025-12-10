@@ -53,7 +53,7 @@ function App() {
             {/* Mode Toggle Bar */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-700 pb-4">
               <div className="flex items-center gap-4">
-                <span className="text-slate-400 text-sm font-medium">Sort By:</span>
+                <span className="text-slate-400 text-sm font-medium">View Mode:</span>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setViewMode('classes')}

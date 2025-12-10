@@ -1,0 +1,95 @@
+[
+    {
+        "class": "Shotguns",
+        "name": "M10 Breacher",
+        "unlock_level": 0,
+        "camos": {
+            "Military": {
+                "requirement": "80 Point Blank Kills"
+            },
+            "Diamondback": {
+                "requirement": "30 Clean Kills"
+            },
+            "Raptor": {
+                "requirement": "50 Kills with 0 Attachment"
+            },
+            "Mainframe": {
+                "requirement": "30 Kills shortly after Sprinting"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Shotguns",
+        "name": "Echo 12",
+        "unlock_level": 22,
+        "camos": {
+            "Military": {
+                "requirement": "80 Point Blank Kills"
+            },
+            "Diamondback": {
+                "requirement": "30 Objective Kills"
+            },
+            "Raptor": {
+                "requirement": "10 Kills shortly after Sprinting"
+            },
+            "Mainframe": {
+                "requirement": "50 Kills with 0 Attachment"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    },
+    {
+        "class": "Shotguns",
+        "name": "Akita",
+        "unlock_level": 48,
+        "camos": {
+            "Military": {
+                "requirement": "80 Point Blank Kills"
+            },
+            "Diamondback": {
+                "requirement": "50 Kills while Moving"
+            },
+            "Raptor": {
+                "requirement": "30 Hipfire Kills"
+            },
+            "Mainframe": {
+                "requirement": "1 Kills while or shortly after sliding, diving, walljump"
+            },
+            "Shattered Gold": {
+                "requirement": "3 Kills 10x Without Dying"
+            },
+            "Arclight": {
+                "requirement": "10x Double Kills"
+            },
+            "Tempest": {
+                "requirement": "5 Kills Without Dying 3x"
+            },
+            "Singularity": {
+                "requirement": "Unlock Tempest on 30 Weapons"
+            }
+        }
+    }
+]
