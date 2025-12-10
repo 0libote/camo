@@ -49,29 +49,29 @@ function App() {
           </section>
 
           {/* View Controls */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-8">
             {/* Mode Toggle Bar */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-700 pb-4">
-              <div className="flex items-center gap-4">
-                <span className="text-slate-400 text-sm font-medium">View Mode:</span>
-                <div className="flex gap-2">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-800 pb-4">
+              <div className="flex items-center gap-6">
+                <span className="text-slate-500 text-xs font-mono uppercase tracking-widest">View Mode</span>
+                <div className="flex bg-slate-900 p-1 border border-slate-800">
                   <button
                     onClick={() => setViewMode('classes')}
-                    className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'classes'
-                      ? 'bg-slate-200 text-slate-900'
-                      : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                    className={`px-6 py-1.5 text-sm font-bold uppercase tracking-wider transition-all ${viewMode === 'classes'
+                      ? 'bg-[var(--color-accent)] text-white shadow-[0_0_15px_rgba(255,92,0,0.3)]'
+                      : 'text-slate-500 hover:text-slate-300'
                       }`}
                   >
                     Class
                   </button>
                   <button
                     onClick={() => setViewMode('all')}
-                    className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'all'
-                      ? 'bg-slate-200 text-slate-900'
-                      : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                    className={`px-6 py-1.5 text-sm font-bold uppercase tracking-wider transition-all ${viewMode === 'all'
+                      ? 'bg-[var(--color-accent)] text-white shadow-[0_0_15px_rgba(255,92,0,0.3)]'
+                      : 'text-slate-500 hover:text-slate-300'
                       }`}
                   >
-                    All
+                    All Weapons
                   </button>
                 </div>
               </div>
@@ -80,10 +80,10 @@ function App() {
                 <div className="w-full md:w-80">
                   <input
                     type="text"
-                    placeholder="Search weapons..."
+                    placeholder="SEARCH DATABASE..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 text-slate-200 focus:outline-none focus:border-slate-500 placeholder:text-slate-500"
+                    className="w-full bg-slate-900 border border-slate-700 px-4 py-2 text-slate-200 focus:outline-none focus:border-[var(--color-accent)] placeholder:text-slate-600 font-mono text-sm uppercase"
                   />
                 </div>
               )}
@@ -91,19 +91,23 @@ function App() {
 
             {/* Class Selector (Only in Class View) */}
             {viewMode === 'classes' && (
-              <div className="flex flex-wrap gap-2">
-                {WEAPON_CLASSES.map(cls => (
-                  <button
-                    key={cls}
-                    onClick={() => setSelectedClass(cls)}
-                    className={`px-4 py-2 rounded text-sm font-medium transition-colors border ${selectedClass === cls
-                      ? 'bg-slate-700 border-slate-500 text-white'
-                      : 'bg-slate-800 border-transparent text-slate-400 hover:bg-slate-700'
-                      }`}
-                  >
-                    {cls}
-                  </button>
-                ))}
+              <div>
+                <div className="text-slate-500 text-xs font-mono uppercase tracking-widest mb-2">Weapon Class Protocol</div>
+                <div className="flex flex-wrap gap-2">
+                  {WEAPON_CLASSES.map(cls => (
+                    <button
+                      key={cls}
+                      onClick={() => setSelectedClass(cls)}
+                      className={`px-4 py-2 text-sm font-bold uppercase tracking-wider border transition-all ${selectedClass === cls
+                        ? 'bg-slate-800 border-[var(--color-accent)] text-[var(--color-accent)]'
+                        : 'bg-slate-900 border-slate-800 text-slate-500 hover:border-slate-600 hover:text-slate-300'
+                        }`}
+                      style={{ clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)' }}
+                    >
+                      {cls}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </div>

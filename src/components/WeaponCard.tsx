@@ -23,34 +23,32 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
 
     return (
         <div
-            className="group bg-slate-800 border border-slate-700 rounded-lg overflow-hidden hover:border-slate-500 transition-colors"
+            className="group bg-slate-900/50 border border-slate-800 hover:border-[var(--color-accent)] transition-all duration-300 relative"
             onMouseEnter={onHoverStart}
             onMouseLeave={onHoverEnd}
         >
             {/* Header */}
-            <div className="flex justify-between items-center px-4 py-3 border-b border-slate-700">
-                <div className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${isMastered ? 'bg-green-500' : 'bg-slate-600'}`}></div>
-                    <h3 className="text-base font-bold text-slate-200">
-                        {weapon.name}
-                    </h3>
-                </div>
-                <div className="text-xs font-mono text-slate-400">
-                    {displayMode === 'percentage'
-                        ? `${Math.round(progressPercent)}%`
-                        : `${completedCount}/${totalCamos}`
-                    }
+            <div className="flex justify-between items-center px-4 py-3 border-b border-slate-800 bg-slate-900/80">
+                <h3 className="text-lg font-bold text-slate-100 uppercase tracking-tight">
+                    {weapon.name}
+                </h3>
+                <div className="flex items-center gap-3">
+                    {isMastered && <span className="text-[10px] font-bold text-slate-900 bg-[var(--color-accent)] px-1">MSTR</span>}
+                    <div className="text-xs font-mono text-slate-500 group-hover:text-slate-300">
+                        {displayMode === 'percentage'
+                            ? `${Math.round(progressPercent)}%`
+                            : `${completedCount}/${totalCamos}`
+                        }
+                    </div>
                 </div>
             </div>
 
             <div className="p-4">
-
-
                 {/* Integrated Progress Bar */}
-                <div className="mb-4 h-1 bg-slate-700 rounded-full overflow-hidden">
+                <div className="mb-4 h-1.5 bg-slate-800 overflow-hidden">
                     <div
-                        className="h-full bg-blue-500 transition-all duration-300"
-                        style={{ width: `${progressPercent}%` }}
+                        className="h-full bg-[var(--color-accent)] transition-all duration-500 ease-out"
+                        style={{ width: `${progressPercent}%`, boxShadow: '0 0 10px var(--color-accent)' }}
                     />
                 </div>
 

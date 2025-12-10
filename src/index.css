@@ -1,9 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-accent: #FF5C00;
+  /* BO6 Orange */
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
 body {
-  @apply bg-slate-900 text-slate-200;
+  @apply bg-slate-950 text-slate-200 font-sans tracking-tight;
+  font-family: var(--font-body);
+  background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #020617 70%);
+  background-attachment: fixed;
+}
+
+/* Custom Tactical Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
 }
 
 /* Custom Scrollbar - kept simple */

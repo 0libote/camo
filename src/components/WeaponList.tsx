@@ -24,10 +24,10 @@ export function WeaponList({ className, weapons, progress, onToggle, displayMode
     return (
         <div className="space-y-6">
             {/* Class Header */}
-            <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-700 pb-4 gap-4">
-                <div>
-                    <span className="text-xs text-slate-500 uppercase font-medium">{isActualClass ? 'Weapon Class' : 'Search Query'}</span>
-                    <h2 className="text-lg font-bold text-white uppercase">{className}</h2>
+            <div className="flex flex-col md:flex-row items-end justify-between border-b border-slate-800 pb-4 gap-4">
+                <div className="border-l-4 border-[var(--color-accent)] pl-4">
+                    <span className="text-xs text-slate-500 uppercase font-mono tracking-widest block mb-1">{isActualClass ? 'Weapons Class' : 'Search Query'}</span>
+                    <h2 className="text-3xl font-bold text-white uppercase tracking-tighter leading-none">{className}</h2>
                 </div>
 
                 {/* Class Mastery Card */}
