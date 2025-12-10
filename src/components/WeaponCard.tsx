@@ -28,8 +28,8 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
             onMouseLeave={onHoverEnd}
         >
             {/* Header */}
-            <div className="flex justify-between items-center px-4 py-3 border-b border-slate-800 bg-slate-900/80">
-                <h3 className="text-lg font-bold text-slate-100 uppercase tracking-tight">
+            <div className="flex justify-between items-center px-5 py-4 border-b border-slate-800 bg-slate-900/80">
+                <h3 className="text-xl font-bold text-slate-100 uppercase tracking-tight">
                     {weapon.name}
                 </h3>
                 <div className="flex items-center gap-3">

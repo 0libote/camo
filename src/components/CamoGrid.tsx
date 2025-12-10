@@ -10,7 +10,7 @@ interface Props {
 
 export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
-        <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 mt-4">
+        <div className="grid grid-cols-5 sm:grid-cols-7 gap-3 mt-6">
             {CAMO_ORDER.map((camoName) => {
                 const camoData = weapon.camos[camoName];
                 if (!camoData) return null;
