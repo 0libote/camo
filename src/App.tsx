@@ -154,10 +154,13 @@ function App() {
             onReset={resetProgress}
             displayMode={displayMode}
             setDisplayMode={setDisplayMode}
+            uiScale={uiScale}
+            setUiScale={setUiScale}
           />
         </div>
       </div>
-      );
+    </div>
+  );
 }
 
-      export default App;
+export default App;
