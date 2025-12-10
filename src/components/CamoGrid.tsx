@@ -10,14 +10,12 @@ interface Props {
 
 export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
-        <div className="grid grid-cols-4 gap-3 mt-6">
+        <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 mt-4">
             {CAMO_ORDER.map((camoName) => {
-                // Skip camos that don't exist for this weapon
                 const camoData = weapon.camos[camoName];
                 if (!camoData) return null;
 
                 const status = getCamoStatus(weapon, camoName, progress);
-                const reqText = camoData.requirement;
                 const isCompleted = status === "completed";
                 const isLocked = status === "locked";
                 const isInteractive = camoName !== "Singularity";
@@ -27,13 +25,15 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         key={camoName}
                         disabled={isLocked || !isInteractive}
                         onClick={() => onToggle(weapon.name, camoName)}
+                        title={`${camoName}: ${camoData.requirement}`}
                         className={`
-                          group/camo relative aspect-square transition-all duration-300 hover:z-20
-                          ${isCompleted
-                                ? 'border-2 border-bo7-orange shadow-[0_0_15px_rgba(255,159,0,0.4)]'
+                            relative aspect-square transition-all
+                            border rounded overflow-hidden
+                            ${isCompleted
+                                ? 'border-green-500/50'
                                 : isLocked
-                                    ? 'border border-white/5 cursor-not-allowed opacity-50'
-                                    : 'border border-white/20 hover:border-bo7-orange hover:shadow-[0_0_10px_rgba(255,159,0,0.2)] hover:scale-105 cursor-pointer'
+                                    ? 'border-slate-800 opacity-50 cursor-not-allowed'
+                                    : 'border-slate-700 hover:border-slate-500'
                             }
                         `}
                     >
@@ -45,13 +45,23 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         />
 
                         {isCompleted && (
-                            {/* Arrow */ }
-                            < div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-3 h-3 bg-bo7-black border-r border-b border-white/20 transform rotate-45"></div>
+                            <div className="absolute inset-0 flex items-center justify-center bg-green-500/20">
+                                <svg className="w-6 h-6 text-green-400 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                </svg>
                             </div>
-                        </div >
-                    </button >
+                        )}
+
+                        {isLocked && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                                <svg className="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                        )}
+                    </button>
                 );
-})}
-        </div >
+            })}
+        </div>
     );
 }
