@@ -10,7 +10,7 @@ interface Props {
 
 export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
-        <div className="grid grid-cols-5 sm:grid-cols-7 gap-3 mt-6">
+        <div className="grid grid-cols-4 gap-4 mt-6">
             {CAMO_ORDER.map((camoName) => {
                 const camoData = weapon.camos[camoName];
                 if (!camoData) return null;
@@ -21,7 +21,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                 const isInteractive = camoName !== "Singularity";
 
                 return (
-                    <div key={camoName} className="relative group">
+                    <div key={camoName} className="relative group/camo">
                         <button
                             disabled={isLocked || !isInteractive}
                             onClick={() => onToggle(weapon.name, camoName)}
@@ -60,8 +60,8 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                             )}
                         </button>
 
-                        {/* Tooltip - Moved outside button, controlled by group hover */}
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/95 border border-[var(--color-accent)] text-xs text-white whitespace-normal text-center pointer-events-none z-50 w-32 shadow-xl">
+                        {/* Tooltip - Scoped to group/camo */}
+                        <div className="opacity-0 group-hover/camo:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/95 border border-[var(--color-accent)] text-xs text-white whitespace-normal text-center pointer-events-none z-50 w-40 shadow-[0_0_15px_rgba(0,0,0,1)]">
                             <div className="font-bold text-[var(--color-accent)] uppercase text-[10px] tracking-wider mb-1">{camoName}</div>
                             {camoData.requirement}
                             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-black border-r border-b border-[var(--color-accent)]"></div>
