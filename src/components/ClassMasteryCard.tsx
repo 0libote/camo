@@ -7,7 +7,7 @@ interface Props {
 }
 
 export function ClassMasteryCard({ className, shatteredGoldCount, requiredForArclight, displayMode }: Props) {
-    const isArclightReady = shatteredGoldCount >= requiredForArclight;
+
     const progressPercent = requiredForArclight > 0 ? (shatteredGoldCount / requiredForArclight) * 100 : 0;
 
     return (
