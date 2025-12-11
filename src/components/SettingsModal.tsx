@@ -39,7 +39,7 @@ export function SettingsModal({
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-            <div className="bg-slate-900 border border-[var(--color-accent)] w-full max-w-md shadow-[0_0_30px_rgba(255,107,0,0.1)] relative">
+            <div className="bg-slate-900 border border-[var(--color-accent)] w-full max-w-2xl shadow-[0_0_30px_rgba(255,107,0,0.1)] relative">
                 {/* Decorative Corner Markers */}
                 <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[var(--color-accent)]"></div>
                 <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-[var(--color-accent)]"></div>

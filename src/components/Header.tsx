@@ -17,7 +17,7 @@ export function Header({ onOpenGallery, onOpenSettings }: Props) {
                     <h1 className="text-4xl font-bold text-white tracking-tighter font-display uppercase leading-none">
                         Black Ops 7 <span className="text-[var(--color-accent)]">Camo Tracker</span>
                     </h1>
-                    <p className="text-xs text-slate-500 font-mono tracking-[0.2em] uppercase mt-1">
+                    <p className="text-sm text-slate-400 font-bold font-mono tracking-[0.1em] uppercase mt-2">
                         Operator Progression Database // BO7
                     </p>
                 </div>

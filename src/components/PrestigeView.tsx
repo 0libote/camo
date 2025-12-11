@@ -7,10 +7,9 @@ import { PrestigeLevel } from '../types';
 interface Props {
     prestige: UserPrestige;
     onUpdatePrestige: (weaponName: string, level: PrestigeLevel, masterLevel?: number) => void;
-    onToggleMaxLevel: (weaponName: string) => void;
 }
 
-export function PrestigeView({ prestige, onUpdatePrestige, onToggleMaxLevel }: Props) {
+export function PrestigeView({ prestige, onUpdatePrestige }: Props) {
     const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
 
     const weapons = CAMO_DATA.weapons.filter(w => w.class === selectedClass);
@@ -38,8 +37,7 @@ export function PrestigeView({ prestige, onUpdatePrestige, onToggleMaxLevel }: P
                 {weapons.map(weapon => {
                     const weaponPrestige = prestige[weapon.name] || {
                         level: PrestigeLevel.None,
-                        masterLevel: 1,
-                        isMaxLevel: false
+                        masterLevel: 1
                     };
 
                     return (
@@ -55,4 +53,3 @@ export function PrestigeView({ prestige, onUpdatePrestige, onToggleMaxLevel }: P
         </div>
     );
 }
-```
