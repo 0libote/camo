@@ -45,7 +45,6 @@ export type PrestigeLevel = typeof PrestigeLevel[keyof typeof PrestigeLevel];
 export interface WeaponPrestige {
     level: PrestigeLevel;
     masterLevel: number; // 1-1000, only active if level === Master
-    isMaxLevel: boolean; // For triggering prestige availability
 }
 
 export type UserPrestige = Record<string, WeaponPrestige>; // Key is weapon name

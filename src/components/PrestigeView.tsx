@@ -48,7 +48,6 @@ export function PrestigeView({ prestige, onUpdatePrestige, onToggleMaxLevel }: P
                             weapon={weapon}
                             prestige={weaponPrestige}
                             onUpdatePrestige={(level, masterLevel) => onUpdatePrestige(weapon.name, level, masterLevel)}
-                            onToggleMaxLevel={() => onToggleMaxLevel(weapon.name)}
                         />
                     );
                 })}
@@ -56,3 +55,4 @@ export function PrestigeView({ prestige, onUpdatePrestige, onToggleMaxLevel }: P
         </div>
     );
 }
+```

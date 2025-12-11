@@ -58,18 +58,7 @@ export function useProgress() {
             ...prev,
             [weaponName]: {
                 level,
-                masterLevel,
-                isMaxLevel: prev[weaponName]?.isMaxLevel ?? false
-            }
-        }));
-    };
-
-    const toggleMaxLevel = (weaponName: string) => {
-        setPrestige(prev => ({
-            ...prev,
-            [weaponName]: {
-                ...(prev[weaponName] || { level: PrestigeLevel.None, masterLevel: 1 }),
-                isMaxLevel: !prev[weaponName]?.isMaxLevel
+                masterLevel
             }
         }));
     };
@@ -129,7 +118,6 @@ export function useProgress() {
         prestige,
         toggleCamo,
         updatePrestige,
-        toggleMaxLevel,
         resetProgress,
         exportProgress,
         importProgress
