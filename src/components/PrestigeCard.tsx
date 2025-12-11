@@ -11,121 +11,123 @@ interface Props {
 export function PrestigeCard({ weapon, prestige, onUpdatePrestige, onToggleMaxLevel }: Props) {
     const { level, masterLevel, isMaxLevel } = prestige;
 
-    const handlePrestigeClick = () => {
+    // Actions
+    const handlePrestige1 = () => {
         if (!isMaxLevel) return;
-
-        const nextLevel = level + 1;
-        if (nextLevel <= PrestigeLevel.Master) {
-            if (confirm(`Enter Prestige ${nextLevel}? This will reset your weapon level.`)) {
-                onUpdatePrestige(nextLevel as PrestigeLevel);
-            }
+        if (confirm("Enter Prestige 1? Your weapon level will be reset.")) {
+            onUpdatePrestige(PrestigeLevel.Prestige1);
         }
     };
 
-    // calculate progress bar width
-    const getProgressInfo = () => {
-        if (level === PrestigeLevel.Master) {
-            // Master levels 1-1000
-            const percent = (masterLevel / 1000) * 100;
-            return { percent, label: `Lv ${masterLevel}` };
+    const handlePrestige2 = () => {
+        if (level < PrestigeLevel.Prestige1) return;
+        if (confirm("Enter Prestige 2? Your weapon level will be reset.")) {
+            onUpdatePrestige(PrestigeLevel.Prestige2);
         }
-        // Base levels 1-50 (simplified for UI, assuming max level is reached if isMaxLevel is true)
-        const percent = isMaxLevel ? 100 : 50; // Visual approximation
-        return { percent, label: isMaxLevel ? 'MAX' : 'In Progress' };
     };
 
-    const { percent, label } = getProgressInfo();
+    const handleMaster = () => {
+        if (level < PrestigeLevel.Prestige2) return;
+        onUpdatePrestige(PrestigeLevel.Master);
+    };
+
+    // Calculate display for percentage
+    const getProgressDisplay = () => {
+        if (level === PrestigeLevel.Master) return "MASTER";
+        if (level === PrestigeLevel.Prestige2) return "P2";
+        if (level === PrestigeLevel.Prestige1) return "P1";
+        return isMaxLevel ? "MAX" : "BASE";
+    };
 
     return (
-        <div className="bg-slate-900 border border-slate-800 p-6 relative overflow-hidden group hover:border-[var(--color-accent)] transition-all duration-300">
+        <div className="group bg-slate-900/50 border border-slate-800 hover:border-[var(--color-accent)] transition-all duration-300 relative">
             {/* Header */}
-            <div className="flex justify-between items-start mb-6">
-                <div>
-                    <div className="text-[10px] uppercase tracking-widest text-[var(--color-accent)] font-bold mb-1">
-                        {weapon.class} // {weapon.name}
-                    </div>
-                    <div className="text-2xl font-display font-bold text-white uppercase flex items-center gap-3">
-                        {level === PrestigeLevel.None && "Base Ops"}
-                        {level === PrestigeLevel.Prestige1 && "Prestige 1"}
-                        {level === PrestigeLevel.Prestige2 && "Prestige 2"}
-                        {level === PrestigeLevel.Master && <span className="text-[var(--color-accent)] text-shadow-glow">Master Prestige</span>}
-                    </div>
+            <div className="flex justify-between items-center px-5 py-4 border-b border-slate-800 bg-slate-900/80">
+                <h3 className="text-xl font-bold text-slate-100 uppercase tracking-tight font-display">
+                    {weapon.name}
+                </h3>
+                <div className="flex items-center gap-3">
+                    <span className={`text-[10px] font-bold px-1 ${level === PrestigeLevel.Master ? 'bg-[var(--color-accent)] text-black' : 'bg-slate-800 text-slate-400'}`}>
+                        {getProgressDisplay()}
+                    </span>
+                </div>
+            </div>
+
+            <div className="p-4">
+                {/* Integrated Progress Bar (Visual Only for Mode Consistency) */}
+                <div className="mb-4 h-1.5 bg-slate-800 overflow-hidden">
+                    <div
+                        className="h-full bg-[var(--color-accent)] transition-all duration-500 ease-out"
+                        style={{
+                            width: level === PrestigeLevel.Master ? '100%' : level > 0 ? '50%' : '0%',
+                            boxShadow: level > 0 ? '0 0 10px var(--color-accent)' : 'none'
+                        }}
+                    />
                 </div>
 
-                {/* Level Badge */}
-                <div className="flex flex-col items-end">
-                    <div className="text-3xl font-bold font-display text-slate-200">
-                        {label}
-                    </div>
-                    {level !== PrestigeLevel.Master && (
-                        <div className="text-xs text-slate-500 uppercase tracking-wider">Weapon Level</div>
+                {/* Prestige Controls - Simplified to match "Camo Grid" vibe */}
+                <div className="grid grid-cols-4 gap-2">
+                    {/* Max Level Toggle */}
+                    <button
+                        onClick={onToggleMaxLevel}
+                        className={`aspect-square flex flex-col items-center justify-center border transition-all duration-200 ${isMaxLevel
+                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
+                                : 'bg-black border-slate-800 text-slate-600 hover:border-slate-600'
+                            }`}
+                        title="Toggle Max Level (Lev 55)"
+                    >
+                        <span className="text-xs font-bold font-mono">MAX</span>
+                    </button>
+
+                    {/* Prestige 1 */}
+                    <button
+                        onClick={handlePrestige1}
+                        disabled={!isMaxLevel || level >= PrestigeLevel.Prestige1}
+                        className={`aspect-square flex flex-col items-center justify-center border transition-all duration-200 ${level >= PrestigeLevel.Prestige1
+                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
+                                : !isMaxLevel
+                                    ? 'bg-black/20 border-slate-900 text-slate-800 cursor-not-allowed' // Locked
+                                    : 'bg-black border-slate-800 text-slate-400 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]' // Available
+                            }`}
+                        title="Enter Prestige 1"
+                    >
+                        <span className="text-xl font-display font-bold">1</span>
+                    </button>
+
+                    {/* Prestige 2 */}
+                    <button
+                        onClick={handlePrestige2}
+                        disabled={level < PrestigeLevel.Prestige1 || level >= PrestigeLevel.Prestige2}
+                        className={`aspect-square flex flex-col items-center justify-center border transition-all duration-200 ${level >= PrestigeLevel.Prestige2
+                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
+                                : level < PrestigeLevel.Prestige1
+                                    ? 'bg-black/20 border-slate-900 text-slate-800 cursor-not-allowed' // Locked
+                                    : 'bg-black border-slate-800 text-slate-400 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]' // Available
+                            }`}
+                        title="Enter Prestige 2"
+                    >
+                        <span className="text-xl font-display font-bold">2</span>
+                    </button>
+
+                    {/* Master */}
+                    {level >= PrestigeLevel.Prestige2 ? (
+                        <div className="aspect-square flex flex-col items-center justify-center bg-black border border-[var(--color-accent)] relative group/master">
+                            <input
+                                type="number"
+                                value={masterLevel}
+                                onChange={(e) => onUpdatePrestige(PrestigeLevel.Master, parseInt(e.target.value) || 1)}
+                                className="w-full h-full bg-transparent text-center text-[var(--color-accent)] font-mono font-bold text-lg focus:outline-none"
+                                min={1}
+                                max={1000}
+                            />
+                            <div className="absolute bottom-0.5 text-[8px] text-[var(--color-accent)] uppercase tracking-wider opacity-50">MSTR</div>
+                        </div>
+                    ) : (
+                        <div className="aspect-square flex flex-col items-center justify-center bg-black/20 border border-slate-900 text-slate-800">
+                            <span className="text-xs font-bold font-mono">MSTR</span>
+                        </div>
                     )}
                 </div>
-            </div>
-
-            {/* Progress Bar */}
-            <div className="h-2 bg-black w-full mb-6 border border-slate-800 relative">
-                <div
-                    className="h-full bg-[var(--color-accent)] transition-all duration-500 shadow-[0_0_10px_var(--color-accent)]"
-                    style={{ width: `${percent}%` }}
-                />
-            </div>
-
-            {/* Actions */}
-            <div className="flex items-center justify-between">
-                {level < PrestigeLevel.Master && (
-                    <div className="flex items-center gap-4">
-                        <label className="flex items-center gap-2 cursor-pointer group/check">
-                            <div className={`w-5 h-5 border transition-all flex items-center justify-center ${isMaxLevel
-                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)]'
-                                : 'bg-black border-slate-600 group-hover/check:border-slate-400'
-                                }`}>
-                                {isMaxLevel && <svg className="w-3.5 h-3.5 text-black font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" /></svg>}
-                            </div>
-                            <input type="checkbox" className="hidden" checked={isMaxLevel} onChange={onToggleMaxLevel} />
-                            <span className={`text-sm font-mono uppercase tracking-wider ${isMaxLevel ? 'text-white' : 'text-slate-500'}`}>Max Level Reached</span>
-                        </label>
-                    </div>
-                )}
-
-                {level < PrestigeLevel.Master && (
-                    <button
-                        onClick={handlePrestigeClick}
-                        disabled={!isMaxLevel}
-                        className={`px-6 py-2 uppercase font-bold text-xs tracking-widest border transition-all ${isMaxLevel
-                            ? 'bg-[var(--color-accent)] text-black border-[var(--color-accent)] hover:bg-white hover:text-black hover:border-white shadow-[0_0_15px_rgba(255,107,0,0.4)]'
-                            : 'bg-transparent text-slate-700 border-slate-800 cursor-not-allowed'
-                            }`}
-                    >
-                        Enter Prestige {level + 1}
-                    </button>
-                )}
-
-                {level === PrestigeLevel.Master && (
-                    <div className="w-full">
-                        <div className="flex justify-between items-center mb-2">
-                            <span className="text-xs text-[var(--color-accent)] uppercase tracking-widest">Master Level</span>
-                            <div className="flex items-center gap-2">
-                                <button className="w-8 h-8 bg-black border border-slate-700 text-slate-400 hover:text-white hover:border-[var(--color-accent)] flex items-center justify-center" onClick={() => onUpdatePrestige(3, Math.max(1, masterLevel - 10))}>-</button>
-                                <input
-                                    type="number"
-                                    value={masterLevel}
-                                    onChange={(e) => onUpdatePrestige(3, Math.min(1000, Math.max(1, parseInt(e.target.value) || 1)))}
-                                    className="bg-black border border-slate-700 text-center w-20 py-1 text-white font-mono focus:border-[var(--color-accent)] focus:outline-none"
-                                />
-                                <button className="w-8 h-8 bg-black border border-slate-700 text-slate-400 hover:text-white hover:border-[var(--color-accent)] flex items-center justify-center" onClick={() => onUpdatePrestige(3, Math.min(1000, masterLevel + 10))}>+</button>
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
-
-            {/* Rewards Mini-Preview */}
-            <div className="mt-6 pt-4 border-t border-slate-800/50 flex gap-2 overflow-x-auto pb-1">
-                {/* This would be dynamic based on level, simplified for now */}
-                <div className={`px-2 py-1 text-[10px] border ${level >= 1 ? 'border-green-500 text-green-500 bg-green-500/10' : 'border-slate-800 text-slate-600'}`}>P1 REWARD</div>
-                <div className={`px-2 py-1 text-[10px] border ${level >= 2 ? 'border-green-500 text-green-500 bg-green-500/10' : 'border-slate-800 text-slate-600'}`}>P2 REWARD</div>
-                <div className={`px-2 py-1 text-[10px] border ${level >= 3 ? 'border-green-500 text-green-500 bg-green-500/10' : 'border-slate-800 text-slate-600'}`}>MASTER UNLOCK</div>
             </div>
         </div>
     );

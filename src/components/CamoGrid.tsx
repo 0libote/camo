@@ -32,7 +32,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                                     ? 'border-[var(--color-accent)] shadow-[0_0_10px_rgba(255,107,0,0.4)] z-10'
                                     : isLocked
                                         ? 'border-slate-900 opacity-40 cursor-not-allowed bg-black'
-                                        : 'border-slate-800 hover:border-[var(--color-accent)] hover:scale-105 hover:z-20 bg-[#0f0f0f]'
+                                        : 'border-slate-800 hover:border-[var(--color-accent)] hover:scale-105 hover:z-20 bg-slate-900'
                                 }
                             `}
                         >

@@ -29,11 +29,11 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
         >
             {/* Header */}
             <div className="flex justify-between items-center px-5 py-4 border-b border-slate-800 bg-slate-900/80">
-                <h3 className="text-xl font-bold text-slate-100 uppercase tracking-tight">
+                <h3 className="text-xl font-bold text-slate-100 uppercase tracking-tight font-display">
                     {weapon.name}
                 </h3>
                 <div className="flex items-center gap-3">
-                    {isMastered && <span className="text-[10px] font-bold text-slate-900 bg-[var(--color-accent)] px-1">MSTR</span>}
+                    {isMastered && <span className="text-[10px] font-bold text-black bg-[var(--color-accent)] px-1">MSTR</span>}
                     <div className="text-xs font-mono text-slate-500 group-hover:text-slate-300">
                         {displayMode === 'percentage'
                             ? `${Math.round(progressPercent)}%`

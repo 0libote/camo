@@ -23,14 +23,14 @@ export function MasterySummary({ progress, displayMode }: Props) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Arclight Panel */}
-            <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 flex items-center gap-4">
-                <div className="w-16 h-16 shrink-0 bg-black rounded overflow-hidden border border-slate-600">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-lg p-4 flex items-center gap-4">
+                <div className="w-16 h-16 shrink-0 bg-black rounded overflow-hidden border border-slate-800">
                     <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-purple-400">Arclight</h3>
+                    <h3 className="text-lg font-semibold text-white font-display uppercase tracking-tight">Arclight</h3>
                     <div className="flex justify-between text-sm mb-1">
-                        <span className="text-slate-300">Progress</span>
+                        <span className="text-slate-500 font-mono">Progress</span>
                         <span className="text-slate-400 font-mono">
                             {displayMode === 'percentage'
                                 ? `${Math.round((arclightCount / TEMPEST_REQ_COUNT) * 100)}%`
@@ -40,26 +40,26 @@ export function MasterySummary({ progress, displayMode }: Props) {
                     </div>
                     <ProgressBar
                         progress={(arclightCount / TEMPEST_REQ_COUNT) * 100}
-                        colorClass="bg-purple-500"
+                        colorClass="bg-[var(--color-accent)]"
                         heightClass="h-2"
                     />
                 </div>
             </div>
 
             {/* Tempest Panel */}
-            <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 flex items-center gap-4">
-                <div className="w-16 h-16 shrink-0 bg-black rounded overflow-hidden border border-slate-600">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-lg p-4 flex items-center gap-4">
+                <div className="w-16 h-16 shrink-0 bg-black rounded overflow-hidden border border-slate-800">
                     <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-cyan-400">Tempest</h3>
+                    <h3 className="text-lg font-semibold text-white font-display uppercase tracking-tight">Tempest</h3>
                     <div className="flex justify-between items-center text-sm text-slate-400 mb-1">
-                        <span>Progress</span>
-                        <span className="text-white">{formatCount(tempestCount, SINGULARITY_REQ_COUNT)}</span>
+                        <span className="text-slate-500 font-mono">Progress</span>
+                        <span className="text-white font-mono">{formatCount(tempestCount, SINGULARITY_REQ_COUNT)}</span>
                     </div>
                     <ProgressBar
                         progress={(tempestCount / SINGULARITY_REQ_COUNT) * 100}
-                        colorClass="bg-cyan-500"
+                        colorClass="bg-white"
                         heightClass="h-2"
                     />
                 </div>
@@ -67,17 +67,17 @@ export function MasterySummary({ progress, displayMode }: Props) {
 
             {/* Singularity Panel */}
             <div className={`border rounded-lg p-4 flex items-center gap-4 transition-colors ${singularityUnlocked
-                ? 'bg-orange-500/10 border-orange-500/50'
-                : 'bg-slate-800 border-slate-700 opacity-60'
+                ? 'bg-[var(--color-accent)]/10 border-[var(--color-accent)]'
+                : 'bg-slate-900/50 border-slate-800 opacity-60'
                 }`}>
-                <div className={`w-16 h-16 shrink-0 bg-black rounded overflow-hidden border ${singularityUnlocked ? 'border-orange-500' : 'border-slate-600'}`}>
+                <div className={`w-16 h-16 shrink-0 bg-black rounded overflow-hidden border ${singularityUnlocked ? 'border-[var(--color-accent)]' : 'border-slate-800'}`}>
                     <img src={CAMO_IMAGES["Singularity"]} alt="Singularity" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1">
-                    <h3 className={`text-lg font-semibold ${singularityUnlocked ? 'text-orange-400' : 'text-slate-500'}`}>
+                    <h3 className={`text-lg font-semibold font-display uppercase tracking-tight ${singularityUnlocked ? 'text-[var(--color-accent)]' : 'text-slate-500'}`}>
                         Singularity
                     </h3>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-slate-500 font-mono uppercase">
                         {singularityUnlocked ? "Unlocked" : "Locked"}
                     </p>
                 </div>

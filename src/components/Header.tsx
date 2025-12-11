@@ -5,19 +5,23 @@ interface Props {
 
 export function Header({ onOpenGallery, onOpenSettings }: Props) {
     return (
-        <header className="flex flex-col md:flex-row justify-between items-end py-8 border-b border-slate-800 mb-10 relative">
-            {/* Decorative Active Line */}
-            <div className="absolute bottom-0 left-0 w-32 h-[2px] bg-[var(--color-accent)]"></div>
+        <header className="flex flex-col md:flex-row justify-between items-center py-8 border-b border-slate-800 mb-8 relative">
+            <div className="absolute bottom-0 left-0 w-32 h-[1px] bg-[var(--color-accent)] shadow-[0_0_10px_var(--color-accent)]"></div>
 
-            <div className="mb-6 md:mb-0">
-                <h1 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-widest leading-none">
-                    Camo<span className="text-[var(--color-accent)]">Tracker</span>
-                </h1>
-                <p className="text-slate-500 text-sm font-mono mt-1 tracking-wider">
-                    OPERATOR PROGRESSION DATABASE // BO6
-                </p>
+            <div className="flex items-center gap-4 mb-6 md:mb-0">
+                <div className="w-12 h-12 bg-black border border-slate-800 flex items-center justify-center relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-[var(--color-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <span className="text-2xl font-bold text-[var(--color-accent)] font-display">B7</span>
+                </div>
+                <div>
+                    <h1 className="text-4xl font-bold text-white tracking-tighter font-display uppercase leading-none">
+                        Black Ops 7 <span className="text-[var(--color-accent)]">Camo Tracker</span>
+                    </h1>
+                    <p className="text-xs text-slate-500 font-mono tracking-[0.2em] uppercase mt-1">
+                        Operator Progression Database // BO7
+                    </p>
+                </div>
             </div>
-
             <div className="flex gap-4">
                 <button
                     onClick={onOpenGallery}

@@ -39,7 +39,7 @@ export function SettingsModal({
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-            <div className="bg-[#0f0f0f] border border-[var(--color-accent)] w-full max-w-md shadow-[0_0_30px_rgba(255,107,0,0.1)] relative">
+            <div className="bg-slate-900 border border-[var(--color-accent)] w-full max-w-md shadow-[0_0_30px_rgba(255,107,0,0.1)] relative">
                 {/* Decorative Corner Markers */}
                 <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[var(--color-accent)]"></div>
                 <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-[var(--color-accent)]"></div>
@@ -66,7 +66,7 @@ export function SettingsModal({
                                 <button
                                     onClick={() => setDisplayMode('fraction')}
                                     className={`py-2 text-sm font-bold uppercase transition-all ${displayMode === 'fraction'
-                                        ? 'bg-slate-800 text-white border-l-2 border-[var(--color-accent)]'
+                                        ? 'bg-slate-900 text-white border-l-2 border-[var(--color-accent)]'
                                         : 'text-slate-500 hover:text-slate-300'
                                         }`}
                                 >
@@ -75,7 +75,7 @@ export function SettingsModal({
                                 <button
                                     onClick={() => setDisplayMode('percentage')}
                                     className={`py-2 text-sm font-bold uppercase transition-all ${displayMode === 'percentage'
-                                        ? 'bg-slate-800 text-white border-l-2 border-[var(--color-accent)]'
+                                        ? 'bg-slate-900 text-white border-l-2 border-[var(--color-accent)]'
                                         : 'text-slate-500 hover:text-slate-300'
                                         }`}
                                 >
@@ -105,10 +105,10 @@ export function SettingsModal({
                         <div className="space-y-3">
                             <label className="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest">Data Io</label>
                             <div className="grid grid-cols-2 gap-3">
-                                <button onClick={onExport} className="flex items-center justify-center gap-2 px-4 py-2 bg-black hover:bg-slate-900 text-slate-200 border border-slate-700 transition-colors uppercase text-xs font-bold tracking-wider">
+                                <button onClick={onExport} className="flex items-center justify-center gap-2 px-4 py-2 bg-black hover:bg-slate-800 text-slate-200 border border-slate-800 transition-colors uppercase text-xs font-bold tracking-wider">
                                     Export JSON
                                 </button>
-                                <button onClick={onImport} className="flex items-center justify-center gap-2 px-4 py-2 bg-black hover:bg-slate-900 text-slate-200 border border-slate-700 transition-colors uppercase text-xs font-bold tracking-wider">
+                                <button onClick={onImport} className="flex items-center justify-center gap-2 px-4 py-2 bg-black hover:bg-slate-800 text-slate-200 border border-slate-800 transition-colors uppercase text-xs font-bold tracking-wider">
                                     Import JSON
                                 </button>
                             </div>
