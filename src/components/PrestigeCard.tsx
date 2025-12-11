@@ -26,10 +26,7 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige, onToggleMaxLe
         }
     };
 
-    const handleMaster = () => {
-        if (level < PrestigeLevel.Prestige2) return;
-        onUpdatePrestige(PrestigeLevel.Master);
-    };
+
 
     // Calculate display for percentage
     const getProgressDisplay = () => {
@@ -71,8 +68,8 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige, onToggleMaxLe
                     <button
                         onClick={onToggleMaxLevel}
                         className={`aspect-square flex flex-col items-center justify-center border transition-all duration-200 ${isMaxLevel
-                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
-                                : 'bg-black border-slate-800 text-slate-600 hover:border-slate-600'
+                            ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
+                            : 'bg-black border-slate-800 text-slate-600 hover:border-slate-600'
                             }`}
                         title="Toggle Max Level (Lev 55)"
                     >
@@ -84,10 +81,10 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige, onToggleMaxLe
                         onClick={handlePrestige1}
                         disabled={!isMaxLevel || level >= PrestigeLevel.Prestige1}
                         className={`aspect-square flex flex-col items-center justify-center border transition-all duration-200 ${level >= PrestigeLevel.Prestige1
-                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
-                                : !isMaxLevel
-                                    ? 'bg-black/20 border-slate-900 text-slate-800 cursor-not-allowed' // Locked
-                                    : 'bg-black border-slate-800 text-slate-400 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]' // Available
+                            ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
+                            : !isMaxLevel
+                                ? 'bg-black/20 border-slate-900 text-slate-800 cursor-not-allowed' // Locked
+                                : 'bg-black border-slate-800 text-slate-400 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]' // Available
                             }`}
                         title="Enter Prestige 1"
                     >
@@ -99,10 +96,10 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige, onToggleMaxLe
                         onClick={handlePrestige2}
                         disabled={level < PrestigeLevel.Prestige1 || level >= PrestigeLevel.Prestige2}
                         className={`aspect-square flex flex-col items-center justify-center border transition-all duration-200 ${level >= PrestigeLevel.Prestige2
-                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
-                                : level < PrestigeLevel.Prestige1
-                                    ? 'bg-black/20 border-slate-900 text-slate-800 cursor-not-allowed' // Locked
-                                    : 'bg-black border-slate-800 text-slate-400 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]' // Available
+                            ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
+                            : level < PrestigeLevel.Prestige1
+                                ? 'bg-black/20 border-slate-900 text-slate-800 cursor-not-allowed' // Locked
+                                : 'bg-black border-slate-800 text-slate-400 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]' // Available
                             }`}
                         title="Enter Prestige 2"
                     >
