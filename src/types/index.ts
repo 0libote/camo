@@ -31,3 +31,19 @@ export interface CamoData {
 // Progression State
 export type WeaponProgress = Record<CamoName, boolean>;
 export type UserProgress = Record<string, WeaponProgress>; // Key is weapon name
+
+// Prestige System
+export enum PrestigeLevel {
+    None = 0,
+    Prestige1 = 1,
+    Prestige2 = 2,
+    Master = 3
+}
+
+export interface WeaponPrestige {
+    level: PrestigeLevel;
+    masterLevel: number; // 1-1000, only active if level === Master
+    isMaxLevel: boolean; // For triggering prestige availability
+}
+
+export type UserPrestige = Record<string, WeaponPrestige>; // Key is weapon name
