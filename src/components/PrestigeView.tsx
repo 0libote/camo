@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { CAMO_DATA, WEAPON_CLASSES } from '../data';
 import { PrestigeCard } from './PrestigeCard';
-import { UserPrestige, PrestigeLevel } from '../types';
+import type { UserPrestige } from '../types';
+import { PrestigeLevel } from '../types';
 
 interface Props {
     prestige: UserPrestige;

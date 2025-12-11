@@ -33,12 +33,14 @@ export type WeaponProgress = Record<CamoName, boolean>;
 export type UserProgress = Record<string, WeaponProgress>; // Key is weapon name
 
 // Prestige System
-export enum PrestigeLevel {
-    None = 0,
-    Prestige1 = 1,
-    Prestige2 = 2,
-    Master = 3
-}
+export const PrestigeLevel = {
+    None: 0,
+    Prestige1: 1,
+    Prestige2: 2,
+    Master: 3
+} as const;
+
+export type PrestigeLevel = typeof PrestigeLevel[keyof typeof PrestigeLevel];
 
 export interface WeaponPrestige {
     level: PrestigeLevel;

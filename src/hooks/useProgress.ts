@@ -4,7 +4,8 @@ import type { UserProgress, CamoName } from '../types';
 const STORAGE_KEY = 'bo7_camo_tracker_progress';
 const PRESTIGE_KEY = 'bo7_camo_tracker_prestige';
 
-import { UserPrestige, PrestigeLevel } from '../types';
+import type { UserPrestige } from '../types';
+import { PrestigeLevel } from '../types';
 
 export function useProgress() {
     const [progress, setProgress] = useState<UserProgress>(() => {

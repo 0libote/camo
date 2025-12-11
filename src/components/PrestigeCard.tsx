@@ -1,4 +1,5 @@
-import { Weapon, WeaponPrestige, PrestigeLevel } from '../types';
+import type { Weapon, WeaponPrestige } from '../types';
+import { PrestigeLevel } from '../types';
 
 interface Props {
     weapon: Weapon;
@@ -76,8 +77,8 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige, onToggleMaxLe
                     <div className="flex items-center gap-4">
                         <label className="flex items-center gap-2 cursor-pointer group/check">
                             <div className={`w-5 h-5 border transition-all flex items-center justify-center ${isMaxLevel
-                                    ? 'bg-[var(--color-accent)] border-[var(--color-accent)]'
-                                    : 'bg-black border-slate-600 group-hover/check:border-slate-400'
+                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)]'
+                                : 'bg-black border-slate-600 group-hover/check:border-slate-400'
                                 }`}>
                                 {isMaxLevel && <svg className="w-3.5 h-3.5 text-black font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" /></svg>}
                             </div>
@@ -92,8 +93,8 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige, onToggleMaxLe
                         onClick={handlePrestigeClick}
                         disabled={!isMaxLevel}
                         className={`px-6 py-2 uppercase font-bold text-xs tracking-widest border transition-all ${isMaxLevel
-                                ? 'bg-[var(--color-accent)] text-black border-[var(--color-accent)] hover:bg-white hover:text-black hover:border-white shadow-[0_0_15px_rgba(255,107,0,0.4)]'
-                                : 'bg-transparent text-slate-700 border-slate-800 cursor-not-allowed'
+                            ? 'bg-[var(--color-accent)] text-black border-[var(--color-accent)] hover:bg-white hover:text-black hover:border-white shadow-[0_0_15px_rgba(255,107,0,0.4)]'
+                            : 'bg-transparent text-slate-700 border-slate-800 cursor-not-allowed'
                             }`}
                     >
                         Enter Prestige {level + 1}
