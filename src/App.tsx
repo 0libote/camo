@@ -15,7 +15,6 @@ function App() {
     prestige,
     toggleCamo,
     updatePrestige,
-    toggleMaxLevel,
     resetProgress,
     exportProgress,
     importProgress
@@ -62,8 +61,8 @@ function App() {
               <button
                 onClick={() => setMainTab('camos')}
                 className={`px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all border-b-2 ${mainTab === 'camos'
-                    ? 'border-[var(--color-accent)] text-[var(--color-accent)] bg-slate-900/50'
-                    : 'border-transparent text-slate-500 hover:text-slate-300'
+                  ? 'border-[var(--color-accent)] text-[var(--color-accent)] bg-slate-900/50'
+                  : 'border-transparent text-slate-500 hover:text-slate-300'
                   }`}
               >
                 Camo Protocol
@@ -71,8 +70,8 @@ function App() {
               <button
                 onClick={() => setMainTab('prestige')}
                 className={`px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all border-b-2 ${mainTab === 'prestige'
-                    ? 'border-[var(--color-accent)] text-[var(--color-accent)] bg-slate-900/50'
-                    : 'border-transparent text-slate-500 hover:text-slate-300'
+                  ? 'border-[var(--color-accent)] text-[var(--color-accent)] bg-slate-900/50'
+                  : 'border-transparent text-slate-500 hover:text-slate-300'
                   }`}
               >
                 Prestige Protocol
@@ -184,7 +183,6 @@ function App() {
                 <PrestigeView
                   prestige={prestige}
                   onUpdatePrestige={updatePrestige}
-                  onToggleMaxLevel={toggleMaxLevel}
                 />
               </div>
             )}
