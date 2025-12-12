@@ -59,62 +59,39 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
 
     // Handle click
     const handleStepClick = (step: Step, index: number) => {
-        // If already completed or not unlocked, do nothing
-        // "Shouldn't be able to unmark those below" -> implies we can't un-toggle.
-        // "Unmark those below the highest one selected" -> If I am at P2, I can't click P1 to unmark it.
-        // Can I click P1 to GO BACK to P1? "You shouldn't be able to unmark those below".
-        // If I go back to P1, I implicitly unmark P2.
-        // Let's assume STRICT FORWARD ONLY for now based on "Shouldn't be able to click on one before the next" (locking future) and "shouldn't be able to unmark" (locking past).
-        // Actually, if I make a mistake, I need a way to go back.
-        // But the user said "You shouldn't be able to unmark those below the highest one selected."
-        // This usually implies a checkbox list where unchecking item 1 unchecks item 2.
-        // Here we have buttons.
-        // Interpretation: "Once you achieve P1, it stays P1. If you achieve P2, P1 stays checked."
-        // If I click P2 (and I am currently P1), I set it to P2.
-        // If I click Master (and I am P2), I set to Master.
-        // If I click P1 (and I am P2) -> Should this go back?
-        // User says "You shouldn't be able to unmark those below...". If I go back to P1, I am technically unmarking P2 (which is 'above' P1, not 'below').
-        // "Below" usually means "Lower in the list".
-        // "Unmark those below the highest one selected".
-        // If Highest is P2. P1 is below P2. I shouldn't be able to unmark P1.
-        // This is satisfied by the "State is numeric" model. Being P2 implies P1 is done.
-        // The only question is "Can I toggle OFF the highest one?"
-        // User says "Remove prompt".
-        // I will implement: Click is valid checks "Is Unlocked".
-        // If I click a step that is already completed (e.g. clicking P1 when I am P2), check if it's the *Current* step?
-        // Actually, easiest valid UX: You can always click any "Unlocked" step. If I click P1 (when P2), I downgrade to P1. This "unmarks" P2 (which is allowed, P2 is 'above' P1). It does NOT unmark P1 (clicked) or Base.
-        // Wait, "unmark those below the highest".
-        // If I am P2. Highest is P2.
-        // P1 is below P2.
-        // I should not be able to "Unmark P1".
-        // Downgrading to P1 keeps P1 active. So that's fine.
-        // Downgrading to Base would unmark P1.
-        // So clicking P1 sets state to P1.
-        // Effectively: You can set state to any [Unlocked] step.
-        // There is no "toggle off". You can't click P1 to go to Base. You can only go up.
-        // Exception: How to reset? Maybe a "Reset" button elsewhere, or the "Base" state is inaccessible?
-        // User didn't ask for a Reset button here (there is one in Settings).
-        // So I will make it so you can only click the buttons. Clicking an active button does nothing.
+        // Check if we are clicking the CURRENT active step (to toggle off)
+        const isCurrentStep =
+            level === step.targetLevel &&
+            (level !== PrestigeLevel.Master || masterLevel <= step.targetMasterLevel) && // Current level
+            (index === STEPS.length - 1 || !isCompleted(STEPS[index + 1])); // And next one is NOT done (meaning this is the peak)
 
-        if (isCompleted(step) && level === step.targetLevel && (level !== PrestigeLevel.Master || masterLevel <= step.targetMasterLevel)) {
-            // Already at this exact step (or higher master level but same prestige tier? No, exact step check needed)
-            // If I am Master 150. Click 150. Do nothing.
-            // If I am Master 150. Click 100. Downgrade to 100?
-            // "Unmark those below". Level 100 is below 150.
-            // If I go to 100, 100 remains marked. 150 becomes unmarked.
-            // This seems consistent.
+        // Wait, simpler logic:
+        // A step is "Current" if it is Completed, but the NEXT step (if any) is NOT Completed.
+        // Actually, let's just use precise matching.
+        // If I am at P1. P1 target is Level=P1, Master=0.
+        // My state is Level=P1, Master=1 (default fallback).
+        // If I am at Master 150. State is Level=Master, Master=150.
+        // Step 150 target is Level=Master, Master=150.
+
+        // Logic for re-clicking the exact same milestone: Revert to previous.
+        const matchesCurrentState =
+            level === step.targetLevel &&
+            (step.targetLevel !== PrestigeLevel.Master || masterLevel === step.targetMasterLevel);
+
+        if (matchesCurrentState) {
+            // Revert!
+            if (index === 0) {
+                // Go back to absolute base
+                onUpdatePrestige(PrestigeLevel.None, 1);
+            } else {
+                // Go back to previous step
+                const prev = STEPS[index - 1];
+                onUpdatePrestige(prev.targetLevel, prev.targetMasterLevel || 1);
+            }
             return;
         }
 
-        // Only allow clicking the NEXT Step?
-        // "You shouldnt be able to click on one before the next."
-        // If I am P1. Next is P2. Can I click Master? No.
-        // So only `index === currentStepIndex + 1` is clickable?
-        // That makes it very strict.
-        // But what if I want to just view?
-        // I will stick to: interactive if `isUnlocked` (previous is done).
-        // This allows clicking P2 if P1 is done.
-
+        // If not current, allow forward progress if unlocked
         if (!isUnlocked(index)) return;
 
         // Execute Update
