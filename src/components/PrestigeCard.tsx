@@ -59,15 +59,9 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
 
     // Handle click
     const handleStepClick = (step: Step, index: number) => {
-        // Check if we are clicking the CURRENT active step (to toggle off)
-        const isCurrentStep =
-            level === step.targetLevel &&
-            (level !== PrestigeLevel.Master || masterLevel <= step.targetMasterLevel) && // Current level
-            (index === STEPS.length - 1 || !isCompleted(STEPS[index + 1])); // And next one is NOT done (meaning this is the peak)
+        // Helper comments:
+        // A step is "Current" if it matches the current level/masterLevel exactly.
 
-        // Wait, simpler logic:
-        // A step is "Current" if it is Completed, but the NEXT step (if any) is NOT Completed.
-        // Actually, let's just use precise matching.
         // If I am at P1. P1 target is Level=P1, Master=0.
         // My state is Level=P1, Master=1 (default fallback).
         // If I am at Master 150. State is Level=Master, Master=150.
