@@ -7,25 +7,25 @@ interface Props {
     onUpdatePrestige: (level: PrestigeLevel, masterLevel?: number) => void;
 }
 
+// Define the progression steps (static, doesn't need to be inside component)
+interface Step {
+    label: string;
+    shortLabel: string;
+    targetLevel: PrestigeLevel;
+    targetMasterLevel: number;
+}
+
+const STEPS: Step[] = [
+    { label: "Prestige 1", shortLabel: "P1", targetLevel: PrestigeLevel.Prestige1, targetMasterLevel: 0 },
+    { label: "Prestige 2", shortLabel: "P2", targetLevel: PrestigeLevel.Prestige2, targetMasterLevel: 0 },
+    { label: "Level 100", shortLabel: "L100", targetLevel: PrestigeLevel.Master, targetMasterLevel: 100 },
+    { label: "Level 150", shortLabel: "L150", targetLevel: PrestigeLevel.Master, targetMasterLevel: 150 },
+    { label: "Level 200", shortLabel: "L200", targetLevel: PrestigeLevel.Master, targetMasterLevel: 200 },
+    { label: "Level 250", shortLabel: "L250", targetLevel: PrestigeLevel.Master, targetMasterLevel: 250 },
+];
+
 export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
     const { level, masterLevel } = prestige;
-
-    // Define the progression steps
-    interface Step {
-        label: string;
-        shortLabel: string;
-        targetLevel: PrestigeLevel;
-        targetMasterLevel: number;
-    }
-
-    const STEPS: Step[] = [
-        { label: "Prestige 1", shortLabel: "P1", targetLevel: PrestigeLevel.Prestige1, targetMasterLevel: 0 },
-        { label: "Prestige 2", shortLabel: "P2", targetLevel: PrestigeLevel.Prestige2, targetMasterLevel: 0 },
-        { label: "Level 100", shortLabel: "L100", targetLevel: PrestigeLevel.Master, targetMasterLevel: 100 },
-        { label: "Level 150", shortLabel: "L150", targetLevel: PrestigeLevel.Master, targetMasterLevel: 150 },
-        { label: "Level 200", shortLabel: "L200", targetLevel: PrestigeLevel.Master, targetMasterLevel: 200 },
-        { label: "Level 250", shortLabel: "L250", targetLevel: PrestigeLevel.Master, targetMasterLevel: 250 },
-    ];
 
     // Helper to determine if a step is completed
     const isCompleted = (step: Step) => {

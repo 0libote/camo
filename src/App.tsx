@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { Header } from './components/Header';
 import { WeaponList } from './components/WeaponList';
 import { MasterySummary } from './components/MasterySummary';
@@ -89,7 +89,6 @@ function App() {
                   {/* Mode Toggle Bar */}
                   <div className="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-800 pb-4">
                     <div className="flex items-center gap-6">
-                      {/* ... legacy view controls ... */}
                       <div className="flex bg-slate-900 p-1 border border-slate-800">
                         <button
                           onClick={() => setViewMode('classes')}
@@ -118,7 +117,7 @@ function App() {
                           type="text"
                           placeholder="SEARCH DATABASE..."
                           value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
+                          onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
                           className="w-full bg-slate-900 border border-slate-700 px-4 py-2 text-slate-200 focus:outline-none focus:border-[var(--color-accent)] placeholder:text-slate-600 font-mono text-sm uppercase"
                         />
                       </div>

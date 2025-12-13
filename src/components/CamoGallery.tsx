@@ -1,3 +1,4 @@
+import { useEffect, useCallback } from 'react';
 import { CAMO_ORDER, CAMO_IMAGES } from '../data';
 
 interface Props {
@@ -6,21 +7,39 @@ interface Props {
 }
 
 export function CamoGallery({ isOpen, onClose }: Props) {
+    // Handle escape key to close modal
+    const handleEscape = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+    }, [onClose]);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.addEventListener('keydown', handleEscape);
+            return () => document.removeEventListener('keydown', handleEscape);
+        }
+    }, [isOpen, handleEscape]);
+
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="gallery-title"
+        >
             <div className="bg-slate-900 border border-slate-700 w-full max-w-6xl h-[85vh] flex flex-col rounded-lg shadow-2xl overflow-hidden">
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900">
                     <div>
-                        <h2 className="text-2xl font-bold text-white">Camo Gallery</h2>
+                        <h2 id="gallery-title" className="text-2xl font-bold text-white">Camo Gallery</h2>
                         <p className="text-sm text-slate-400">All available patterns</p>
                     </div>
 
                     <button
                         onClick={onClose}
                         className="p-2 hover:bg-slate-800 text-slate-400 hover:text-white rounded transition-colors"
+                        aria-label="Close gallery"
                     >
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />

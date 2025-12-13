@@ -39,7 +39,7 @@ export function useProgress() {
     }, [prestige]);
 
     const toggleCamo = (weaponName: string, camo: CamoName) => {
-        setProgress(prev => {
+        setProgress((prev: UserProgress) => {
             const weaponProgress = prev[weaponName] || {};
             const newStatus = !weaponProgress[camo];
 
@@ -54,7 +54,7 @@ export function useProgress() {
     };
 
     const updatePrestige = (weaponName: string, level: PrestigeLevel, masterLevel: number = 1) => {
-        setPrestige(prev => ({
+        setPrestige((prev: UserPrestige) => ({
             ...prev,
             [weaponName]: {
                 level,
@@ -106,7 +106,7 @@ export function useProgress() {
                 } else {
                     alert("Invalid progress file.");
                 }
-            } catch (e) {
+            } catch {
                 alert("Error reading file.");
             }
         };

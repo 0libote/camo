@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['Chakra Petch', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        accent: '#ff6b00',
+      },
+    },
   },
   plugins: [],
 }

@@ -1,9 +1,7 @@
 interface Props {
     progress: number; // 0 to 100
     colorClass?: string; // e.g., "bg-bo7-orange"
-    shadowColor?: string; // e.g., "rgba(255,159,0,0.5)"
     heightClass?: string; // e.g., "h-2"
-    showGlow?: boolean;
 }
 
 export function ProgressBar({ progress, colorClass = "bg-blue-500", heightClass = "h-2" }: Props) {
