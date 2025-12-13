@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { Header } from './components/Header';
 import { WeaponList } from './components/WeaponList';
 import { MasterySummary } from './components/MasterySummary';
