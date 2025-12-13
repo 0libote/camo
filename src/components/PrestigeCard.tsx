@@ -100,7 +100,7 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
                     {weapon.name}
                 </h3>
                 <div className="flex items-center gap-2">
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-sm ${level > 0 ? 'bg-[var(--color-accent)] text-black' : 'bg-slate-800 text-slate-500'}`}>
+                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-sm min-w-[80px] text-center ${level > 0 ? 'bg-[var(--color-accent)] text-black' : 'bg-slate-800 text-slate-500'}`}>
                         {getProgressDisplay()}
                     </span>
                 </div>
@@ -131,31 +131,28 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
                                 onClick={() => handleStepClick(step, index)}
                                 disabled={!unlocked}
                                 className={`
-                                    relative flex items-center justify-between px-3 py-2 text-left border transition-all duration-200 group/btn
+                                    relative flex items-center justify-between px-3 py-2 h-10 text-left border transition-all duration-200 group/btn
                                     ${completed
                                         ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
                                         : unlocked
                                             ? 'bg-black border-slate-700 text-slate-300 hover:border-[var(--color-accent)] hover:text-white'
                                             : 'bg-black/40 border-slate-900 text-slate-700 cursor-not-allowed'
                                     }
-                                    ${index >= 3 ? 'col-span-1' : 'col-span-2 sm:col-span-1 even:col-span-1'} 
-                                    /* Custom Grid Span Logic: Make the first 3 fill nicer? Actually simple grid is fine. */
-                                    /* Let's just do grid-cols-2. 7 items. Last one will be alone or we can span? */
-                                    /* Let's make "Master Prestige" span full width to break up the sections? */
-                                    ${step.label === 'Master Prestige' ? 'col-span-2' : ''}
                                 `}
                             >
                                 <span className="text-xs font-bold font-display uppercase tracking-wider">
                                     {step.label}
                                 </span>
-                                {completed && (
-                                    <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                )}
-                                {isNext && (
-                                    <div className="w-2 h-2 bg-[var(--color-accent)] rounded-full animate-pulse" />
-                                )}
+                                <div className="w-4 h-4 flex items-center justify-center">
+                                    {completed && (
+                                        <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    )}
+                                    {isNext && (
+                                        <div className="w-2 h-2 bg-[var(--color-accent)] rounded-full animate-pulse" />
+                                    )}
+                                </div>
                             </button>
                         );
                     })}
