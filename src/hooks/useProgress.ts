@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { UserProgress, CamoName } from '../types';
 
-const STORAGE_KEY = 'bo7_camo_tracker_progress';
-const PRESTIGE_KEY = 'bo7_camo_tracker_prestige';
+const STORAGE_KEY = 'bo6_camo_tracker_progress';
+const PRESTIGE_KEY = 'bo6_camo_tracker_prestige';
 
 import type { UserPrestige } from '../types';
 import { PrestigeLevel } from '../types';
@@ -78,7 +78,7 @@ export function useProgress() {
         const dataStr = JSON.stringify(payload);
         const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
 
-        const exportFileDefaultName = 'bo7_tracker_data.json';
+        const exportFileDefaultName = 'bo6_tracker_data.json';
 
         const linkElement = document.createElement('a');
         linkElement.setAttribute('href', dataUri);
@@ -95,11 +95,10 @@ export function useProgress() {
                 if (typeof json === 'object' && json !== null) {
                     if (confirm("This will overwrite your current progress. Continue?")) {
                         // Handle legacy (just camos) or new structure
-                        if ('camos' in json || 'prestige' in json) {
-                            if (json.camos) setProgress(json.camos);
-                            if (json.prestige) setPrestige(json.prestige);
-                        } else {
-                            // Assume legacy file is just camo progress
+                        if (json.camos && typeof json.camos === 'object') setProgress(json.camos);
+                        if (json.prestige && typeof json.prestige === 'object') setPrestige(json.prestige);
+                        if (!json.camos && !json.prestige) {
+                            // Assume legacy file is just camo progress if it's a flat object
                             setProgress(json);
                         }
                     }

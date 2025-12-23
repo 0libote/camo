@@ -65,7 +65,7 @@ function App() {
                   : 'border-transparent text-slate-500 hover:text-slate-300'
                   }`}
               >
-                Camo Protocol
+                Camos
               </button>
               <button
                 onClick={() => setMainTab('prestige')}
@@ -74,7 +74,7 @@ function App() {
                   : 'border-transparent text-slate-500 hover:text-slate-300'
                   }`}
               >
-                Prestige Protocol
+                Weapon Leveling
               </button>
             </div>
 
@@ -115,7 +115,7 @@ function App() {
                       <div className="w-full md:w-80">
                         <input
                           type="text"
-                          placeholder="SEARCH DATABASE..."
+                          placeholder="SCAN DATABASE..."
                           value={searchQuery}
                           onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
                           className="w-full bg-slate-900 border border-slate-700 px-4 py-2 text-slate-200 focus:outline-none focus:border-[var(--color-accent)] placeholder:text-slate-600 font-mono text-sm uppercase"
@@ -127,7 +127,7 @@ function App() {
                   {/* Class Selector (Only in Class View) */}
                   {viewMode === 'classes' && (
                     <div>
-                      <div className="text-slate-500 text-xs font-mono uppercase tracking-widest mb-2">Weapon Class Protocol</div>
+                      <div className="text-slate-500 text-xs font-mono uppercase tracking-widest mb-2">Tactical Weapon Categories</div>
                       <div className="flex flex-wrap gap-2">
                         {WEAPON_CLASSES.map(cls => (
                           <button

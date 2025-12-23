@@ -32,8 +32,8 @@ export function CamoGallery({ isOpen, onClose }: Props) {
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900">
                     <div>
-                        <h2 id="gallery-title" className="text-2xl font-bold text-white">Camo Gallery</h2>
-                        <p className="text-sm text-slate-400">All available patterns</p>
+                        <h2 id="gallery-title" className="text-2xl font-bold text-white uppercase font-display">Pattern Archive</h2>
+                        <p className="text-sm text-slate-400 font-mono uppercase tracking-wider">Available Weapon Visuals</p>
                     </div>
 
                     <button

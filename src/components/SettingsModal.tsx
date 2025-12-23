@@ -66,7 +66,7 @@ export function SettingsModal({
                 <div className="p-6">
                     <div className="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
                         <h2 id="settings-title" className="text-2xl font-bold font-display text-white uppercase tracking-wider">
-                            System <span className="text-[var(--color-accent)]">Settings</span>
+                            Configuration <span className="text-[var(--color-accent)]">Panel</span>
                         </h2>
                         <button
                             onClick={onClose}
@@ -82,7 +82,7 @@ export function SettingsModal({
                     <div className="space-y-8">
                         {/* Display Mode */}
                         <div className="space-y-3">
-                            <label className="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest">Display Protocol</label>
+                            <label className="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest">Progress Display Format</label>
                             <div className="grid grid-cols-2 gap-2 p-1 bg-black border border-slate-800">
                                 <button
                                     onClick={() => setDisplayMode('fraction')}
@@ -108,7 +108,7 @@ export function SettingsModal({
                         {/* UI Scale */}
                         <div className="space-y-3">
                             <div className="flex justify-between">
-                                <label className="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest">Interface Scale</label>
+                                <label className="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest">Interface Scaling</label>
                                 <span className="text-xs font-mono text-white">{Math.round(uiScale * 100)}%</span>
                             </div>
                             <input
@@ -124,13 +124,13 @@ export function SettingsModal({
 
                         {/* Data Management */}
                         <div className="space-y-3">
-                            <label className="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest">Data Io</label>
+                            <label className="text-xs font-mono text-[var(--color-accent)] uppercase tracking-widest">Backup & Recovery</label>
                             <div className="grid grid-cols-2 gap-3">
                                 <button onClick={onExport} className="flex items-center justify-center gap-2 px-4 py-2 bg-black hover:bg-slate-800 text-slate-200 border border-slate-800 transition-colors uppercase text-xs font-bold tracking-wider">
-                                    Export JSON
+                                    Backup Data
                                 </button>
                                 <button onClick={onImport} className="flex items-center justify-center gap-2 px-4 py-2 bg-black hover:bg-slate-800 text-slate-200 border border-slate-800 transition-colors uppercase text-xs font-bold tracking-wider">
-                                    Import JSON
+                                    Restore Data
                                 </button>
                             </div>
                         </div>

@@ -30,7 +30,7 @@ export function MasterySummary({ progress, displayMode }: Props) {
                 <div className="flex-1">
                     <h3 className="text-lg font-semibold text-white font-display uppercase tracking-tight">Arclight</h3>
                     <div className="flex justify-between text-sm mb-1">
-                        <span className="text-slate-500 font-mono">Progress</span>
+                        <span className="text-slate-500 font-mono">Completion</span>
                         <span className="text-slate-400 font-mono">
                             {displayMode === 'percentage'
                                 ? `${Math.round((arclightCount / TEMPEST_REQ_COUNT) * 100)}%`
@@ -54,7 +54,7 @@ export function MasterySummary({ progress, displayMode }: Props) {
                 <div className="flex-1">
                     <h3 className="text-lg font-semibold text-white font-display uppercase tracking-tight">Tempest</h3>
                     <div className="flex justify-between items-center text-sm text-slate-400 mb-1">
-                        <span className="text-slate-500 font-mono">Progress</span>
+                        <span className="text-slate-500 font-mono">Completion</span>
                         <span className="text-white font-mono">{formatCount(tempestCount, SINGULARITY_REQ_COUNT)}</span>
                     </div>
                     <ProgressBar
@@ -77,8 +77,8 @@ export function MasterySummary({ progress, displayMode }: Props) {
                     <h3 className={`text-lg font-semibold font-display uppercase tracking-tight ${singularityUnlocked ? 'text-[var(--color-accent)]' : 'text-slate-500'}`}>
                         Singularity
                     </h3>
-                    <p className="text-sm text-slate-500 font-mono uppercase">
-                        {singularityUnlocked ? "Unlocked" : "Locked"}
+                    <p className="text-sm text-slate-400">
+                        Available weapon patterns {singularityUnlocked ? "Unlocked" : "Locked"}
                     </p>
                 </div>
             </div>

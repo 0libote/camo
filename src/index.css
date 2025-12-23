@@ -16,8 +16,9 @@ body {
   font-family: var(--font-body);
   background-image:
     linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(transparent 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 40px 40px, 40px 40px, 100% 4px;
   background-attachment: fixed;
 }
 
@@ -49,15 +50,16 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0f172a;
-  /* slate-900 */
-  border: 1px solid #1e293b;
+  background: #1e293b;
   /* slate-800 */
+  border: 1px solid #334155;
+  /* slate-700 */
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
   border-color: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
 }
 
 h1,

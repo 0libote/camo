@@ -11,14 +11,14 @@ export function Header({ onOpenGallery, onOpenSettings }: Props) {
             <div className="flex items-center gap-4 mb-6 md:mb-0">
                 <div className="w-12 h-12 bg-black border border-slate-800 flex items-center justify-center relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[var(--color-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                    <span className="text-2xl font-bold text-[var(--color-accent)] font-display">B7</span>
+                    <span className="text-2xl font-bold text-[var(--color-accent)] font-display">B6</span>
                 </div>
                 <div>
                     <h1 className="text-4xl font-bold text-white tracking-tighter font-display uppercase leading-none">
-                        Black Ops 7 <span className="text-[var(--color-accent)]">Camo Tracker</span>
+                        Black Ops 6 <span className="text-[var(--color-accent)]">Camo Tracker</span>
                     </h1>
                     <p className="text-sm text-slate-400 font-bold font-mono tracking-[0.1em] uppercase mt-2">
-                        Operator Progression Database // BO7
+                        Operator Progression Database // BO6
                     </p>
                 </div>
             </div>
@@ -28,7 +28,7 @@ export function Header({ onOpenGallery, onOpenSettings }: Props) {
                     className="px-6 py-2 bg-slate-900 hover:bg-[var(--color-accent)] hover:text-white text-slate-400 border border-slate-700 hover:border-[var(--color-accent)] transition-all duration-200 uppercase font-bold tracking-wider text-xs clip-corners"
                     style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
                 >
-                    View Gallery
+                    Pattern Archive
                 </button>
 
                 <button
