@@ -93,27 +93,26 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
     };
 
     return (
-        <div className="group bg-slate-900/50 border border-slate-800 hover:border-[var(--color-accent)] transition-all duration-300 relative">
+        <div className="group bg-slate-900 border border-slate-800 hover:border-cyan-500/30 transition-all duration-300 rounded-xl overflow-hidden shadow-sm">
             {/* Header */}
-            <div className="flex justify-between items-center px-4 py-3 border-b border-slate-800 bg-slate-900/80">
-                <h3 className="text-lg font-bold text-slate-100 uppercase tracking-tight font-display">
+            <div className="flex justify-between items-center px-5 py-4 border-b border-slate-800">
+                <h3 className="text-lg font-bold text-white tracking-tight">
                     {weapon.name}
                 </h3>
                 <div className="flex items-center gap-2">
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-sm min-w-[80px] text-center ${level > 0 ? 'bg-[var(--color-accent)] text-black' : 'bg-slate-800 text-slate-500'}`}>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${level > 0 ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 text-slate-500'}`}>
                         {getProgressDisplay()}
                     </span>
                 </div>
             </div>
 
-            <div className="p-4">
+            <div className="p-5">
                 {/* Visual Progress Bar */}
-                <div className="mb-4 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div className="mb-6 h-1 bg-slate-800 rounded-full overflow-hidden">
                     <div
-                        className="h-full bg-[var(--color-accent)] transition-all duration-500 ease-out"
+                        className="h-full bg-cyan-500 transition-all duration-500 ease-out"
                         style={{
-                            width: level === PrestigeLevel.Master ? '100%' : level === PrestigeLevel.Prestige2 ? '66%' : level === PrestigeLevel.Prestige1 ? '33%' : '0%',
-                            boxShadow: level > 0 ? '0 0 10px var(--color-accent)' : 'none'
+                            width: level === PrestigeLevel.Master ? '100%' : level === PrestigeLevel.Prestige2 ? '66%' : level === PrestigeLevel.Prestige1 ? '33%' : '0%'
                         }}
                     />
                 </div>
@@ -123,7 +122,7 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
                     {STEPS.map((step, index) => {
                         const completed = isCompleted(step);
                         const unlocked = isUnlocked(index);
-                        const isNext = unlocked && !completed; // Clean state for "Next to click"
+                        const isNext = unlocked && !completed;
 
                         return (
                             <button
@@ -131,26 +130,26 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
                                 onClick={() => handleStepClick(step, index)}
                                 disabled={!unlocked}
                                 className={`
-                                    relative flex items-center justify-between px-3 py-2 h-10 text-left border transition-all duration-200 group/btn
+                                    relative flex items-center justify-between px-3 py-2.5 rounded-lg border transition-all duration-200
                                     ${completed
-                                        ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-black'
+                                        ? 'bg-cyan-500 border-cyan-500 text-slate-950'
                                         : unlocked
-                                            ? 'bg-black border-slate-700 text-slate-300 hover:border-[var(--color-accent)] hover:text-white'
-                                            : 'bg-black/40 border-slate-900 text-slate-700 cursor-not-allowed'
+                                            ? 'bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-500 hover:text-white'
+                                            : 'bg-slate-900/50 border-slate-800/50 text-slate-600 cursor-not-allowed opacity-50'
                                     }
                                 `}
                             >
-                                <span className="text-xs font-bold font-display uppercase tracking-wider">
-                                    {step.label}
+                                <span className="text-xs font-bold uppercase tracking-wide">
+                                    {step.shortLabel}
                                 </span>
                                 <div className="w-4 h-4 flex items-center justify-center">
                                     {completed && (
-                                        <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                         </svg>
                                     )}
                                     {isNext && (
-                                        <div className="w-2 h-2 bg-[var(--color-accent)] rounded-full animate-pulse" />
+                                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
                                     )}
                                 </div>
                             </button>

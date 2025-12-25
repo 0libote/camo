@@ -23,20 +23,19 @@ export function MasterySummary({ progress, displayMode }: Props) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Arclight Panel */}
-            <div className="bg-slate-900/20 border border-slate-800/50 p-5 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[var(--color-accent)]/5 to-transparent pointer-events-none"></div>
-                <div className="flex items-center gap-5">
-                    <div className="w-20 h-20 shrink-0 bg-black p-1 border border-slate-800 group-hover:border-[var(--color-accent)]/30 transition-colors">
-                        <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl group transition-all hover:border-cyan-500/50">
+                <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 shrink-0 bg-black rounded-lg overflow-hidden border border-slate-800 transition-colors">
+                        <img src={CAMO_IMAGES["Arclight"]} alt="Arclight" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" />
                     </div>
                     <div className="flex-1">
                         <div className="flex justify-between items-end mb-2">
-                            <h3 className="text-xl font-black text-white font-display uppercase tracking-tighter">Arclight</h3>
-                            <span className="text-[10px] text-slate-500 font-mono mb-1">LVL // 01</span>
+                            <h3 className="text-xl font-bold text-white tracking-tight">Arclight</h3>
+                            <span className="text-xs text-slate-500 font-medium">Stage 1</span>
                         </div>
-                        <div className="flex justify-between text-[10px] mb-1.5 px-0.5">
-                            <span className="text-slate-500 font-mono uppercase tracking-widest">Progress</span>
-                            <span className="text-[var(--color-accent)] font-mono font-bold">
+                        <div className="flex justify-between text-xs mb-2">
+                            <span className="text-slate-400">Progress</span>
+                            <span className="text-cyan-400 font-semibold">
                                 {displayMode === 'percentage'
                                     ? `${Math.round((arclightCount / TEMPEST_REQ_COUNT) * 100)}%`
                                     : `${arclightCount}/${TEMPEST_REQ_COUNT}`
@@ -45,7 +44,7 @@ export function MasterySummary({ progress, displayMode }: Props) {
                         </div>
                         <ProgressBar
                             progress={(arclightCount / TEMPEST_REQ_COUNT) * 100}
-                            colorClass="bg-[var(--color-accent)]"
+                            colorClass="bg-cyan-500"
                             heightClass="h-1.5"
                         />
                     </div>
@@ -53,20 +52,19 @@ export function MasterySummary({ progress, displayMode }: Props) {
             </div>
 
             {/* Tempest Panel */}
-            <div className="bg-slate-900/20 border border-slate-800/50 p-5 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none"></div>
-                <div className="flex items-center gap-5">
-                    <div className="w-20 h-20 shrink-0 bg-black p-1 border border-slate-800 group-hover:border-white/30 transition-colors">
-                        <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl group transition-all hover:border-white/30">
+                <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 shrink-0 bg-black rounded-lg overflow-hidden border border-slate-800 transition-colors">
+                        <img src={CAMO_IMAGES["Tempest"]} alt="Tempest" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" />
                     </div>
                     <div className="flex-1">
                         <div className="flex justify-between items-end mb-2">
-                            <h3 className="text-xl font-black text-white font-display uppercase tracking-tighter">Tempest</h3>
-                            <span className="text-[10px] text-slate-500 font-mono mb-1">LVL // 02</span>
+                            <h3 className="text-xl font-bold text-white tracking-tight">Tempest</h3>
+                            <span className="text-xs text-slate-500 font-medium">Stage 2</span>
                         </div>
-                        <div className="flex justify-between items-center text-[10px] mb-1.5 px-0.5">
-                            <span className="text-slate-500 font-mono uppercase tracking-widest">Progress</span>
-                            <span className="text-white font-mono font-bold">{formatCount(tempestCount, SINGULARITY_REQ_COUNT)}</span>
+                        <div className="flex justify-between items-center text-xs mb-2">
+                            <span className="text-slate-400">Progress</span>
+                            <span className="text-white font-semibold">{formatCount(tempestCount, SINGULARITY_REQ_COUNT)}</span>
                         </div>
                         <ProgressBar
                             progress={(tempestCount / SINGULARITY_REQ_COUNT) * 100}
@@ -78,24 +76,24 @@ export function MasterySummary({ progress, displayMode }: Props) {
             </div>
 
             {/* Singularity Panel */}
-            <div className={`relative p-5 overflow-hidden transition-all duration-500 ${singularityUnlocked
-                ? 'bg-[var(--color-accent)]/5 border border-[var(--color-accent)]/40'
-                : 'bg-slate-900/10 border border-slate-800/30 opacity-60 hover:opacity-100'
+            <div className={`p-6 rounded-xl border transition-all duration-500 ${singularityUnlocked
+                ? 'bg-cyan-500/5 border-cyan-500/30'
+                : 'bg-slate-900 border-slate-800 opacity-60'
                 }`}>
-                <div className="flex items-center gap-5">
-                    <div className={`w-20 h-20 shrink-0 bg-black p-1 border ${singularityUnlocked ? 'border-[var(--color-accent)]/50 shadow-[0_0_20px_var(--color-accent)]/10' : 'border-slate-800'}`}>
-                        <img src={CAMO_IMAGES["Singularity"]} alt="Singularity" className={`w-full h-full object-cover ${singularityUnlocked ? '' : 'grayscale'}`} />
+                <div className="flex items-center gap-6">
+                    <div className={`w-16 h-16 shrink-0 bg-black rounded-lg overflow-hidden border ${singularityUnlocked ? 'border-cyan-500/30' : 'border-slate-800'}`}>
+                        <img src={CAMO_IMAGES["Singularity"]} alt="Singularity" className={`w-full h-full object-cover ${singularityUnlocked ? '' : 'grayscale opacity-30'}`} />
                     </div>
                     <div className="flex-1">
                         <div className="flex justify-between items-end mb-2">
-                            <h3 className={`text-xl font-black font-display uppercase tracking-tighter ${singularityUnlocked ? 'text-[var(--color-accent)]' : 'text-slate-600'}`}>
+                            <h3 className={`text-xl font-bold tracking-tight ${singularityUnlocked ? 'text-cyan-400' : 'text-slate-600'}`}>
                                 Singularity
                             </h3>
-                            <span className="text-[10px] text-slate-600 font-mono mb-1">LVL // MAX</span>
+                            <span className="text-xs text-slate-600 font-medium">Final Stage</span>
                         </div>
-                        <p className={`text-[10px] uppercase tracking-widest font-bold ${singularityUnlocked ? 'text-[var(--color-accent)] animate-pulse' : 'text-slate-600'}`}>
-                            {singularityUnlocked ? "// ACCESS GRANTED" : "// DATABASE LOCKED"}
-                        </p>
+                        <div className={`px-2 py-0.5 inline-block rounded text-[10px] font-bold uppercase tracking-wider ${singularityUnlocked ? 'bg-cyan-500/20 text-cyan-400' : 'bg-slate-800 text-slate-600'}`}>
+                            {singularityUnlocked ? "Unlocked" : "Locked"}
+                        </div>
                     </div>
                 </div>
             </div>

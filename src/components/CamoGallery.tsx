@@ -33,45 +33,38 @@ export function CamoGallery({ isOpen, onClose }: Props) {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-accent)]/5 rotate-45 translate-x-16 -translate-y-16 pointer-events-none"></div>
 
                 {/* Header */}
-                <div className="flex items-end justify-between p-8 border-b border-slate-800/40 relative">
-                    <div className="absolute bottom-0 left-0 w-12 h-[2px] bg-[var(--color-accent)]"></div>
+                <div className="flex items-center justify-between p-8 border-b border-slate-800">
                     <div>
-                        <span className="text-[10px] text-slate-500 font-mono font-bold tracking-[0.3em] block mb-2 uppercase">Reference Database</span>
-                        <h2 id="gallery-title" className="text-4xl font-black text-white uppercase font-display leading-none tracking-tighter">Pattern <span className="text-[var(--color-accent)]">Archive</span></h2>
+                        <span className="text-xs text-slate-500 font-bold tracking-wider block mb-2 uppercase">Camo Collection</span>
+                        <h2 id="gallery-title" className="text-3xl font-bold text-white tracking-tight">Camo <span className="text-cyan-400">Gallery</span></h2>
                     </div>
 
                     <button
                         onClick={onClose}
-                        className="bg-slate-900 border border-slate-800 p-3 hover:bg-slate-800 hover:text-[var(--color-accent)] transition-all group"
+                        className="bg-slate-800 border border-slate-700 p-2 text-slate-400 hover:text-white rounded-md transition-all"
                         aria-label="Close gallery"
                     >
-                        <svg className="w-6 h-6 transition-transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
 
                 {/* Content Area */}
                 <div className="flex-1 overflow-y-auto p-10 custom-scrollbar">
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-                        {CAMO_ORDER.map((camoName, index) => (
-                            <div key={camoName} className="group relative">
-                                <div className="absolute -inset-[1px] bg-gradient-to-br from-white/10 to-transparent group-hover:from-[var(--color-accent)]/30 transition-all duration-500"></div>
-                                <div className="relative bg-[#0d1016] overflow-hidden border border-slate-800 p-1">
-                                    <div className="aspect-square bg-black relative overflow-hidden">
-                                        <img
-                                            src={CAMO_IMAGES[camoName]}
-                                            alt={camoName}
-                                            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
-                                            loading="lazy"
-                                        />
-                                        <div className="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md text-[8px] font-mono text-slate-400 font-bold border border-slate-800">
-                                            SEC // {(index + 1).toString().padStart(2, '0')}
-                                        </div>
-                                    </div>
-                                    <div className="p-4 bg-slate-900/40">
-                                        <span className="text-[10px] font-black text-slate-200 uppercase tracking-widest block text-center group-hover:text-[var(--color-accent)] transition-colors">{camoName}</span>
-                                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        {CAMO_ORDER.map((camoName) => (
+                            <div key={camoName} className="group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all shadow-md">
+                                <div className="aspect-square bg-black relative overflow-hidden">
+                                    <img
+                                        src={CAMO_IMAGES[camoName]}
+                                        alt={camoName}
+                                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="p-4 border-t border-slate-800">
+                                    <span className="text-sm font-bold text-slate-200 text-center block group-hover:text-cyan-400 transition-colors uppercase tracking-wide">{camoName}</span>
                                 </div>
                             </div>
                         ))}

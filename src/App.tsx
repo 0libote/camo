@@ -57,31 +57,25 @@ function App() {
 
           <main className="space-y-12 mt-12 px-4 md:px-0">
             {/* Main Tab Switcher */}
-            <div className="flex justify-center border-b border-white/5 mb-12">
-              <div className="flex bg-slate-900/20 p-1 border border-slate-800 relative">
+            <div className="flex justify-center border-b border-slate-800 mb-12">
+              <div className="flex bg-slate-900 p-1 border border-slate-800 rounded-lg">
                 <button
                   onClick={() => setMainTab('camos')}
-                  className={`px-10 py-3 text-[10px] font-black uppercase tracking-[0.2em] transition-all relative z-10 ${mainTab === 'camos'
-                    ? 'text-white'
-                    : 'text-slate-600 hover:text-slate-400'
+                  className={`px-8 py-2 text-sm font-semibold transition-all rounded-md ${mainTab === 'camos'
+                    ? 'bg-cyan-500 text-white'
+                    : 'text-slate-400 hover:text-slate-200'
                     }`}
                 >
-                  Pattern Tracker
-                  {mainTab === 'camos' && (
-                    <div className="absolute inset-0 bg-[var(--color-accent)] shadow-[0_0_20px_var(--color-accent)]/20 -z-10"></div>
-                  )}
+                  Camo Progress
                 </button>
                 <button
                   onClick={() => setMainTab('prestige')}
-                  className={`px-10 py-3 text-[10px] font-black uppercase tracking-[0.2em] transition-all relative z-10 ${mainTab === 'prestige'
-                    ? 'text-white'
-                    : 'text-slate-600 hover:text-slate-400'
+                  className={`px-8 py-2 text-sm font-semibold transition-all rounded-md ${mainTab === 'prestige'
+                    ? 'bg-cyan-500 text-white'
+                    : 'text-slate-400 hover:text-slate-200'
                     }`}
                 >
-                  Exp Database
-                  {mainTab === 'prestige' && (
-                    <div className="absolute inset-0 bg-[var(--color-accent)] shadow-[0_0_20px_var(--color-accent)]/20 -z-10"></div>
-                  )}
+                  Weapon Levels
                 </button>
               </div>
             </div>
@@ -93,45 +87,45 @@ function App() {
                 </section>
 
                 {/* View Controls */}
-                <div className="flex flex-col gap-10 mt-12">
+                <div className="flex flex-col gap-8 mt-12">
                   {/* Mode Toggle Bar */}
-                  <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-slate-800/40 pb-6">
-                    <div className="flex items-center gap-6">
-                      <div className="flex bg-black/40 p-1 border border-slate-800">
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-slate-800 pb-8">
+                    <div className="flex items-center gap-4">
+                      <div className="flex bg-slate-900 p-1 border border-slate-800 rounded-lg">
                         <button
                           onClick={() => setViewMode('classes')}
-                          className={`px-8 py-2 text-[10px] font-black uppercase tracking-widest transition-all ${viewMode === 'classes'
-                            ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.2)]'
-                            : 'text-slate-600 hover:text-slate-400'
+                          className={`px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-md ${viewMode === 'classes'
+                            ? 'bg-slate-800 text-white border border-slate-700 shadow-sm'
+                            : 'text-slate-500 hover:text-slate-300'
                             }`}
                         >
                           Categories
                         </button>
                         <button
                           onClick={() => setViewMode('all')}
-                          className={`px-8 py-2 text-[10px] font-black uppercase tracking-widest transition-all ${viewMode === 'all'
-                            ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.2)]'
-                            : 'text-slate-600 hover:text-slate-400'
+                          className={`px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-md ${viewMode === 'all'
+                            ? 'bg-slate-800 text-white border border-slate-700 shadow-sm'
+                            : 'text-slate-500 hover:text-slate-300'
                             }`}
                         >
-                          Complete Grid
+                          All Weapons
                         </button>
                       </div>
                     </div>
 
                     {viewMode === 'all' && (
-                      <div className="w-full md:w-96 relative group">
-                        <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-                          <svg className="w-4 h-4 text-slate-600 group-focus-within:text-[var(--color-accent)] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <div className="w-full md:w-80 relative group">
+                        <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                          <svg className="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                           </svg>
                         </div>
                         <input
                           type="text"
-                          placeholder="SEARCH DATABASE // SCANNING..."
+                          placeholder="Search weapons..."
                           value={searchQuery}
                           onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
-                          className="w-full bg-slate-900/40 border border-slate-800 pl-12 pr-4 py-3 text-white focus:outline-none focus:border-[var(--color-accent)]/50 focus:bg-slate-900/60 placeholder:text-slate-700 font-mono text-[10px] uppercase tracking-widest transition-all"
+                          className="w-full bg-slate-900 border border-slate-800 pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-500/50 rounded-lg transition-all"
                         />
                       </div>
                     )}
@@ -140,21 +134,18 @@ function App() {
                   {/* Class Selector (Only in Class View) */}
                   {viewMode === 'classes' && (
                     <div className="animate-fade-in">
-                      <div className="text-slate-600 text-[9px] font-mono font-black uppercase tracking-[0.4em] mb-4 text-center md:text-left">ARMORY SECTIONS // SELECTION REQUIRED</div>
-                      <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                      <div className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-4">Weapon Categories</div>
+                      <div className="flex flex-wrap gap-2">
                         {WEAPON_CLASSES.map(cls => (
                           <button
                             key={cls}
                             onClick={() => setSelectedClass(cls)}
-                            className={`px-5 py-2.5 text-[10px] font-black uppercase tracking-widest border transition-all relative group overflow-hidden ${selectedClass === cls
-                              ? 'bg-white border-white text-black shadow-[0_8px_20px_rgba(255,255,255,0.1)]'
-                              : 'bg-transparent border-slate-800 text-slate-500 hover:border-slate-600 hover:text-white'
+                            className={`px-4 py-2 text-xs font-bold uppercase tracking-wide border rounded-md transition-all ${selectedClass === cls
+                              ? 'bg-white border-white text-slate-950'
+                              : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white'
                               }`}
                           >
-                            <span className="relative z-10">{cls}</span>
-                            {selectedClass !== cls && (
-                              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity"></div>
-                            )}
+                            {cls}
                           </button>
                         ))}
                       </div>

@@ -10,7 +10,7 @@ interface Props {
 
 export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
-        <div className="grid grid-cols-4 gap-3 mt-4">
+        <div className="grid grid-cols-4 gap-2 mt-4">
             {CAMO_ORDER.map((camoName) => {
                 const camoData = weapon.camos[camoName];
                 if (!camoData) return null;
@@ -26,46 +26,45 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                             disabled={isLocked || !isInteractive}
                             onClick={() => onToggle(weapon.name, camoName)}
                             className={`
-                                w-full aspect-square transition-all duration-300
-                                border uppercase font-black text-[8px] tracking-tighter relative overflow-hidden
+                                w-full aspect-square transition-all duration-200
+                                border rounded-lg overflow-hidden relative
                                 ${isCompleted
-                                    ? 'border-[var(--color-accent)]/60 bg-[var(--color-accent)]/5'
+                                    ? 'border-cyan-500/50 bg-cyan-500/10'
                                     : isLocked
-                                        ? 'border-slate-900 opacity-20 cursor-not-allowed bg-black'
-                                        : 'border-slate-800/80 hover:border-slate-500 bg-slate-900/40'
+                                        ? 'border-slate-800 opacity-40 cursor-not-allowed bg-slate-900'
+                                        : 'border-slate-700 hover:border-slate-400 bg-slate-800'
                                 }
                             `}
                         >
                             <img
                                 src={CAMO_IMAGES[camoName]}
                                 alt={camoName}
-                                className={`w-full h-full object-cover transition-all duration-500 ${isLocked ? 'grayscale scale-110 blur-[1px]' : 'group-hover/camo:scale-110'}`}
+                                className={`w-full h-full object-cover transition-all duration-300 ${isLocked ? 'grayscale' : 'group-hover/camo:scale-110'}`}
                                 loading="lazy"
                             />
 
-                            {/* Status Overlay */}
+                            {/* Status Indicator */}
                             {isCompleted && (
-                                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-accent)]/40 to-transparent flex items-end justify-center pb-1">
-                                    <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_white]"></div>
+                                <div className="absolute top-1 right-1">
+                                    <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full border-2 border-slate-950"></div>
                                 </div>
                             )}
 
-                            {!isLocked && !isCompleted && (
-                                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20"></div>
+                            {isLocked && (
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                                    <svg className="w-3 h-3 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                </div>
                             )}
                         </button>
 
                         {/* Tooltip */}
-                        <div className="opacity-0 group-hover/camo:opacity-100 transition-all duration-300 absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-3 bg-[#0a0c10] border border-slate-800 text-[10px] text-slate-300 pointer-events-none z-50 w-52 shadow-[0_10px_30px_rgba(0,0,0,0.8)] translate-y-2 group-hover/camo:translate-y-0">
-                            <div className="flex justify-between items-center border-b border-slate-800 pb-2 mb-2">
-                                <div className="font-black text-[var(--color-accent)] uppercase tracking-widest">{camoName}</div>
-                                <div className="text-[8px] text-slate-600 font-mono">CODE // {camoName.slice(0, 4).toUpperCase()}</div>
-                            </div>
-                            <div className="leading-relaxed font-medium">
+                        <div className="opacity-0 invisible group-hover/camo:opacity-100 group-hover/camo:visible transition-all duration-200 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2.5 bg-slate-900 border border-slate-700 text-xs text-slate-200 pointer-events-none z-50 w-48 shadow-xl rounded-lg">
+                            <div className="font-bold text-cyan-400 mb-1">{camoName}</div>
+                            <div className="text-slate-400 leading-snug text-[11px]">
                                 {camoData.requirement}
                             </div>
-                            {/* Decorative line */}
-                            <div className="mt-2 h-[1px] bg-gradient-to-r from-[var(--color-accent)]/40 to-transparent w-full"></div>
                         </div>
                     </div>
                 );
