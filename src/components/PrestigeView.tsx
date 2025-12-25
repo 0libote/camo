@@ -17,18 +17,20 @@ export function PrestigeView({ prestige, onUpdatePrestige }: Props) {
     return (
         <div className="space-y-8 animate-fade-in">
             {/* Class Selector */}
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-12">
                 {WEAPON_CLASSES.map(cls => (
                     <button
                         key={cls}
                         onClick={() => setSelectedClass(cls)}
-                        className={`px-4 py-2 text-sm font-bold uppercase tracking-wider border transition-all ${selectedClass === cls
-                            ? 'bg-slate-900 border-[var(--color-accent)] text-[var(--color-accent)]'
-                            : 'bg-black border-slate-800 text-slate-500 hover:border-slate-600 hover:text-slate-300'
+                        className={`px-5 py-2.5 text-[10px] font-black uppercase tracking-widest border transition-all relative group overflow-hidden ${selectedClass === cls
+                            ? 'bg-white border-white text-black shadow-[0_8px_20px_rgba(255,255,255,0.1)]'
+                            : 'bg-transparent border-slate-800 text-slate-500 hover:border-slate-600 hover:text-white'
                             }`}
-                        style={{ clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)' }}
                     >
-                        {cls}
+                        <span className="relative z-10">{cls}</span>
+                        {selectedClass !== cls && (
+                            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity"></div>
+                        )}
                     </button>
                 ))}
             </div>

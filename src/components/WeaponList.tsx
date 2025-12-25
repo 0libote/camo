@@ -22,12 +22,18 @@ export function WeaponList({ className, weapons, progress, onToggle, displayMode
     const isActualClass = requiredForArclight > 0 && !className.includes('Search Results');
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-8">
             {/* Class Header */}
-            <div className="flex flex-col md:flex-row items-end justify-between border-b border-slate-800 pb-4 gap-4">
-                <div className="border-l-4 border-[var(--color-accent)] pl-4">
-                    <span className="text-xs text-slate-500 uppercase font-mono tracking-widest block mb-1">{isActualClass ? 'Weapons Class' : 'Search Query'}</span>
-                    <h2 className="text-3xl font-bold text-white uppercase tracking-tighter leading-none">{className}</h2>
+            <div className="flex flex-col md:flex-row items-end justify-between border-b border-slate-800/40 pb-6 gap-6 relative">
+                <div className="absolute bottom-0 left-0 w-12 h-[2px] bg-[var(--color-accent)]"></div>
+
+                <div className="pl-6 border-l-2 border-slate-800">
+                    <span className="text-[10px] text-slate-500 uppercase font-mono font-bold tracking-[0.3em] block mb-2">
+                        {isActualClass ? 'TACTICAL CATEGORY' : 'SEARCH RESULTS'}
+                    </span>
+                    <h2 className="text-4xl font-black text-white uppercase tracking-tighter leading-none font-display">
+                        {className}
+                    </h2>
                 </div>
 
                 {/* Class Mastery Card */}

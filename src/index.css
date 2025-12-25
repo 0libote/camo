@@ -5,20 +5,23 @@
 @tailwind utilities;
 
 :root {
-  --color-accent: #ff6b00;
-  /* Vibrant BO6 Orange */
+  --color-accent: #00f7ff;
+  /* BO7 Neon Cyan */
+  --color-accent-dim: rgba(0, 247, 255, 0.1);
+  --color-bg-base: #020406;
+  --color-bg-card: rgba(13, 17, 23, 0.8);
   --font-display: 'Chakra Petch', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
 body {
-  @apply bg-[#050505] text-slate-200 font-sans tracking-tight;
+  @apply bg-[var(--color-bg-base)] text-slate-300 font-sans tracking-tight;
   font-family: var(--font-body);
-  background-image:
-    linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(transparent 50%, rgba(0, 0, 0, 0.1) 50%);
-  background-size: 40px 40px, 40px 40px, 100% 4px;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 247, 255, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(0, 247, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 247, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
   background-attachment: fixed;
 }
 

@@ -23,48 +23,55 @@ export function CamoGallery({ isOpen, onClose }: Props) {
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in"
             role="dialog"
             aria-modal="true"
             aria-labelledby="gallery-title"
         >
-            <div className="bg-slate-900 border border-slate-700 w-full max-w-6xl h-[85vh] flex flex-col rounded-lg shadow-2xl overflow-hidden">
+            <div className="bg-[#0a0c10] border border-slate-800 w-full max-w-6xl h-[85vh] flex flex-col shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-accent)]/5 rotate-45 translate-x-16 -translate-y-16 pointer-events-none"></div>
+
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900">
+                <div className="flex items-end justify-between p-8 border-b border-slate-800/40 relative">
+                    <div className="absolute bottom-0 left-0 w-12 h-[2px] bg-[var(--color-accent)]"></div>
                     <div>
-                        <h2 id="gallery-title" className="text-2xl font-bold text-white uppercase font-display">Pattern Archive</h2>
-                        <p className="text-sm text-slate-400 font-mono uppercase tracking-wider">Available Weapon Visuals</p>
+                        <span className="text-[10px] text-slate-500 font-mono font-bold tracking-[0.3em] block mb-2 uppercase">Reference Database</span>
+                        <h2 id="gallery-title" className="text-4xl font-black text-white uppercase font-display leading-none tracking-tighter">Pattern <span className="text-[var(--color-accent)]">Archive</span></h2>
                     </div>
 
                     <button
                         onClick={onClose}
-                        className="p-2 hover:bg-slate-800 text-slate-400 hover:text-white rounded transition-colors"
+                        className="bg-slate-900 border border-slate-800 p-3 hover:bg-slate-800 hover:text-[var(--color-accent)] transition-all group"
                         aria-label="Close gallery"
                     >
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-6 h-6 transition-transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
 
                 {/* Content Area */}
-                <div className="flex-1 overflow-y-auto p-8">
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div className="flex-1 overflow-y-auto p-10 custom-scrollbar">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                         {CAMO_ORDER.map((camoName, index) => (
-                            <div key={camoName} className="group bg-slate-800 rounded-lg overflow-hidden border border-slate-700 hover:border-slate-500 transition-colors">
-                                <div className="aspect-square bg-black relative">
-                                    <img
-                                        src={CAMO_IMAGES[camoName]}
-                                        alt={camoName}
-                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                                        loading="lazy"
-                                    />
-                                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/50 rounded text-[10px] text-slate-300">
-                                        {(index + 1).toString()}
+                            <div key={camoName} className="group relative">
+                                <div className="absolute -inset-[1px] bg-gradient-to-br from-white/10 to-transparent group-hover:from-[var(--color-accent)]/30 transition-all duration-500"></div>
+                                <div className="relative bg-[#0d1016] overflow-hidden border border-slate-800 p-1">
+                                    <div className="aspect-square bg-black relative overflow-hidden">
+                                        <img
+                                            src={CAMO_IMAGES[camoName]}
+                                            alt={camoName}
+                                            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                                            loading="lazy"
+                                        />
+                                        <div className="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md text-[8px] font-mono text-slate-400 font-bold border border-slate-800">
+                                            SEC // {(index + 1).toString().padStart(2, '0')}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="p-3 text-center">
-                                    <span className="text-sm font-medium text-slate-200">{camoName}</span>
+                                    <div className="p-4 bg-slate-900/40">
+                                        <span className="text-[10px] font-black text-slate-200 uppercase tracking-widest block text-center group-hover:text-[var(--color-accent)] transition-colors">{camoName}</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
