@@ -13,7 +13,7 @@ export function ClassMasteryCard({ shatteredGoldCount, requiredForArclight, disp
         <div className={`bg-neutral-900 border rounded-lg px-4 py-2 ${isComplete ? 'border-green-500/50' : 'border-neutral-800'}`}>
             <div className="flex items-center gap-4">
                 <div className="text-sm text-neutral-400">
-                    Arclight Ready
+                    Arclight
                 </div>
                 <div className={`text-sm font-medium ${isComplete ? 'text-green-400' : 'text-white'}`}>
                     {displayMode === 'percentage'

@@ -15,12 +15,12 @@ interface Step {
 }
 
 const STEPS: Step[] = [
-    { label: "Prestige 1", shortLabel: "P1", targetLevel: PrestigeLevel.Prestige1, targetMasterLevel: 0 },
-    { label: "Prestige 2", shortLabel: "P2", targetLevel: PrestigeLevel.Prestige2, targetMasterLevel: 0 },
-    { label: "Level 100", shortLabel: "100", targetLevel: PrestigeLevel.Master, targetMasterLevel: 100 },
-    { label: "Level 150", shortLabel: "150", targetLevel: PrestigeLevel.Master, targetMasterLevel: 150 },
-    { label: "Level 200", shortLabel: "200", targetLevel: PrestigeLevel.Master, targetMasterLevel: 200 },
-    { label: "Level 250", shortLabel: "250", targetLevel: PrestigeLevel.Master, targetMasterLevel: 250 },
+    { label: "Prestige 1", shortLabel: "Prestige 1", targetLevel: PrestigeLevel.Prestige1, targetMasterLevel: 0 },
+    { label: "Prestige 2", shortLabel: "Prestige 2", targetLevel: PrestigeLevel.Prestige2, targetMasterLevel: 0 },
+    { label: "Level 100", shortLabel: "Level 100", targetLevel: PrestigeLevel.Master, targetMasterLevel: 100 },
+    { label: "Level 150", shortLabel: "Level 150", targetLevel: PrestigeLevel.Master, targetMasterLevel: 150 },
+    { label: "Level 200", shortLabel: "Level 200", targetLevel: PrestigeLevel.Master, targetMasterLevel: 200 },
+    { label: "Level 250", shortLabel: "Level 250", targetLevel: PrestigeLevel.Master, targetMasterLevel: 250 },
 ];
 
 export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
@@ -46,10 +46,10 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
     const getProgressDisplay = () => {
         if (level === PrestigeLevel.Master) {
             if (masterLevel >= 250) return "Max";
-            return `Lvl ${masterLevel}`;
+            return `Level ${masterLevel}`;
         }
-        if (level === PrestigeLevel.Prestige2) return "P2";
-        if (level === PrestigeLevel.Prestige1) return "P1";
+        if (level === PrestigeLevel.Prestige2) return "Prestige 2";
+        if (level === PrestigeLevel.Prestige1) return "Prestige 1";
         return "Base";
     };
 
@@ -78,7 +78,7 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
         <div className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-colors rounded-xl overflow-hidden">
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
-                <h3 className="text-base font-semibold text-white">
+                <h3 className="text-base font-semibold text-white uppercase">
                     {weapon.name}
                 </h3>
                 <span className={`text-xs font-medium px-2 py-0.5 rounded ${level > 0 ? 'bg-blue-500/10 text-blue-400' : 'bg-neutral-800 text-neutral-500'}`}>

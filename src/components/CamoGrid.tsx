@@ -10,8 +10,8 @@ interface Props {
 
 export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
-        <div className="grid grid-cols-4 gap-2">
-            {CAMO_ORDER.map((camoName) => {
+        <div className="grid grid-cols-4 gap-2 overflow-visible">
+            {CAMO_ORDER.map((camoName, index) => {
                 const camoData = weapon.camos[camoName];
                 if (!camoData) return null;
 
@@ -19,6 +19,9 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                 const isCompleted = status === "completed";
                 const isLocked = status === "locked";
                 const isInteractive = camoName !== "Singularity";
+
+                // Determine if tooltip should appear below (for top row items)
+                const isTopRow = index < 4;
 
                 return (
                     <div key={camoName} className="relative group">
@@ -61,8 +64,14 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                             )}
                         </button>
 
-                        {/* Tooltip */}
-                        <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-neutral-800 border border-neutral-700 text-xs text-white pointer-events-none z-50 w-40 rounded-lg shadow-lg">
+                        {/* Tooltip - shows below for top row, above for bottom row */}
+                        <div className={`
+                            opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                            transition-opacity absolute left-1/2 -translate-x-1/2 
+                            px-3 py-2 bg-neutral-800 border border-neutral-700 
+                            text-xs text-white pointer-events-none z-[100] w-40 rounded-lg shadow-lg
+                            ${isTopRow ? 'top-full mt-2' : 'bottom-full mb-2'}
+                        `}>
                             <div className="font-medium text-blue-400 mb-1">{camoName}</div>
                             <div className="text-neutral-400 text-[11px] leading-relaxed">
                                 {camoData.requirement}

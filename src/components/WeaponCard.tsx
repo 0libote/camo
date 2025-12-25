@@ -23,13 +23,13 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
 
     return (
         <div
-            className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-colors rounded-xl overflow-hidden"
+            className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-colors rounded-xl overflow-visible"
             onMouseEnter={onHoverStart}
             onMouseLeave={onHoverEnd}
         >
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
-                <h3 className="text-base font-semibold text-white">
+                <h3 className="text-base font-semibold text-white uppercase">
                     {weapon.name}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -47,7 +47,7 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
                 </div>
             </div>
 
-            <div className="p-4">
+            <div className="p-4 overflow-visible">
                 {/* Progress Bar */}
                 <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
                     <div
