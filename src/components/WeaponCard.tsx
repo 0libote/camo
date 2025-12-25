@@ -23,40 +23,37 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
 
     return (
         <div
-            className="group bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 rounded-xl overflow-hidden shadow-sm"
+            className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-colors rounded-xl overflow-hidden"
             onMouseEnter={onHoverStart}
             onMouseLeave={onHoverEnd}
         >
             {/* Header */}
-            <div className="flex justify-between items-center px-6 py-5 border-b border-slate-800">
-                <div>
-                    <h3 className="text-xl font-bold text-white tracking-tight leading-tight">
-                        {weapon.name}
-                    </h3>
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1 block">Weapon System</span>
-                </div>
-                <div className="flex flex-col items-end gap-1">
+            <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
+                <h3 className="text-base font-semibold text-white">
+                    {weapon.name}
+                </h3>
+                <div className="flex items-center gap-2">
                     {isMastered && (
-                        <span className="text-[10px] font-bold text-slate-900 bg-cyan-400 px-2 py-0.5 rounded uppercase tracking-wider">
-                            Mastered
+                        <span className="text-xs font-medium text-green-400 bg-green-500/10 px-2 py-0.5 rounded">
+                            Complete
                         </span>
                     )}
-                    <div className="text-sm font-semibold text-slate-400">
+                    <span className="text-sm text-neutral-400">
                         {displayMode === 'percentage'
                             ? `${Math.round(progressPercent)}%`
                             : `${completedCount}/${totalCamos}`
                         }
-                    </div>
+                    </span>
                 </div>
             </div>
 
-            <div className="p-6">
-                {/* Clean Progress Bar */}
-                <div className="mb-6 h-1 bg-slate-800 rounded-full overflow-hidden">
+            <div className="p-4">
+                {/* Progress Bar */}
+                <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
                     <div
-                        className="h-full bg-cyan-500 transition-all duration-700 ease-out"
+                        className={`h-full transition-all duration-300 ${isMastered ? 'bg-green-500' : 'bg-blue-500'}`}
                         style={{ width: `${progressPercent}%` }}
-                    ></div>
+                    />
                 </div>
 
                 <CamoGrid weapon={weapon} progress={progress} onToggle={onToggle} />

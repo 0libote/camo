@@ -6,7 +6,7 @@ interface Props {
 
 export function ProgressBar({ progress, colorClass = "bg-blue-500", heightClass = "h-2" }: Props) {
     return (
-        <div className={`w-full bg-slate-700 rounded-full overflow-hidden ${heightClass}`}>
+        <div className={`w-full bg-neutral-800 rounded-full overflow-hidden ${heightClass}`}>
             <div
                 className={`h-full transition-all duration-300 rounded-full ${colorClass}`}
                 style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}

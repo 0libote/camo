@@ -15,16 +15,16 @@ export function PrestigeView({ prestige, onUpdatePrestige }: Props) {
     const weapons = CAMO_DATA.weapons.filter(w => w.class === selectedClass);
 
     return (
-        <div className="space-y-8 animate-fade-in">
+        <div className="space-y-6 animate-fade-in">
             {/* Category Selector */}
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-8">
+            <div className="flex flex-wrap gap-2">
                 {WEAPON_CLASSES.map(cls => (
                     <button
                         key={cls}
                         onClick={() => setSelectedClass(cls)}
-                        className={`px-4 py-2 text-xs font-bold uppercase tracking-wide border rounded-md transition-all ${selectedClass === cls
-                            ? 'bg-white border-white text-slate-950'
-                            : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white'
+                        className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${selectedClass === cls
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700'
                             }`}
                     >
                         {cls}
@@ -32,7 +32,8 @@ export function PrestigeView({ prestige, onUpdatePrestige }: Props) {
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Weapons Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {weapons.map(weapon => {
                     const weaponPrestige = prestige[weapon.name] || {
                         level: PrestigeLevel.None,

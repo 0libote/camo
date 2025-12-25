@@ -14,45 +14,35 @@ interface Props {
 }
 
 export function WeaponList({ className, weapons, progress, onToggle, displayMode, onHoverStart, onHoverEnd }: Props) {
-    // Calculate Class Progress (Arclight readiness)
     const shatteredGoldCount = getClassShatteredGoldCount(className, progress);
     const requiredForArclight = ARCLIGHT_CLASS_REQUIREMENTS[className] || 0;
-
-    // Only show Arclight card for actual weapon classes (not search results)
-    const isActualClass = requiredForArclight > 0 && !className.includes('Search Results');
+    const isActualClass = requiredForArclight > 0 && !className.includes('weapons found');
 
     return (
-        <div className="space-y-10 animate-fade-in">
+        <div className="space-y-6 animate-fade-in">
             {/* Category Header */}
-            <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-800 pb-8 gap-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-4 border-b border-neutral-800">
                 <div>
-                    <span className="text-xs text-slate-500 uppercase font-bold tracking-wider block mb-2">
-                        {isActualClass ? 'Weapon Category' : 'Search Database'}
-                    </span>
-                    <h2 className="text-3xl font-bold text-white tracking-tight leading-none">
+                    <h2 className="text-xl font-semibold text-white">
                         {className}
                     </h2>
+                    <p className="text-sm text-neutral-500 mt-1">
+                        {weapons.length} {weapons.length === 1 ? 'weapon' : 'weapons'}
+                    </p>
                 </div>
 
-                {/* Class Mastery Status */}
                 {isActualClass && (
-                    <div className="w-full md:w-auto" onMouseEnter={onHoverStart} onMouseLeave={onHoverEnd}>
-                        <ClassMasteryCard
-                            className={className}
-                            shatteredGoldCount={shatteredGoldCount}
-                            requiredForArclight={requiredForArclight}
-                            displayMode={displayMode}
-                        />
-                    </div>
+                    <ClassMasteryCard
+                        className={className}
+                        shatteredGoldCount={shatteredGoldCount}
+                        requiredForArclight={requiredForArclight}
+                        displayMode={displayMode}
+                    />
                 )}
             </div>
 
-            {/* Grid of Weapons */}
-            <div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                onMouseEnter={onHoverStart}
-                onMouseLeave={onHoverEnd}
-            >
+            {/* Weapons Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {weapons.map(weapon => (
                     <WeaponCard
                         key={weapon.name}

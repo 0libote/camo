@@ -10,7 +10,7 @@ interface Props {
 
 export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
-        <div className="grid grid-cols-4 gap-2 mt-4">
+        <div className="grid grid-cols-4 gap-2">
             {CAMO_ORDER.map((camoName) => {
                 const camoData = weapon.camos[camoName];
                 if (!camoData) return null;
@@ -21,48 +21,50 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                 const isInteractive = camoName !== "Singularity";
 
                 return (
-                    <div key={camoName} className="relative group/camo">
+                    <div key={camoName} className="relative group">
                         <button
                             disabled={isLocked || !isInteractive}
                             onClick={() => onToggle(weapon.name, camoName)}
                             className={`
-                                w-full aspect-square transition-all duration-200
-                                border rounded-lg overflow-hidden relative
+                                w-full aspect-square rounded-lg overflow-hidden relative transition-all
                                 ${isCompleted
-                                    ? 'border-cyan-500/50 bg-cyan-500/10'
+                                    ? 'ring-2 ring-green-500 ring-offset-1 ring-offset-neutral-900'
                                     : isLocked
-                                        ? 'border-slate-800 opacity-40 cursor-not-allowed bg-slate-900'
-                                        : 'border-slate-700 hover:border-slate-400 bg-slate-800'
+                                        ? 'opacity-30 cursor-not-allowed'
+                                        : 'hover:ring-2 hover:ring-neutral-600 hover:ring-offset-1 hover:ring-offset-neutral-900'
                                 }
                             `}
                         >
                             <img
                                 src={CAMO_IMAGES[camoName]}
                                 alt={camoName}
-                                className={`w-full h-full object-cover transition-all duration-300 ${isLocked ? 'grayscale' : 'group-hover/camo:scale-110'}`}
+                                className={`w-full h-full object-cover ${isLocked ? 'grayscale' : ''}`}
                                 loading="lazy"
                             />
 
-                            {/* Status Indicator */}
+                            {/* Completed checkmark */}
                             {isCompleted && (
-                                <div className="absolute top-1 right-1">
-                                    <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full border-2 border-slate-950"></div>
+                                <div className="absolute top-1 right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                    </svg>
                                 </div>
                             )}
 
+                            {/* Locked icon */}
                             {isLocked && (
-                                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                                    <svg className="w-3 h-3 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <svg className="w-4 h-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                     </svg>
                                 </div>
                             )}
                         </button>
 
                         {/* Tooltip */}
-                        <div className="opacity-0 invisible group-hover/camo:opacity-100 group-hover/camo:visible transition-all duration-200 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2.5 bg-slate-900 border border-slate-700 text-xs text-slate-200 pointer-events-none z-50 w-48 shadow-xl rounded-lg">
-                            <div className="font-bold text-cyan-400 mb-1">{camoName}</div>
-                            <div className="text-slate-400 leading-snug text-[11px]">
+                        <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-neutral-800 border border-neutral-700 text-xs text-white pointer-events-none z-50 w-40 rounded-lg shadow-lg">
+                            <div className="font-medium text-blue-400 mb-1">{camoName}</div>
+                            <div className="text-neutral-400 text-[11px] leading-relaxed">
                                 {camoData.requirement}
                             </div>
                         </div>
