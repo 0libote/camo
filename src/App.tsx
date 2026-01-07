@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Header } from './components/Header';
 import { WeaponList } from './components/WeaponList';
 import { MasterySummary } from './components/MasterySummary';
-import { CamoGallery } from './components/CamoGallery';
 import { SettingsModal } from './components/SettingsModal';
 import { PrestigeView } from './components/PrestigeView';
 import { useProgress } from './hooks/useProgress';
@@ -19,7 +18,6 @@ function App() {
     exportProgress,
     importProgress
   } = useProgress();
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [mainTab, setMainTab] = useState<'camos' | 'prestige'>('camos');
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
@@ -43,7 +41,6 @@ function App() {
       <div style={{ transform: `scale(${uiScale})`, transformOrigin: 'top center' }}>
         <div className="max-w-5xl mx-auto px-4">
           <Header
-            onOpenGallery={() => setIsGalleryOpen(true)}
             onOpenSettings={() => setIsSettingsOpen(true)}
           />
 
@@ -116,7 +113,7 @@ function App() {
         </div>
       </div>
 
-      <CamoGallery isOpen={isGalleryOpen} onClose={() => setIsGalleryOpen(false)} />
+
       <SettingsModal
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
