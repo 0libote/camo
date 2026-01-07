@@ -19,8 +19,13 @@ export interface Weapon {
     class: string;
     name: string;
     unlock_level: number;
-    camos: WeaponCamos;
-    camo_unlocks?: Record<CamoName, boolean>; // Optional field for explicit camo unlocks
+    image?: string;
+    camos: {
+        mp: WeaponCamos;
+        zombies?: WeaponCamos;
+        campaign?: WeaponCamos;
+    };
+    camo_unlocks?: Record<CamoName, boolean>;
 }
 
 export interface CamoData {

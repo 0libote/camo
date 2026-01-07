@@ -3,30 +3,33 @@
         "class": "Launchers",
         "name": "AAROW 109",
         "unlock_level": 0,
+        "image": "weapons/Launchers/AAROW 109.webp",
         "camos": {
-            "Military": {
-                "requirement": "50 Kills or Scorestreak Destructions"
-            },
-            "Diamondback": {
-                "requirement": "10 Aerial Scorestreak"
-            },
-            "Raptor": {
-                "requirement": "10 Direct Hit Kills"
-            },
-            "Mainframe": {
-                "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "50 Kills or Scorestreak Destructions"
+                },
+                "Diamondback": {
+                    "requirement": "10 Aerial Scorestreak"
+                },
+                "Raptor": {
+                    "requirement": "10 Direct Hit Kills"
+                },
+                "Mainframe": {
+                    "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
@@ -34,30 +37,33 @@
         "class": "Launchers",
         "name": "A.R.C. M1",
         "unlock_level": 25,
+        "image": "weapons/Launchers/A.R.C. M1.webp",
         "camos": {
-            "Military": {
-                "requirement": "50 Kills or Scorestreak Destructions"
-            },
-            "Diamondback": {
-                "requirement": "10 Aerial Scorestreak"
-            },
-            "Raptor": {
-                "requirement": "30 Clean Kills"
-            },
-            "Mainframe": {
-                "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "50 Kills or Scorestreak Destructions"
+                },
+                "Diamondback": {
+                    "requirement": "10 Aerial Scorestreak"
+                },
+                "Raptor": {
+                    "requirement": "30 Clean Kills"
+                },
+                "Mainframe": {
+                    "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     }

@@ -3,30 +3,33 @@
         "class": "Light Machine Guns",
         "name": "MK.78",
         "unlock_level": 0,
+        "image": "weapons/Light Machine Gun/MK.78.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "30 Objective Kills"
-            },
-            "Raptor": {
-                "requirement": "5x - 2 Kills without Releasing the Trigger"
-            },
-            "Mainframe": {
-                "requirement": "50 Kills with 5+ Attachments"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "30 Objective Kills"
+                },
+                "Raptor": {
+                    "requirement": "5x - 2 Kills without Releasing the Trigger"
+                },
+                "Mainframe": {
+                    "requirement": "50 Kills with 5+ Attachments"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
@@ -34,30 +37,33 @@
         "class": "Light Machine Guns",
         "name": "XM325",
         "unlock_level": 31,
+        "image": "weapons/Light Machine Gun/XM325.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "30 Kills affected by your equipment/non-lethal streak"
-            },
-            "Raptor": {
-                "requirement": "5x - 2 Kills without Releasing the Trigger"
-            },
-            "Mainframe": {
-                "requirement": "50 Kills with Gunfighter Wildcard"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "30 Kills affected by your equipment/non-lethal streak"
+                },
+                "Raptor": {
+                    "requirement": "5x - 2 Kills without Releasing the Trigger"
+                },
+                "Mainframe": {
+                    "requirement": "50 Kills with Gunfighter Wildcard"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     }

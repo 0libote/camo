@@ -3,30 +3,33 @@
         "class": "Pistols",
         "name": "Jager 45",
         "unlock_level": 0,
+        "image": "weapons/Pistols/Jäger 45.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "15 Kills shortly after Switching Weapons"
-            },
-            "Raptor": {
-                "requirement": "50 Kills while Moving"
-            },
-            "Mainframe": {
-                "requirement": "30 Clean Kills"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "15 Kills shortly after Switching Weapons"
+                },
+                "Raptor": {
+                    "requirement": "50 Kills while Moving"
+                },
+                "Mainframe": {
+                    "requirement": "30 Clean Kills"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
@@ -34,30 +37,33 @@
         "class": "Pistols",
         "name": "Velox 5.7",
         "unlock_level": 13,
+        "image": "weapons/Pistols/Velox 5.7.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "15 Kills shortly after sliding, diving, walljump"
-            },
-            "Raptor": {
-                "requirement": "30 Kills shortly after Spinting"
-            },
-            "Mainframe": {
-                "requirement": "30 Kills affected by your equipment/non-lethal streak"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "15 Kills shortly after sliding, diving, walljump"
+                },
+                "Raptor": {
+                    "requirement": "30 Kills shortly after Spinting"
+                },
+                "Mainframe": {
+                    "requirement": "30 Kills affected by your equipment/non-lethal streak"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
@@ -65,30 +71,33 @@
         "class": "Pistols",
         "name": "Coda 9",
         "unlock_level": 43,
+        "image": "weapons/Pistols/CODA 9.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "10 Kills with a Supressor"
-            },
-            "Raptor": {
-                "requirement": "30 Hipfire Kills"
-            },
-            "Mainframe": {
-                "requirement": "15 Kills shortly after Switching Weapons"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "10 Kills with a Supressor"
+                },
+                "Raptor": {
+                    "requirement": "30 Hipfire Kills"
+                },
+                "Mainframe": {
+                    "requirement": "15 Kills shortly after Switching Weapons"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     }

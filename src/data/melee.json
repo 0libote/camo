@@ -3,92 +3,101 @@
         "class": "Melee",
         "name": "Knife",
         "unlock_level": 0,
+        "image": "weapons/Melee/Knife.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Kills"
-            },
-            "Diamondback": {
-                "requirement": "15 Kills shortly after Switching Weapons"
-            },
-            "Raptor": {
-                "requirement": "15 Kills shortly after sliding, diving, walljump"
-            },
-            "Mainframe": {
-                "requirement": "30 Clean Kills"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Kills"
+                },
+                "Diamondback": {
+                    "requirement": "15 Kills shortly after Switching Weapons"
+                },
+                "Raptor": {
+                    "requirement": "15 Kills shortly after sliding, diving, walljump"
+                },
+                "Mainframe": {
+                    "requirement": "30 Clean Kills"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
     {
         "class": "Melee",
-        "name": "Flateline MK.11",
+        "name": "Flatline Mk.II",
         "unlock_level": 4,
+        "image": "weapons/Melee/Flatline Mk.II.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Kills"
-            },
-            "Diamondback": {
-                "requirement": "15 Kills shortly after Switching Weapons"
-            },
-            "Raptor": {
-                "requirement": "30 Kills affected by your equipment/non-lethal streak"
-            },
-            "Mainframe": {
-                "requirement": "50 Kills while Moving"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Kills"
+                },
+                "Diamondback": {
+                    "requirement": "15 Kills shortly after Switching Weapons"
+                },
+                "Raptor": {
+                    "requirement": "30 Kills affected by your equipment/non-lethal streak"
+                },
+                "Mainframe": {
+                    "requirement": "50 Kills while Moving"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
     {
         "class": "Melee",
-        "name": "BALLISTIC KNIFE",
+        "name": "Ballistic Knife",
         "unlock_level": 7,
+        "image": "weapons/Melee/Ballistic Knife.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Kills"
-            },
-            "Diamondback": {
-                "requirement": "15 Kills shortly after Sprinting"
-            },
-            "Raptor": {
-                "requirement": "30 Clean Kills"
-            },
-            "Mainframe": {
-                "requirement": "30 Kills affected by your equipment/non-lethal streak"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Kills"
+                },
+                "Diamondback": {
+                    "requirement": "15 Kills shortly after Sprinting"
+                },
+                "Raptor": {
+                    "requirement": "30 Clean Kills"
+                },
+                "Mainframe": {
+                    "requirement": "30 Kills affected by your equipment/non-lethal streak"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     }

@@ -3,30 +3,33 @@
         "class": "Marksman Rifles",
         "name": "M8A1",
         "unlock_level": 10,
+        "image": "weapons/Marksman Rifle/M8A1.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "50 Kills with 4.0x Magnification Scope"
-            },
-            "Raptor": {
-                "requirement": "15 Longshot Kills"
-            },
-            "Mainframe": {
-                "requirement": "30 Clean Kills"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "50 Kills with 4.0x Magnification Scope"
+                },
+                "Raptor": {
+                    "requirement": "15 Longshot Kills"
+                },
+                "Mainframe": {
+                    "requirement": "30 Clean Kills"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
@@ -34,30 +37,33 @@
         "class": "Marksman Rifles",
         "name": "Warden 308",
         "unlock_level": 25,
+        "image": "weapons/Marksman Rifle/Warden 308.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "30 Objective Kills"
-            },
-            "Raptor": {
-                "requirement": "50 Kills with 5+ Attachments"
-            },
-            "Mainframe": {
-                "requirement": "30 One Shot One Kill"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "30 Objective Kills"
+                },
+                "Raptor": {
+                    "requirement": "50 Kills with 5+ Attachments"
+                },
+                "Mainframe": {
+                    "requirement": "30 One Shot One Kill"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     },
@@ -65,30 +71,33 @@
         "class": "Marksman Rifles",
         "name": "M34 Novaline",
         "unlock_level": 49,
+        "image": "weapons/Marksman Rifle/M34 Novaline.webp",
         "camos": {
-            "Military": {
-                "requirement": "80 Headshots"
-            },
-            "Diamondback": {
-                "requirement": "15 Long Shot Kills"
-            },
-            "Raptor": {
-                "requirement": "50 Kills with a 4.0x Magnification Scope"
-            },
-            "Mainframe": {
-                "requirement": "50 Kills with Gunfighter Wildcard"
-            },
-            "Shattered Gold": {
-                "requirement": "3 Kills 10x Without Dying"
-            },
-            "Arclight": {
-                "requirement": "10x Double Kills"
-            },
-            "Tempest": {
-                "requirement": "5 Kills Without Dying 3x"
-            },
-            "Singularity": {
-                "requirement": "Unlock Tempest on 30 Weapons"
+            "mp": {
+                "Military": {
+                    "requirement": "80 Headshots"
+                },
+                "Diamondback": {
+                    "requirement": "15 Long Shot Kills"
+                },
+                "Raptor": {
+                    "requirement": "50 Kills with a 4.0x Magnification Scope"
+                },
+                "Mainframe": {
+                    "requirement": "50 Kills with Gunfighter Wildcard"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills 10x Without Dying"
+                },
+                "Arclight": {
+                    "requirement": "10x Double Kills"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying 3x"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest on 30 Weapons"
+                }
             }
         }
     }

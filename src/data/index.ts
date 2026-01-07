@@ -43,7 +43,7 @@ export const CAMO_ORDER: (keyof import('../types').WeaponCamos)[] = [
 
 // Image mapping using local public folder
 // import.meta.env.BASE_URL handles both dev ('/') and prod ('/camo/')
-const BASE_URL = `${import.meta.env.BASE_URL}camos`;
+const BASE_URL = `${import.meta.env.BASE_URL}camos/mp`;
 
 export const CAMO_IMAGES: Record<string, string> = {
     "Military": `${BASE_URL}/Ruby_Snake.webp`,

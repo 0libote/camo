@@ -12,7 +12,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
     return (
         <div className="grid grid-cols-4 gap-2 overflow-visible">
             {CAMO_ORDER.map((camoName, index) => {
-                const camoData = weapon.camos[camoName];
+                const camoData = weapon.camos.mp[camoName];
                 if (!camoData) return null;
 
                 const status = getCamoStatus(weapon, camoName, progress);

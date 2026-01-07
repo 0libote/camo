@@ -12,7 +12,8 @@ interface Props {
 }
 
 export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverStart, onHoverEnd }: Props) {
-    const availableCamos = Object.keys(weapon.camos) as CamoName[];
+    // Access MP camos for now
+    const availableCamos = weapon.camos.mp ? (Object.keys(weapon.camos.mp) as CamoName[]) : [];
     const totalCamos = availableCamos.length;
     const completedCount = availableCamos.filter(camo =>
         isCamoCompleted(weapon.name, camo, progress)
@@ -48,6 +49,18 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
             </div>
 
             <div className="p-4 overflow-visible">
+                {/* Weapon Image */}
+                {weapon.image && (
+                    <div className="mb-4 flex justify-center">
+                        <img
+                            src={`${import.meta.env.BASE_URL}${weapon.image}`}
+                            alt={weapon.name}
+                            className="h-24 object-contain"
+                            loading="lazy"
+                        />
+                    </div>
+                )}
+
                 {/* Progress Bar */}
                 <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
                     <div
