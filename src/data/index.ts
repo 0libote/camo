@@ -47,9 +47,9 @@ const BASE_URL = `${import.meta.env.BASE_URL}camos/mp`;
 
 export const CAMO_IMAGES: Record<string, string> = {
     "Military": `${BASE_URL}/Ruby_Snake.webp`,
-    "Diamondback": `${BASE_URL}/diamondback.webp`,
-    "Raptor": `${BASE_URL}/raptor.webp`,
-    "Mainframe": `${BASE_URL}/mainframe.webp`,
+    "Diamondback": `${BASE_URL}/Diamondback.webp`,
+    "Raptor": `${BASE_URL}/Raptor.webp`,
+    "Mainframe": `${BASE_URL}/Mainframe.webp`,
     "Shattered Gold": `${BASE_URL}/Shattered_Gold.webp`,
     "Arclight": `${BASE_URL}/Arclight.webp`,
     "Tempest": `${BASE_URL}/Tempest.webp`,

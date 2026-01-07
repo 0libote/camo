@@ -87,6 +87,18 @@ export function PrestigeCard({ weapon, prestige, onUpdatePrestige }: Props) {
             </div>
 
             <div className="p-4">
+                {/* Weapon Image */}
+                {weapon.image && (
+                    <div className="mb-4 flex justify-center">
+                        <img
+                            src={`${import.meta.env.BASE_URL}${weapon.image}`}
+                            alt={weapon.name}
+                            className="h-24 object-contain"
+                            loading="lazy"
+                        />
+                    </div>
+                )}
+
                 {/* Progress Bar */}
                 <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
                     <div
