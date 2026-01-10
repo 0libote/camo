@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [react()],
   base: '/camo/', // GitHub Pages base URL
   publicDir: '../public',
+  css: {
+    postcss: 'configs',
+  },
   build: {
     outDir: '../dist',
     emptyOutDir: true,
