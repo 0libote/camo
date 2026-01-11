@@ -118,7 +118,7 @@
                     "requirement": "50 Kills with 0 Attachment"
                 },
                 "Mainframe": {
-                    "requirement": "30 Clean Kills"
+                    "requirement": "30 kills without taking damage"
                 },
                 "Shattered Gold": {
                     "requirement": "3 Kills 10x Without Dying"
@@ -183,7 +183,7 @@
                     "requirement": "Get 50 Kills with 5+ attachments"
                 },
                 "Raptor": {
-                    "requirement": "30 Clean Kills"
+                    "requirement": "30 kills without taking damage"
                 },
                 "Mainframe": {
                     "requirement": "20 Kills with an underbarrel launcher equipped"
@@ -217,7 +217,7 @@
                     "requirement": "50 Kills with 0 Attachments"
                 },
                 "Raptor": {
-                    "requirement": "30 Clean Kills"
+                    "requirement": "30 kills without taking damage"
                 },
                 "Mainframe": {
                     "requirement": "50 Kills while Moving"

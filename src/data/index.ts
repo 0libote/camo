@@ -1,3 +1,4 @@
+// Data Imports
 import assaultRifles from './assault_rifles.json';
 import submachineGuns from './submachine_guns.json';
 import shotguns from './shotguns.json';
@@ -7,28 +8,68 @@ import sniperRifles from './sniper_rifles.json';
 import pistols from './pistols.json';
 import launchers from './launchers.json';
 import melee from './melee.json';
+import special from './special.json';
+
+// Manifest Imports
+import assaultRiflesManifest from './manifests/assault_rifles.json';
+import submachineGunsManifest from './manifests/submachine_guns.json';
+import shotgunsManifest from './manifests/shotguns.json';
+import lightMachineGunsManifest from './manifests/light_machine_guns.json';
+import marksmanRiflesManifest from './manifests/marksman_rifles.json';
+import sniperRiflesManifest from './manifests/sniper_rifles.json';
+import pistolsManifest from './manifests/pistols.json';
+import launchersManifest from './manifests/launchers.json';
+import meleeManifest from './manifests/melee.json';
+import specialManifest from './manifests/special.json';
 
 import type { CamoData, Weapon } from '../types';
 
-// Combine all Weapons
-const allWeapons: Weapon[] = [
-    ...assaultRifles,
-    ...submachineGuns,
-    ...shotguns,
-    ...lightMachineGuns,
-    ...marksmanRifles,
-    ...sniperRifles,
-    ...pistols,
-    ...launchers,
-    ...melee
-] as Weapon[];
+const rawDataMap = {
+    "Assault Rifles": assaultRifles,
+    "Submachine Guns": submachineGuns,
+    "Shotguns": shotguns,
+    "Light Machine Guns": lightMachineGuns,
+    "Marksman Rifles": marksmanRifles,
+    "Sniper Rifles": sniperRifles,
+    "Pistols": pistols,
+    "Launchers": launchers,
+    "Melee": melee,
+    "Special": special
+};
+
+const manifests = [
+    { class: "Assault Rifles", data: assaultRiflesManifest },
+    { class: "Submachine Guns", data: submachineGunsManifest },
+    { class: "Shotguns", data: shotgunsManifest },
+    { class: "Light Machine Guns", data: lightMachineGunsManifest },
+    { class: "Marksman Rifles", data: marksmanRiflesManifest },
+    { class: "Sniper Rifles", data: sniperRiflesManifest },
+    { class: "Pistols", data: pistolsManifest },
+    { class: "Launchers", data: launchersManifest },
+    { class: "Melee", data: meleeManifest },
+    { class: "Special", data: specialManifest }
+];
+
+// Combine all Weapons using manifests as the master list
+const allWeapons: Weapon[] = manifests.flatMap(m =>
+    m.data.map(item => {
+        const fullData = (rawDataMap[m.class as keyof typeof rawDataMap] as any[]).find(w => w.name === item.name);
+        return {
+            class: m.class,
+            name: item.name,
+            image: item.image,
+            unlock_level: fullData?.unlock_level ?? 0,
+            camos: fullData?.camos ?? { mp: {} }
+        } as Weapon;
+    })
+);
 
 export const CAMO_DATA: CamoData = {
     weapons: allWeapons,
-    common_camos: {} // No longer using common_camos structure as it's denormalized
+    common_camos: {}
 };
 
-export const WEAPON_CLASSES = Array.from(new Set(CAMO_DATA.weapons.map(w => w.class)));
+export const WEAPON_CLASSES = manifests.map(m => m.class);
 
 export const CAMO_ORDER: (keyof import('../types').WeaponCamos)[] = [
     "Military",
@@ -41,8 +82,6 @@ export const CAMO_ORDER: (keyof import('../types').WeaponCamos)[] = [
     "Singularity"
 ];
 
-// Image mapping using local public folder
-// import.meta.env.BASE_URL handles both dev ('/') and prod ('/camo/')
 const BASE_URL = `${import.meta.env.BASE_URL}camos/mp`;
 
 export const CAMO_IMAGES: Record<string, string> = {

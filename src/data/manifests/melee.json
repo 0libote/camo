@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Knife",
+        "image": "weapons/Melee/Knife.webp"
+    },
+    {
+        "name": "Flatline Mk.II",
+        "image": "weapons/Melee/Flatline Mk.II.webp"
+    },
+    {
+        "name": "Ballistic Knife",
+        "image": "weapons/Melee/Ballistic Knife.webp"
+    }
+]

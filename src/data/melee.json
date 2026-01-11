@@ -16,7 +16,7 @@
                     "requirement": "15 Kills shortly after sliding, diving, walljump"
                 },
                 "Mainframe": {
-                    "requirement": "30 Clean Kills"
+                    "requirement": "30 kills without taking damage"
                 },
                 "Shattered Gold": {
                     "requirement": "3 Kills 10x Without Dying"
@@ -81,7 +81,7 @@
                     "requirement": "15 Kills shortly after Sprinting"
                 },
                 "Raptor": {
-                    "requirement": "30 Clean Kills"
+                    "requirement": "30 kills without taking damage"
                 },
                 "Mainframe": {
                     "requirement": "30 Kills affected by your equipment/non-lethal streak"

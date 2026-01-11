@@ -1,0 +1,11 @@
+[
+    {
+        "class": "Special",
+        "name": "NX RAVAGER",
+        "unlock_level": 0,
+        "image": "weapons/Special/NX Ravager.webp",
+        "camos": {
+            "mp": {}
+        }
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "name": "M15 Mod 0",
+        "image": "weapons/Assault rifle/M15 Mod 0.webp"
+    },
+    {
+        "name": "AK-27",
+        "image": "weapons/Assault rifle/AK-27.webp"
+    },
+    {
+        "name": "MXR-17",
+        "image": "weapons/Assault rifle/MXR-17.webp"
+    },
+    {
+        "name": "X9 Maverick",
+        "image": "weapons/Assault rifle/X9 Maverick.webp"
+    },
+    {
+        "name": "DS20 Mirage",
+        "image": "weapons/Assault rifle/DS20 Mirage.webp"
+    },
+    {
+        "name": "PeaceKeeper MK1",
+        "image": "weapons/Assault rifle/Peacekeeper Mk1.webp"
+    },
+    {
+        "name": "MADDOX RFB",
+        "image": "weapons/Assault rifle/Maddox RFB.webp"
+    }
+]

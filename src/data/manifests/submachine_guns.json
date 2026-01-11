@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Ryden 45K",
+        "image": "weapons/Submachine Guns/Ryden 45K.webp"
+    },
+    {
+        "name": "RK-9",
+        "image": "weapons/Submachine Guns/RK-9.webp"
+    },
+    {
+        "name": "Razor 9mm",
+        "image": "weapons/Submachine Guns/Razor 9mm.webp"
+    },
+    {
+        "name": "Dravec 45",
+        "image": "weapons/Submachine Guns/Dravec 45.webp"
+    },
+    {
+        "name": "Carbon 57",
+        "image": "weapons/Submachine Guns/Carbon 57.webp"
+    },
+    {
+        "name": "MPC-25",
+        "image": "weapons/Submachine Guns/MPC-25.webp"
+    },
+    {
+        "name": "KOGOT-7",
+        "image": "weapons/Submachine Guns/Kogot-7.webp"
+    }
+]

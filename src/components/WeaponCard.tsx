@@ -62,14 +62,22 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
                 )}
 
                 {/* Progress Bar */}
-                <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
-                    <div
-                        className={`h-full transition-all duration-300 ${isMastered ? 'bg-green-500' : 'bg-blue-500'}`}
-                        style={{ width: `${progressPercent}%` }}
-                    />
-                </div>
+                {totalCamos > 0 ? (
+                    <>
+                        <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
+                            <div
+                                className={`h-full transition-all duration-300 ${isMastered ? 'bg-green-500' : 'bg-blue-500'}`}
+                                style={{ width: `${progressPercent}%` }}
+                            />
+                        </div>
 
-                <CamoGrid weapon={weapon} progress={progress} onToggle={onToggle} />
+                        <CamoGrid weapon={weapon} progress={progress} onToggle={onToggle} />
+                    </>
+                ) : (
+                    <div className="flex flex-col items-center justify-center py-8 text-neutral-500">
+                        <p className="text-sm font-medium">Data coming soon</p>
+                    </div>
+                )}
             </div>
         </div>
     );
