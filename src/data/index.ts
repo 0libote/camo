@@ -1,14 +1,14 @@
 // Data Imports
-import assaultRifles from './assault_rifles.json';
-import submachineGuns from './submachine_guns.json';
-import shotguns from './shotguns.json';
-import lightMachineGuns from './light_machine_guns.json';
-import marksmanRifles from './marksman_rifles.json';
-import sniperRifles from './sniper_rifles.json';
-import pistols from './pistols.json';
-import launchers from './launchers.json';
-import melee from './melee.json';
-import special from './special.json';
+import assaultRifles from './mp/assault_rifles.json';
+import submachineGuns from './mp/submachine_guns.json';
+import shotguns from './mp/shotguns.json';
+import lightMachineGuns from './mp/light_machine_guns.json';
+import marksmanRifles from './mp/marksman_rifles.json';
+import sniperRifles from './mp/sniper_rifles.json';
+import pistols from './mp/pistols.json';
+import launchers from './mp/launchers.json';
+import melee from './mp/melee.json';
+import special from './mp/special.json';
 
 // Manifest Imports
 import assaultRiflesManifest from './manifests/assault_rifles.json';
