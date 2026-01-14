@@ -23,7 +23,11 @@ const MILESTONE_LABELS: Record<WPMilestone, string> = {
     master250: '250'
 };
 
-universalCamos,
+export function WPMilestoneRow({
+    weaponName,
+    weaponImage,
+    weaponCamos,
+    universalCamos,
     completedMilestones,
     onToggle,
     displayMode = 'fraction',
