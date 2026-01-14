@@ -3,11 +3,25 @@ import { CAMO_DATA, WEAPON_CLASSES } from '../data';
 import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
 import { WPMilestoneRow } from './WPMilestoneRow';
 import { WPCamoViewerModal } from './WPCamoViewerModal';
-import { useWPProgress } from '../hooks/useWPProgress';
-import type { WPMilestone } from '../types';
+import type { WPMilestone, UserWPProgress } from '../types';
 
-export function WPWeaponPrestigeView() {
-    const { wpProgress, toggleWPMilestone } = useWPProgress();
+interface Props {
+    displayMode: 'fraction' | 'percentage';
+    wpProgress: UserWPProgress;
+    toggleWPMilestone: (weaponName: string, milestone: WPMilestone) => void;
+    onNavigateToCamos?: (weaponName: string) => void;
+    scrollToWeapon?: string;
+    onScrollComplete?: () => void;
+}
+
+export function WPWeaponPrestigeView({
+    displayMode,
+    wpProgress,
+    toggleWPMilestone,
+    onNavigateToCamos,
+    scrollToWeapon,
+    onScrollComplete
+}: Props) {
     const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [highlightedWeapon, setHighlightedWeapon] = useState<string | null>(null);
@@ -26,6 +40,16 @@ export function WPWeaponPrestigeView() {
         return acc;
     }, 0);
     const overallPercent = totalMilestones > 0 ? Math.round((completedMilestones / totalMilestones) * 100) : 0;
+
+    // Navigate and Scroll Effect
+    useEffect(() => {
+        if (scrollToWeapon && weaponRefs.current[scrollToWeapon]) {
+            setTimeout(() => {
+                weaponRefs.current[scrollToWeapon]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                onScrollComplete?.();
+            }, 100);
+        }
+    }, [scrollToWeapon, onScrollComplete]);
 
     // Clear highlight after animation
     useEffect(() => {
@@ -67,7 +91,11 @@ export function WPWeaponPrestigeView() {
                     </div>
                     <div className="flex items-center gap-4">
                         <div className="text-right">
-                            <div className="text-3xl font-bold text-purple-400">{overallPercent}%</div>
+                            <div className="text-3xl font-bold text-purple-400">
+                                {displayMode === 'percentage'
+                                    ? `${overallPercent}%`
+                                    : `${completedMilestones}/${totalMilestones}`}
+                            </div>
                         </div>
                         <button
                             onClick={() => setIsViewerOpen(true)}
@@ -155,6 +183,8 @@ export function WPWeaponPrestigeView() {
                                 universalCamos={WP_UNIVERSAL_CAMOS}
                                 completedMilestones={completedMilestones}
                                 onToggle={(milestone) => toggleWPMilestone(weapon.name, milestone)}
+                                displayMode={displayMode}
+                                onNavigateToCamos={onNavigateToCamos}
                             />
                         </div>
                     );

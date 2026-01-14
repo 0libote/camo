@@ -11,9 +11,35 @@ interface Props {
     displayMode: 'fraction' | 'percentage';
     onHoverStart?: () => void;
     onHoverEnd?: () => void;
+    onNavigateToWP?: (weaponName: string) => void;
+    scrollToWeapon?: string;
+    onScrollComplete?: () => void;
 }
 
-export function WeaponList({ className, weapons, progress, onToggle, displayMode, onHoverStart, onHoverEnd }: Props) {
+import { useRef, useEffect } from 'react';
+
+export function WeaponList({
+    className,
+    weapons,
+    progress,
+    onToggle,
+    displayMode,
+    onHoverStart,
+    onHoverEnd,
+    onNavigateToWP,
+    scrollToWeapon,
+    onScrollComplete
+}: Props) {
+    const weaponRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+    useEffect(() => {
+        if (scrollToWeapon && weaponRefs.current[scrollToWeapon]) {
+            setTimeout(() => {
+                weaponRefs.current[scrollToWeapon]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                onScrollComplete?.();
+            }, 100);
+        }
+    }, [scrollToWeapon, onScrollComplete]);
     const shatteredGoldCount = getClassShatteredGoldCount(className, progress);
     const requiredForArclight = ARCLIGHT_CLASS_REQUIREMENTS[className] || 0;
     const isActualClass = requiredForArclight > 0 && !className.includes('weapons found');
@@ -44,15 +70,20 @@ export function WeaponList({ className, weapons, progress, onToggle, displayMode
             {/* Weapons Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {weapons.map(weapon => (
-                    <WeaponCard
+                    <div
                         key={weapon.name}
-                        weapon={weapon}
-                        progress={progress}
-                        onToggle={onToggle}
-                        displayMode={displayMode}
-                        onHoverStart={onHoverStart}
-                        onHoverEnd={onHoverEnd}
-                    />
+                        ref={el => { weaponRefs.current[weapon.name] = el; }}
+                    >
+                        <WeaponCard
+                            weapon={weapon}
+                            progress={progress}
+                            onToggle={onToggle}
+                            displayMode={displayMode}
+                            onHoverStart={onHoverStart}
+                            onHoverEnd={onHoverEnd}
+                            onNavigateToWP={onNavigateToWP}
+                        />
+                    </div>
                 ))}
             </div>
         </div>

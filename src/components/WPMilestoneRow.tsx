@@ -8,6 +8,8 @@ interface Props {
     universalCamos: Record<string, WPCamoInfo>;
     completedMilestones: Record<WPMilestone, boolean>;
     onToggle: (milestone: WPMilestone) => void;
+    displayMode?: 'fraction' | 'percentage';
+    onNavigateToCamos?: (weaponName: string) => void;
 }
 
 const MILESTONE_ORDER: WPMilestone[] = ['prestige1', 'prestige2', 'master100', 'master150', 'master200', 'master250'];
@@ -21,13 +23,11 @@ const MILESTONE_LABELS: Record<WPMilestone, string> = {
     master250: '250'
 };
 
-export function WPMilestoneRow({
-    weaponName,
-    weaponImage,
-    weaponCamos,
-    universalCamos,
+universalCamos,
     completedMilestones,
-    onToggle
+    onToggle,
+    displayMode = 'fraction',
+    onNavigateToCamos
 }: Props) {
     const [hoveredMilestone, setHoveredMilestone] = useState<WPMilestone | null>(null);
 
@@ -48,14 +48,33 @@ export function WPMilestoneRow({
         <div className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-colors rounded-xl overflow-visible relative">
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
-                <h3 className="text-base font-semibold text-white uppercase">{weaponName}</h3>
+                <div className="flex items-center gap-2">
+                    <h3 className="text-base font-semibold text-white uppercase">{weaponName}</h3>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onNavigateToCamos?.(weaponName);
+                        }}
+                        className="p-1 text-neutral-500 hover:text-blue-400 transition-colors rounded hover:bg-blue-500/10"
+                        title="View Camos"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
                 <div className="flex items-center gap-2">
                     {isFullyCompleted && (
                         <span className="text-xs font-medium text-green-400 bg-green-500/10 px-2 py-0.5 rounded">
                             Complete
                         </span>
                     )}
-                    <span className="text-sm text-neutral-400">{completedCount}/6</span>
+                    <span className="text-sm text-neutral-400">
+                        {displayMode === 'percentage'
+                            ? `${Math.round(progressPercent)}%`
+                            : `${completedCount}/6`
+                        }
+                    </span>
                 </div>
             </div>
 

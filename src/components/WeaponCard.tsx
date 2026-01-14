@@ -9,9 +9,18 @@ interface Props {
     displayMode: 'fraction' | 'percentage';
     onHoverStart?: () => void;
     onHoverEnd?: () => void;
+    onNavigateToWP?: (weaponName: string) => void;
 }
 
-export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverStart, onHoverEnd }: Props) {
+export function WeaponCard({
+    weapon,
+    progress,
+    onToggle,
+    displayMode,
+    onHoverStart,
+    onHoverEnd,
+    onNavigateToWP
+}: Props) {
     // Access MP camos for now
     const availableCamos = weapon.camos.mp ? (Object.keys(weapon.camos.mp) as CamoName[]) : [];
     const totalCamos = availableCamos.length;
@@ -30,9 +39,23 @@ export function WeaponCard({ weapon, progress, onToggle, displayMode, onHoverSta
         >
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
-                <h3 className="text-base font-semibold text-white uppercase">
-                    {weapon.name}
-                </h3>
+                <div className="flex items-center gap-2">
+                    <h3 className="text-base font-semibold text-white uppercase">
+                        {weapon.name}
+                    </h3>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onNavigateToWP?.(weapon.name);
+                        }}
+                        className="p-1 text-neutral-500 hover:text-purple-400 transition-colors rounded hover:bg-purple-500/10"
+                        title="View Weapon Prestige"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </button>
+                </div>
                 <div className="flex items-center gap-2">
                     {isMastered && (
                         <span className="text-xs font-medium text-green-400 bg-green-500/10 px-2 py-0.5 rounded">

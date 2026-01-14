@@ -11,7 +11,9 @@ import type { Weapon } from './types';
 function App() {
   const {
     progress,
+    wpProgress,
     toggleCamo,
+    toggleWPMilestone,
     resetProgress,
     exportProgress,
     importProgress
@@ -21,6 +23,7 @@ function App() {
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
   const [displayMode, setDisplayMode] = useState<'fraction' | 'percentage'>('fraction');
   const [uiScale, setUiScale] = useState(1);
+  const [scrollToWeapon, setScrollToWeapon] = useState<string | null>(null);
 
 
   const handleImportClick = () => {
@@ -32,6 +35,24 @@ function App() {
       if (file) importProgress(file);
     };
     input.click();
+  };
+
+  const handleNavigateToWP = (weaponName: string) => {
+    const weapon = CAMO_DATA.weapons.find(w => w.name === weaponName);
+    if (weapon) {
+      setSelectedClass(weapon.class);
+      setMainTab('wp');
+      setScrollToWeapon(weaponName);
+    }
+  };
+
+  const handleNavigateToCamos = (weaponName: string) => {
+    const weapon = CAMO_DATA.weapons.find(w => w.name === weaponName);
+    if (weapon) {
+      setSelectedClass(weapon.class);
+      setMainTab('camos');
+      setScrollToWeapon(weaponName);
+    }
   };
 
   return (
@@ -96,12 +117,22 @@ function App() {
                     progress={progress}
                     onToggle={toggleCamo}
                     displayMode={displayMode}
+                    onNavigateToWP={handleNavigateToWP}
+                    scrollToWeapon={scrollToWeapon === null ? undefined : (mainTab === 'camos' ? scrollToWeapon : undefined)}
+                    onScrollComplete={() => setScrollToWeapon(null)}
                   />
                 </div>
               </div>
             ) : (
               <div className="animate-fade-in pb-10">
-                <WPWeaponPrestigeView />
+                <WPWeaponPrestigeView
+                  displayMode={displayMode}
+                  wpProgress={wpProgress}
+                  toggleWPMilestone={toggleWPMilestone}
+                  onNavigateToCamos={handleNavigateToCamos}
+                  scrollToWeapon={scrollToWeapon === null ? undefined : (mainTab === 'wp' ? scrollToWeapon : undefined)}
+                  onScrollComplete={() => setScrollToWeapon(null)}
+                />
               </div>
             )}
           </main>

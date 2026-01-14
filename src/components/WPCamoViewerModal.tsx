@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import type { WPMilestone } from '../types';
 import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
 
@@ -33,6 +33,17 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
     const [search, setSearch] = useState('');
     const [filterTier, setFilterTier] = useState<FilterTier>('all');
     const [filterType, setFilterType] = useState<FilterType>('all');
+
+    const handleEscape = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+    }, [onClose]);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.addEventListener('keydown', handleEscape);
+            return () => document.removeEventListener('keydown', handleEscape);
+        }
+    }, [isOpen, handleEscape]);
 
     // Build flat list of all camos
     const allCamos = useMemo(() => {
@@ -110,7 +121,10 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in"
+            onClick={(e) => e.target === e.currentTarget && onClose()}
+        >
             <div className="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl">
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-800">
