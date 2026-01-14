@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import type { WPMilestone, WPCamoInfo } from '../types';
+import type { WPMilestone } from '../types';
 import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
 
 interface Props {
@@ -141,8 +141,8 @@ export function WPCamoViewerModal({ isOpen, onClose }: Props) {
                                         key={tier}
                                         onClick={() => setFilterTier(tier)}
                                         className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${filterTier === tier
-                                                ? 'bg-purple-500 text-white'
-                                                : 'bg-neutral-800 text-neutral-400 hover:text-white'
+                                            ? 'bg-purple-500 text-white'
+                                            : 'bg-neutral-800 text-neutral-400 hover:text-white'
                                             }`}
                                     >
                                         {tier === 'all' ? 'All' : tier === 'prestige1' ? 'P1' : tier === 'prestige2' ? 'P2' : tier === 'master' ? 'Master' : 'Max'}
@@ -160,8 +160,8 @@ export function WPCamoViewerModal({ isOpen, onClose }: Props) {
                                         key={type}
                                         onClick={() => setFilterType(type)}
                                         className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${filterType === type
-                                                ? 'bg-purple-500 text-white'
-                                                : 'bg-neutral-800 text-neutral-400 hover:text-white'
+                                            ? 'bg-purple-500 text-white'
+                                            : 'bg-neutral-800 text-neutral-400 hover:text-white'
                                             }`}
                                     >
                                         {type === 'all' ? 'All' : type === 'universal' ? 'Universal' : 'Per Gun'}
