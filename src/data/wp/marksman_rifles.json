@@ -1,0 +1,53 @@
+{
+    "M8A1": {
+        "prestige1": {
+            "name": "Cherry Blossom",
+            "image": "prestige1/CherryBlossom_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Clay",
+            "image": "prestige2/Clay_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Dragon",
+            "image": "max/Dragon_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "Warden 308": {
+        "prestige1": {
+            "name": "Psychedelic",
+            "image": "prestige1/Psychedelic_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Uranium",
+            "image": "prestige2/Uranium_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Marbled",
+            "image": "max/Marbled_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "M34 Novaline": {
+        "prestige1": {
+            "name": "Shattered",
+            "image": "prestige1/Shattered_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Cohesion",
+            "image": "prestige2/Cohesion_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Koi Pond",
+            "image": "max/KoiPond_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    }
+}

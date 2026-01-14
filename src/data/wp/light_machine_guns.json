@@ -1,0 +1,36 @@
+{
+    "MK.78": {
+        "prestige1": {
+            "name": "Invertebrate",
+            "image": "prestige1/Invertebrate_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Mitosis",
+            "image": "prestige2/Mitosis_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Luna",
+            "image": "max/Luna_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "XM325": {
+        "prestige1": {
+            "name": "Voltaic",
+            "image": "prestige1/Voltaic_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Fated",
+            "image": "prestige2/Fated_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Lacerate",
+            "image": "max/Lacerate_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    }
+}

@@ -1,0 +1,121 @@
+{
+    "M15 Mod 0": {
+        "prestige1": {
+            "name": "Graffiti",
+            "image": "prestige1/Graffiti_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Aces",
+            "image": "prestige2/Aces_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Obscured",
+            "image": "max/Obscured_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "AK-27": {
+        "prestige1": {
+            "name": "Carbon Fiber",
+            "image": "prestige1/CarbonFiber_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Shackled",
+            "image": "prestige2/Shackled_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Lotus",
+            "image": "max/Lotus_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "MXR-17": {
+        "prestige1": {
+            "name": "Skulls",
+            "image": "prestige1/Skulls_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Dia De Muertos",
+            "image": "prestige2/DiaDeMuertos_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Afterlife",
+            "image": "max/Afterlife_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "X9 Maverick": {
+        "prestige1": {
+            "name": "Strands",
+            "image": "prestige1/Strands_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Murder",
+            "image": "prestige2/Murder_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Hellfire",
+            "image": "max/Hellfire_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "DS20 Mirage": {
+        "prestige1": {
+            "name": "Fracture",
+            "image": "prestige1/Fracture_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Nocturnal",
+            "image": "prestige2/Nocturnal_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Oni",
+            "image": "max/Oni_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "Peacekeeper Mk1": {
+        "prestige1": {
+            "name": "Prowler",
+            "image": "prestige1/Prowler_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Ocean",
+            "image": "prestige2/Ocean_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Cyborg",
+            "image": "max/Cyborg_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "Maddox RFB": {
+        "prestige1": {
+            "name": "Galactic",
+            "image": "prestige1/Galactic_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Sand",
+            "image": "prestige2/Sand_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Electromagnetic",
+            "image": "max/Electromagnetic_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    }
+}

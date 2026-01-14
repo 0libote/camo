@@ -53,3 +53,16 @@ export interface WeaponPrestige {
 }
 
 export type UserPrestige = Record<string, WeaponPrestige>; // Key is weapon name
+
+// Weapon Prestige Camo System
+export type WPMilestone = 'prestige1' | 'prestige2' | 'master100' | 'master150' | 'master200' | 'master250';
+
+export interface WPCamoInfo {
+    name: string;
+    image: string;
+    requirement: string;
+    universal?: boolean;
+}
+
+export type WPWeaponData = Partial<Record<WPMilestone, WPCamoInfo>>;
+export type UserWPProgress = Record<string, Record<WPMilestone, boolean>>; // Key is weapon name

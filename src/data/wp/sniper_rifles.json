@@ -1,0 +1,53 @@
+{
+    "VS Recon": {
+        "prestige1": {
+            "name": "Arachnid",
+            "image": "prestige1/Arachnid_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Sulfur",
+            "image": "prestige2/Sulfur_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Nightlight",
+            "image": "max/Nightlight_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "Shadow SK": {
+        "prestige1": {
+            "name": "Frenetic",
+            "image": "prestige1/Frenetic_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Mud",
+            "image": "prestige2/Mud_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Kintsugi",
+            "image": "max/Kintsugi_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "XR-3 Ion": {
+        "prestige1": {
+            "name": "Burner",
+            "image": "prestige1/Burner_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Serenity",
+            "image": "prestige2/Serenity_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Snake Eyes",
+            "image": "max/SnakeEyes_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    }
+}

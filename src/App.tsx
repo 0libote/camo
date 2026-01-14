@@ -4,6 +4,7 @@ import { WeaponList } from './components/WeaponList';
 import { MasterySummary } from './components/MasterySummary';
 import { SettingsModal } from './components/SettingsModal';
 import { PrestigeView } from './components/PrestigeView';
+import { WPWeaponPrestigeView } from './components/WPWeaponPrestigeView';
 import { useProgress } from './hooks/useProgress';
 import { CAMO_DATA, WEAPON_CLASSES } from './data';
 import type { Weapon } from './types';
@@ -19,7 +20,7 @@ function App() {
     importProgress
   } = useProgress();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [mainTab, setMainTab] = useState<'camos' | 'prestige'>('camos');
+  const [mainTab, setMainTab] = useState<'camos' | 'prestige' | 'wp'>('camos');
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
   const [displayMode, setDisplayMode] = useState<'fraction' | 'percentage'>('fraction');
   const [uiScale, setUiScale] = useState(1);
@@ -66,6 +67,15 @@ function App() {
                 >
                   Weapon Levels
                 </button>
+                <button
+                  onClick={() => setMainTab('wp')}
+                  className={`px-6 py-2 text-sm font-medium transition-colors rounded-md ${mainTab === 'wp'
+                    ? 'bg-purple-500 text-white'
+                    : 'text-neutral-400 hover:text-white'
+                    }`}
+                >
+                  Weapon Prestige
+                </button>
               </div>
             </div>
 
@@ -101,12 +111,16 @@ function App() {
                   />
                 </div>
               </div>
-            ) : (
+            ) : mainTab === 'prestige' ? (
               <div className="animate-fade-in pb-10">
                 <PrestigeView
                   prestige={prestige}
                   onUpdatePrestige={updatePrestige}
                 />
+              </div>
+            ) : (
+              <div className="animate-fade-in pb-10">
+                <WPWeaponPrestigeView />
               </div>
             )}
           </main>

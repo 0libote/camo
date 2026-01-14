@@ -1,0 +1,53 @@
+{
+    "M10 Breacher": {
+        "prestige1": {
+            "name": "Trade Tools",
+            "image": "prestige1/TradeTools_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Sunset Zebra",
+            "image": "prestige2/SunsetZebra_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Overdrive",
+            "image": "max/Overdrive_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "Echo 12": {
+        "prestige1": {
+            "name": "Zombies",
+            "image": "prestige1/Zombies_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Pack-A-Punch",
+            "image": "prestige2/PackAPunch_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Weaponized115",
+            "image": "max/Weaponized115_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    },
+    "Akita": {
+        "prestige1": {
+            "name": "Fissure",
+            "image": "prestige1/Fissure_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 1"
+        },
+        "prestige2": {
+            "name": "Slither",
+            "image": "prestige2/Slither_Akita_Camo_Icon_BO7.webp",
+            "requirement": "Weapon Prestige 2"
+        },
+        "master250": {
+            "name": "Hexed",
+            "image": "max/Hexed_Camo_Icon_BO7.webp",
+            "requirement": "Prestige Master Level 250"
+        }
+    }
+}
