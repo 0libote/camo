@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { CAMO_DATA, WEAPON_CLASSES } from '../data';
 import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
 import { WPMilestoneRow } from './WPMilestoneRow';
@@ -10,6 +10,8 @@ export function WPWeaponPrestigeView() {
     const { wpProgress, toggleWPMilestone } = useWPProgress();
     const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
+    const [highlightedWeapon, setHighlightedWeapon] = useState<string | null>(null);
+    const weaponRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
     // Get weapons from manifests (source of truth)
     const weapons = CAMO_DATA.weapons.filter(w => w.class === selectedClass);
@@ -24,6 +26,33 @@ export function WPWeaponPrestigeView() {
         return acc;
     }, 0);
     const overallPercent = totalMilestones > 0 ? Math.round((completedMilestones / totalMilestones) * 100) : 0;
+
+    // Clear highlight after animation
+    useEffect(() => {
+        if (highlightedWeapon) {
+            const timer = setTimeout(() => setHighlightedWeapon(null), 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [highlightedWeapon]);
+
+    // Navigate to weapon card when clicked in modal
+    const handleNavigateToWeapon = (weaponName: string) => {
+        // Find the weapon's class
+        const weapon = CAMO_DATA.weapons.find(w => w.name === weaponName);
+        if (!weapon) return;
+
+        // Switch to the correct class
+        setSelectedClass(weapon.class);
+        setHighlightedWeapon(weaponName);
+
+        // Scroll to the weapon card after a short delay for render
+        setTimeout(() => {
+            const element = weaponRefs.current[weaponName];
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 100);
+    };
 
     return (
         <div className="space-y-6 animate-fade-in">
@@ -81,12 +110,14 @@ export function WPWeaponPrestigeView() {
                     const weaponCamos = WP_WEAPON_DATA[weapon.name];
                     const hasWPData = !!weaponCamos;
                     const completedMilestones = wpProgress[weapon.name] || {} as Record<WPMilestone, boolean>;
+                    const isHighlighted = highlightedWeapon === weapon.name;
 
                     // Show "Data coming soon" card for weapons without WP data
                     if (!hasWPData) {
                         return (
                             <div
                                 key={weapon.name}
+                                ref={el => weaponRefs.current[weapon.name] = el}
                                 className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden"
                             >
                                 <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
@@ -112,15 +143,20 @@ export function WPWeaponPrestigeView() {
                     }
 
                     return (
-                        <WPMilestoneRow
+                        <div
                             key={weapon.name}
-                            weaponName={weapon.name}
-                            weaponImage={weapon.image}
-                            weaponCamos={weaponCamos}
-                            universalCamos={WP_UNIVERSAL_CAMOS}
-                            completedMilestones={completedMilestones}
-                            onToggle={(milestone) => toggleWPMilestone(weapon.name, milestone)}
-                        />
+                            ref={el => weaponRefs.current[weapon.name] = el}
+                            className={`transition-all duration-500 ${isHighlighted ? 'ring-2 ring-purple-500 ring-offset-2 ring-offset-neutral-950' : ''}`}
+                        >
+                            <WPMilestoneRow
+                                weaponName={weapon.name}
+                                weaponImage={weapon.image}
+                                weaponCamos={weaponCamos}
+                                universalCamos={WP_UNIVERSAL_CAMOS}
+                                completedMilestones={completedMilestones}
+                                onToggle={(milestone) => toggleWPMilestone(weapon.name, milestone)}
+                            />
+                        </div>
                     );
                 })}
             </div>
@@ -129,6 +165,7 @@ export function WPWeaponPrestigeView() {
             <WPCamoViewerModal
                 isOpen={isViewerOpen}
                 onClose={() => setIsViewerOpen(false)}
+                onNavigateToWeapon={handleNavigateToWeapon}
             />
         </div>
     );

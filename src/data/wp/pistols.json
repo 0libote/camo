@@ -2,51 +2,51 @@
     "Jager 45": {
         "prestige1": {
             "name": "Ronin",
-            "image": "prestige1/Ronin_Camo_Icon_BO7.webp",
+            "image": "prestige1/Ronin.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Jasper",
-            "image": "prestige2/Jasper_Camo_Icon_BO7.webp",
+            "image": "prestige2/Jasper.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Aced",
-            "image": "max/Aced_Camo_Icon_BO7.webp",
+            "image": "max/Aced.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "Velox 5.7": {
         "prestige1": {
             "name": "Plasma",
-            "image": "prestige1/Plasma_Camo_Icon_BO7.webp",
+            "image": "prestige1/Plasma.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Onyx",
-            "image": "prestige2/Onyx_Camo_Icon_BO7.webp",
+            "image": "prestige2/Onyx.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Moonlit",
-            "image": "max/Moonlit_Camo_Icon_BO7.webp",
+            "image": "max/Moonlit.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "Coda 9": {
         "prestige1": {
             "name": "Art Of War",
-            "image": "prestige1/ArtOfWar_Camo_Icon_BO7.webp",
+            "image": "prestige1/ArtOfWar.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Moss",
-            "image": "prestige2/Moss_Camo_Icon_BO7.webp",
+            "image": "prestige2/Moss.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Benjamins",
-            "image": "max/Benjamins_Camo_Icon_BO7.webp",
+            "image": "max/Benjamins.webp",
             "requirement": "Prestige Master Level 250"
         }
     }

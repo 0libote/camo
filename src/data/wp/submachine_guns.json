@@ -2,119 +2,119 @@
     "Ryden 45K": {
         "prestige1": {
             "name": "Aqua",
-            "image": "prestige1/Aqua_Camo_Icon_BO7.webp",
+            "image": "prestige1/Aqua.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Azalea",
-            "image": "prestige2/Azalea_Camo_Icon_BO7.webp",
+            "image": "prestige2/Azalea.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Tagged",
-            "image": "max/Tagged_Camo_Icon_BO7.webp",
+            "image": "max/Tagged.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "RK-9": {
         "prestige1": {
             "name": "Billow",
-            "image": "prestige1/Billow_Camo_Icon_BO7.webp",
+            "image": "prestige1/Billow.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Neon Zebra",
-            "image": "prestige2/NeonZebra_Camo_Icon_BO7.webp",
+            "image": "prestige2/NeonZebra.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Spotted",
-            "image": "max/Spotted_Camo_Icon_BO7.webp",
+            "image": "max/Spotted.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "Razor 9mm": {
         "prestige1": {
             "name": "Leopard",
-            "image": "prestige1/Leopard_Camo_Icon_BO7.webp",
+            "image": "prestige1/Leopard.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Scorch",
-            "image": "prestige2/Scorch_Camo_Icon_BO7.webp",
+            "image": "prestige2/Scorch.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Heatwave",
-            "image": "max/Heatwave_Camo_Icon_BO7.webp",
+            "image": "max/Heatwave.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "Dravec 45": {
         "prestige1": {
             "name": "Kawaii",
-            "image": "prestige1/Kawaii_Camo_Icon_BO7.webp",
+            "image": "prestige1/Kawaii.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Concrete",
-            "image": "prestige2/Concrete_Camo_Icon_BO7.webp",
+            "image": "prestige2/Concrete.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Sealed",
-            "image": "max/Sealed_Camo_Icon_BO7.webp",
+            "image": "max/Sealed.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "Carbon 57": {
         "prestige1": {
             "name": "Paladin",
-            "image": "prestige1/Paladin_Camo_Icon_BO7.webp",
+            "image": "prestige1/Paladin.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Wavelength",
-            "image": "prestige2/Wavelength_Camo_Icon_BO7.webp",
+            "image": "prestige2/Wavelength.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Shrouded",
-            "image": "max/Shrouded_Camo_Icon_BO7.webp",
+            "image": "max/Shrouded.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "MPC-25": {
         "prestige1": {
             "name": "Comics",
-            "image": "prestige1/Comics_Camo_Icon_BO7.webp",
+            "image": "prestige1/Comics.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Plum",
-            "image": "prestige2/Plum_Camo_Icon_BO7.webp",
+            "image": "prestige2/Plum.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Bacon",
-            "image": "max/Bacon_Camo_Icon_BO7.webp",
+            "image": "max/Bacon.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
-    "Kogot-7": {
+    "KOGOT-7": {
         "prestige1": {
             "name": "Haste",
-            "image": "prestige1/Haste_Camo_Icon_BO7.webp",
+            "image": "prestige1/Haste.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Fragmented",
-            "image": "prestige2/Fragmented_Camo_Icon_BO7.webp",
+            "image": "prestige2/Fragmented.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Spinal",
-            "image": "max/Spinal_Camo_Icon_BO7.webp",
+            "image": "max/Spinal.webp",
             "requirement": "Prestige Master Level 250"
         }
     }

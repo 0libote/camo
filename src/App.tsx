@@ -3,7 +3,6 @@ import { Header } from './components/Header';
 import { WeaponList } from './components/WeaponList';
 import { MasterySummary } from './components/MasterySummary';
 import { SettingsModal } from './components/SettingsModal';
-import { PrestigeView } from './components/PrestigeView';
 import { WPWeaponPrestigeView } from './components/WPWeaponPrestigeView';
 import { useProgress } from './hooks/useProgress';
 import { CAMO_DATA, WEAPON_CLASSES } from './data';
@@ -12,15 +11,13 @@ import type { Weapon } from './types';
 function App() {
   const {
     progress,
-    prestige,
     toggleCamo,
-    updatePrestige,
     resetProgress,
     exportProgress,
     importProgress
   } = useProgress();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [mainTab, setMainTab] = useState<'camos' | 'prestige' | 'wp'>('camos');
+  const [mainTab, setMainTab] = useState<'camos' | 'wp'>('camos');
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
   const [displayMode, setDisplayMode] = useState<'fraction' | 'percentage'>('fraction');
   const [uiScale, setUiScale] = useState(1);
@@ -57,15 +54,6 @@ function App() {
                     }`}
                 >
                   Camos
-                </button>
-                <button
-                  onClick={() => setMainTab('prestige')}
-                  className={`px-6 py-2 text-sm font-medium transition-colors rounded-md ${mainTab === 'prestige'
-                    ? 'bg-blue-500 text-white'
-                    : 'text-neutral-400 hover:text-white'
-                    }`}
-                >
-                  Weapon Levels
                 </button>
                 <button
                   onClick={() => setMainTab('wp')}
@@ -110,13 +98,6 @@ function App() {
                     displayMode={displayMode}
                   />
                 </div>
-              </div>
-            ) : mainTab === 'prestige' ? (
-              <div className="animate-fade-in pb-10">
-                <PrestigeView
-                  prestige={prestige}
-                  onUpdatePrestige={updatePrestige}
-                />
               </div>
             ) : (
               <div className="animate-fade-in pb-10">

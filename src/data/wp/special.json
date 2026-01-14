@@ -1,18 +1,18 @@
 {
-    "NX Ravager": {
+    "NX RAVAGER": {
         "prestige1": {
             "name": "Stuck",
-            "image": "prestige1/Stuck_Camo_Icon_BO7.webp",
+            "image": "prestige1/Stuck.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Sequence",
-            "image": "prestige2/Sequence_Camo_Icon_BO7.webp",
+            "image": "prestige2/Sequence.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Ripple",
-            "image": "max/Ripple_Camo_Icon_BO7.webp",
+            "image": "max/Ripple.webp",
             "requirement": "Prestige Master Level 250"
         }
     }

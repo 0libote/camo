@@ -2,51 +2,51 @@
     "Knife": {
         "prestige1": {
             "name": "Vivid",
-            "image": "prestige1/Vivid_Camo_Icon_BO7.webp",
+            "image": "prestige1/Vivid.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Tangerine",
-            "image": "prestige2/Tangerine_Camo_Icon_BO7.webp",
+            "image": "prestige2/Tangerine.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Igneous",
-            "image": "max/Igneous_Camo_Icon_BO7.webp",
+            "image": "max/Igneous.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "Flatline Mk.II": {
         "prestige1": {
             "name": "Glyph",
-            "image": "prestige1/Glyph_Camo_Icon_BO7.webp",
+            "image": "prestige1/Glyph.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Runoff",
-            "image": "prestige2/Runoff_Camo_Icon_BO7.webp",
+            "image": "prestige2/Runoff.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Qwerty",
-            "image": "max/Qwerty_Camo_Icon_BO7.webp",
+            "image": "max/Qwerty.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "Ballistic Knife": {
         "prestige1": {
             "name": "Stinger",
-            "image": "prestige1/Stinger_Camo_Icon_BO7.webp",
+            "image": "prestige1/Stinger.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Barbed",
-            "image": "prestige2/Barbed_Camo_Icon_BO7.webp",
+            "image": "prestige2/Barbed.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Elegant",
-            "image": "max/Elegant_Camo_Icon_BO7.webp",
+            "image": "max/Elegant.webp",
             "requirement": "Prestige Master Level 250"
         }
     }

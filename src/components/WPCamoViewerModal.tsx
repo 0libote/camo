@@ -5,6 +5,7 @@ import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
 interface Props {
     isOpen: boolean;
     onClose: () => void;
+    onNavigateToWeapon?: (weaponName: string) => void;
 }
 
 type FilterTier = 'all' | 'prestige1' | 'prestige2' | 'master' | 'max';
@@ -15,7 +16,8 @@ interface CamoEntry {
     image: string;
     weapon: string;
     milestone: WPMilestone;
-    isUniversal: boolean;
+    isUniversal: boolean; // true for per-gun camos (P1, P2, Max) - per user request
+    isPerGun: boolean;    // true for master camos (100, 150, 200) - per user request
 }
 
 const MILESTONE_DISPLAY: Record<WPMilestone, string> = {
@@ -27,7 +29,7 @@ const MILESTONE_DISPLAY: Record<WPMilestone, string> = {
     master250: 'Master 250'
 };
 
-export function WPCamoViewerModal({ isOpen, onClose }: Props) {
+export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props) {
     const [search, setSearch] = useState('');
     const [filterTier, setFilterTier] = useState<FilterTier>('all');
     const [filterType, setFilterType] = useState<FilterType>('all');
@@ -36,18 +38,19 @@ export function WPCamoViewerModal({ isOpen, onClose }: Props) {
     const allCamos = useMemo(() => {
         const camos: CamoEntry[] = [];
 
-        // Add universal camos
+        // Add universal camos (master100, 150, 200 - same for all guns, labeled PER GUN per user)
         Object.entries(WP_UNIVERSAL_CAMOS).forEach(([milestone, camo]) => {
             camos.push({
                 name: camo.name,
                 image: camo.image,
                 weapon: 'All Weapons',
                 milestone: milestone as WPMilestone,
-                isUniversal: true
+                isUniversal: false,
+                isPerGun: true
             });
         });
 
-        // Add per-weapon camos
+        // Add per-weapon camos (P1, P2, Max - unique to each gun, labeled UNIVERSAL per user)
         Object.entries(WP_WEAPON_DATA).forEach(([weaponName, weaponCamos]) => {
             if (!weaponCamos) return;
             Object.entries(weaponCamos).forEach(([milestone, camo]) => {
@@ -57,7 +60,8 @@ export function WPCamoViewerModal({ isOpen, onClose }: Props) {
                         image: camo.image,
                         weapon: weaponName,
                         milestone: milestone as WPMilestone,
-                        isUniversal: false
+                        isUniversal: true,
+                        isPerGun: false
                     });
                 }
             });
@@ -86,15 +90,22 @@ export function WPCamoViewerModal({ isOpen, onClose }: Props) {
                 if (filterTier === 'max' && camo.milestone !== 'master250') return false;
             }
 
-            // Type filter
+            // Type filter (per user: unique = universal, every gun = per gun)
             if (filterType !== 'all') {
                 if (filterType === 'universal' && !camo.isUniversal) return false;
-                if (filterType === 'unique' && camo.isUniversal) return false;
+                if (filterType === 'unique' && !camo.isPerGun) return false;
             }
 
             return true;
         });
     }, [allCamos, search, filterTier, filterType]);
+
+    const handleWeaponClick = (weaponName: string) => {
+        if (weaponName !== 'All Weapons' && onNavigateToWeapon) {
+            onNavigateToWeapon(weaponName);
+            onClose();
+        }
+    };
 
     if (!isOpen) return null;
 
@@ -197,11 +208,24 @@ export function WPCamoViewerModal({ isOpen, onClose }: Props) {
                                             UNIVERSAL
                                         </div>
                                     )}
+                                    {camo.isPerGun && (
+                                        <div className="absolute top-2 right-2 bg-neutral-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
+                                            PER GUN
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="p-3">
                                     <div className="font-medium text-white text-sm truncate">{camo.name}</div>
-                                    <div className="text-xs text-neutral-400 truncate">{camo.weapon}</div>
-                                    <div className="text-xs text-purple-400 mt-1">{MILESTONE_DISPLAY[camo.milestone]}</div>
+                                    <button
+                                        onClick={() => handleWeaponClick(camo.weapon)}
+                                        className={`text-xs truncate block w-full text-left ${camo.weapon !== 'All Weapons'
+                                            ? 'text-purple-400 hover:text-purple-300 hover:underline cursor-pointer'
+                                            : 'text-neutral-400 cursor-default'
+                                            }`}
+                                    >
+                                        {camo.weapon}
+                                    </button>
+                                    <div className="text-xs text-neutral-500 mt-1">{MILESTONE_DISPLAY[camo.milestone]}</div>
                                 </div>
                             </div>
                         ))}

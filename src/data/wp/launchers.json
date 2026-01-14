@@ -2,34 +2,34 @@
     "AAROW 109": {
         "prestige1": {
             "name": "Equinox",
-            "image": "prestige1/Equinox_Camo_Icon_BO7.webp",
+            "image": "prestige1/Equinox.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Asphalt",
-            "image": "prestige2/Asphalt_Camo_Icon_BO7.webp",
+            "image": "prestige2/Asphalt.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Birdie",
-            "image": "max/Birdie_Camo_Icon_BO7.webp",
+            "image": "max/Birdie.webp",
             "requirement": "Prestige Master Level 250"
         }
     },
     "A.R.C. M1": {
         "prestige1": {
             "name": "Haze",
-            "image": "prestige1/Haze_Camo_Icon_BO7.webp",
+            "image": "prestige1/Haze.webp",
             "requirement": "Weapon Prestige 1"
         },
         "prestige2": {
             "name": "Blend",
-            "image": "prestige2/Blend_Camo_Icon_BO7.webp",
+            "image": "prestige2/Blend.webp",
             "requirement": "Weapon Prestige 2"
         },
         "master250": {
             "name": "Dimensions",
-            "image": "max/Dimensions_Camo_Icon_BO7.webp",
+            "image": "max/Dimensions.webp",
             "requirement": "Prestige Master Level 250"
         }
     }

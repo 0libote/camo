@@ -2,17 +2,17 @@
     "universalCamos": {
         "master100": {
             "name": "Cobalt Circuit",
-            "image": "master/CobaltCircuit_Camo_Icon_BO7.webp",
+            "image": "master/CobaltCircuit.webp",
             "requirement": "Prestige Master Level 100"
         },
         "master150": {
             "name": "Vermilion Cypher",
-            "image": "master/VermilionCypher_Camo_Icon_BO7.webp",
+            "image": "master/VermilionCypher.webp",
             "requirement": "Prestige Master Level 150"
         },
         "master200": {
             "name": "Violet Network",
-            "image": "master/VioletNetwork_Camo_Icon_BO7.webp",
+            "image": "master/VioletNetwork.webp",
             "requirement": "Prestige Master Level 200"
         }
     },
