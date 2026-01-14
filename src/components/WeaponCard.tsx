@@ -40,7 +40,7 @@ export function WeaponCard({
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
                 <div className="flex items-center gap-2">
-                    <h3 className="text-base font-semibold text-white uppercase">
+                    <h3 className="text-base font-semibold text-white uppercase tracking-tight">
                         {weapon.name}
                     </h3>
                     <button
@@ -48,7 +48,7 @@ export function WeaponCard({
                             e.stopPropagation();
                             onNavigateToWP?.(weapon.name);
                         }}
-                        className="p-1 text-neutral-500 hover:text-purple-400 transition-colors rounded hover:bg-purple-500/10"
+                        className="p-1.5 text-neutral-500 hover:text-purple-400 transition-colors rounded-md hover:bg-purple-500/10"
                         title="View Weapon Prestige"
                     >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

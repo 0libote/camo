@@ -17,7 +17,6 @@ interface CamoEntry {
     weapon: string;
     milestone: WPMilestone;
     isUniversal: boolean; // true for per-gun camos (P1, P2, Max) - per user request
-    isPerGun: boolean;    // true for master camos (100, 150, 200) - per user request
 }
 
 const MILESTONE_DISPLAY: Record<WPMilestone, string> = {
@@ -49,15 +48,14 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
     const allCamos = useMemo(() => {
         const camos: CamoEntry[] = [];
 
-        // Add universal camos (master100, 150, 200 - same for all guns, labeled PER GUN per user)
+        // Add camos from universal list (Master 100, 150, 200) - No label per user
         Object.entries(WP_UNIVERSAL_CAMOS).forEach(([milestone, camo]) => {
             camos.push({
                 name: camo.name,
                 image: camo.image,
                 weapon: 'All Weapons',
                 milestone: milestone as WPMilestone,
-                isUniversal: false,
-                isPerGun: true
+                isUniversal: false
             });
         });
 
@@ -71,8 +69,7 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
                         image: camo.image,
                         weapon: weaponName,
                         milestone: milestone as WPMilestone,
-                        isUniversal: true,
-                        isPerGun: false
+                        isUniversal: true
                     });
                 }
             });
@@ -101,10 +98,9 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
                 if (filterTier === 'max' && camo.milestone !== 'master250') return false;
             }
 
-            // Type filter (per user: unique = universal, every gun = per gun)
+            // Type filter (per user: unique = universal)
             if (filterType !== 'all') {
                 if (filterType === 'universal' && !camo.isUniversal) return false;
-                if (filterType === 'unique' && !camo.isPerGun) return false;
             }
 
             return true;
@@ -180,7 +176,7 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
                         <div className="flex items-center gap-2">
                             <span className="text-sm text-neutral-400">Type:</span>
                             <div className="flex gap-1">
-                                {(['all', 'universal', 'unique'] as FilterType[]).map(type => (
+                                {(['all', 'universal'] as FilterType[]).map(type => (
                                     <button
                                         key={type}
                                         onClick={() => setFilterType(type)}
@@ -189,7 +185,7 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
                                             : 'bg-neutral-800 text-neutral-400 hover:text-white'
                                             }`}
                                     >
-                                        {type === 'all' ? 'All' : type === 'universal' ? 'Universal' : 'Per Gun'}
+                                        {type === 'all' ? 'All' : 'Universal'}
                                     </button>
                                 ))}
                             </div>
@@ -220,11 +216,6 @@ export function WPCamoViewerModal({ isOpen, onClose, onNavigateToWeapon }: Props
                                     {camo.isUniversal && (
                                         <div className="absolute top-2 right-2 bg-blue-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
                                             UNIVERSAL
-                                        </div>
-                                    )}
-                                    {camo.isPerGun && (
-                                        <div className="absolute top-2 right-2 bg-neutral-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
-                                            PER GUN
                                         </div>
                                     )}
                                 </div>

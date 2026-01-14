@@ -94,19 +94,29 @@ export function SettingsModal({
 
                     {/* UI Scale */}
                     <div>
-                        <div className="flex justify-between items-center mb-2">
+                        <div className="flex justify-between items-center mb-4">
                             <label className="text-sm text-neutral-400">UI Scale</label>
-                            <span className="text-sm text-white">{Math.round(uiScale * 100)}%</span>
+                            <span className="text-sm font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">{Math.round(uiScale * 100)}%</span>
                         </div>
-                        <input
-                            type="range"
-                            min="0.75"
-                            max="1.25"
-                            step="0.05"
-                            value={uiScale}
-                            onChange={(e) => setUiScale(parseFloat(e.target.value))}
-                            className="w-full accent-blue-500"
-                        />
+                        <div className="relative flex items-center group">
+                            <input
+                                type="range"
+                                min="0.75"
+                                max="1.25"
+                                step="0.05"
+                                value={uiScale}
+                                onChange={(e) => setUiScale(parseFloat(e.target.value))}
+                                className="w-full h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400 transition-all"
+                                style={{
+                                    background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(uiScale - 0.75) / (1.25 - 0.75) * 100}%, #262626 ${(uiScale - 0.75) / (1.25 - 0.75) * 100}%, #262626 100%)`
+                                }}
+                            />
+                        </div>
+                        <div className="flex justify-between mt-2 text-[10px] text-neutral-600 font-medium px-0.5">
+                            <span>75%</span>
+                            <span>100%</span>
+                            <span>125%</span>
+                        </div>
                     </div>
 
                     {/* Data Management */}

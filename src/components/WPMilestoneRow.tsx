@@ -53,13 +53,15 @@ export function WPMilestoneRow({
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
                 <div className="flex items-center gap-2">
-                    <h3 className="text-base font-semibold text-white uppercase">{weaponName}</h3>
+                    <h3 className="text-base font-semibold text-white uppercase tracking-tight">
+                        {weaponName}
+                    </h3>
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
                             onNavigateToCamos?.(weaponName);
                         }}
-                        className="p-1 text-neutral-500 hover:text-blue-400 transition-colors rounded hover:bg-blue-500/10"
+                        className="p-1.5 text-neutral-500 hover:text-blue-400 transition-colors rounded-md hover:bg-blue-500/10"
                         title="View Camos"
                     >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -89,7 +91,7 @@ export function WPMilestoneRow({
                         <img
                             src={`${import.meta.env.BASE_URL}${weaponImage}`}
                             alt={weaponName}
-                            className="h-20 object-contain"
+                            className="h-24 object-contain"
                             loading="lazy"
                         />
                     </div>
@@ -109,7 +111,6 @@ export function WPMilestoneRow({
                         const camoInfo = getCamoInfo(milestone);
                         const isCompleted = completedMilestones[milestone];
                         const isUniversal = milestone === 'prestige1' || milestone === 'prestige2' || milestone === 'master250';
-                        const isPerGun = milestone === 'master100' || milestone === 'master150' || milestone === 'master200';
 
                         return (
                             <div
@@ -156,12 +157,6 @@ export function WPMilestoneRow({
                                             <span className="text-[8px] text-white font-bold">U</span>
                                         </div>
                                     )}
-                                    {/* Per Gun indicator (Per user: earned on every gun = per gun) */}
-                                    {isPerGun && (
-                                        <div className="absolute bottom-0.5 left-0.5 w-3.5 h-3.5 bg-neutral-600 rounded-full flex items-center justify-center">
-                                            <span className="text-[8px] text-white font-bold">P</span>
-                                        </div>
-                                    )}
                                 </button>
 
                                 {/* Hover Tooltip */}
@@ -178,12 +173,6 @@ export function WPMilestoneRow({
                                             <div className="text-blue-400 text-xs mt-1 flex items-center gap-1">
                                                 <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                                                 Universal Camo
-                                            </div>
-                                        )}
-                                        {isPerGun && (
-                                            <div className="text-neutral-400 text-xs mt-1 flex items-center gap-1">
-                                                <span className="w-2 h-2 bg-neutral-600 rounded-full"></span>
-                                                Per Gun Camo
                                             </div>
                                         )}
                                     </div>

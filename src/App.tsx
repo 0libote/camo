@@ -19,7 +19,7 @@ function App() {
     importProgress
   } = useProgress();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [mainTab, setMainTab] = useState<'camos' | 'wp'>('camos');
+  const [mainTab, setMainTab] = useState<'mp' | 'wp'>('mp');
   const [selectedClass, setSelectedClass] = useState<string>(WEAPON_CLASSES[0]);
   const [displayMode, setDisplayMode] = useState<'fraction' | 'percentage'>('fraction');
   const [uiScale, setUiScale] = useState(1);
@@ -46,11 +46,11 @@ function App() {
     }
   };
 
-  const handleNavigateToCamos = (weaponName: string) => {
+  const handleNavigateToMP = (weaponName: string) => {
     const weapon = CAMO_DATA.weapons.find(w => w.name === weaponName);
     if (weapon) {
       setSelectedClass(weapon.class);
-      setMainTab('camos');
+      setMainTab('mp');
       setScrollToWeapon(weaponName);
     }
   };
@@ -66,21 +66,23 @@ function App() {
           <main className="mt-8">
             {/* Main Tab Switcher */}
             <div className="flex justify-center mb-8">
-              <div className="inline-flex bg-neutral-900 p-1 rounded-lg">
+              <div className="relative inline-flex bg-neutral-900 p-1 rounded-xl border border-neutral-800 shadow-inner">
+                {/* Sliding background */}
+                <div
+                  className={`absolute top-1 bottom-1 transition-all duration-300 ease-out rounded-lg ${mainTab === 'mp' ? 'left-1 w-[130px] bg-blue-600 shadow-lg shadow-blue-500/20' : 'left-[135px] w-[180px] bg-purple-600 shadow-lg shadow-purple-500/20'
+                    }`}
+                />
+
                 <button
-                  onClick={() => setMainTab('camos')}
-                  className={`px-6 py-2 text-sm font-medium transition-colors rounded-md ${mainTab === 'camos'
-                    ? 'bg-blue-500 text-white'
-                    : 'text-neutral-400 hover:text-white'
+                  onClick={() => setMainTab('mp')}
+                  className={`relative z-10 w-[130px] py-2 text-sm font-bold transition-colors duration-300 ${mainTab === 'mp' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'
                     }`}
                 >
-                  Camos
+                  Multiplayer
                 </button>
                 <button
                   onClick={() => setMainTab('wp')}
-                  className={`px-6 py-2 text-sm font-medium transition-colors rounded-md ${mainTab === 'wp'
-                    ? 'bg-purple-500 text-white'
-                    : 'text-neutral-400 hover:text-white'
+                  className={`relative z-10 w-[180px] py-2 text-sm font-bold transition-colors duration-300 ${mainTab === 'wp' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'
                     }`}
                 >
                   Weapon Prestige
@@ -88,7 +90,7 @@ function App() {
               </div>
             </div>
 
-            {mainTab === 'camos' ? (
+            {mainTab === 'mp' ? (
               <div className="space-y-8 animate-fade-in">
                 <MasterySummary progress={progress} displayMode={displayMode} />
 
@@ -118,7 +120,7 @@ function App() {
                     onToggle={toggleCamo}
                     displayMode={displayMode}
                     onNavigateToWP={handleNavigateToWP}
-                    scrollToWeapon={scrollToWeapon === null ? undefined : (mainTab === 'camos' ? scrollToWeapon : undefined)}
+                    scrollToWeapon={scrollToWeapon === null ? undefined : (mainTab === 'mp' ? scrollToWeapon : undefined)}
                     onScrollComplete={() => setScrollToWeapon(null)}
                   />
                 </div>
@@ -129,7 +131,7 @@ function App() {
                   displayMode={displayMode}
                   wpProgress={wpProgress}
                   toggleWPMilestone={toggleWPMilestone}
-                  onNavigateToCamos={handleNavigateToCamos}
+                  onNavigateToCamos={handleNavigateToMP}
                   scrollToWeapon={scrollToWeapon === null ? undefined : (mainTab === 'wp' ? scrollToWeapon : undefined)}
                   onScrollComplete={() => setScrollToWeapon(null)}
                 />
