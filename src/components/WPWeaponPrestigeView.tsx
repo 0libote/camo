@@ -117,7 +117,7 @@ export function WPWeaponPrestigeView() {
                         return (
                             <div
                                 key={weapon.name}
-                                ref={el => weaponRefs.current[weapon.name] = el}
+                                ref={el => { weaponRefs.current[weapon.name] = el; }}
                                 className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden"
                             >
                                 <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-800">
@@ -145,7 +145,7 @@ export function WPWeaponPrestigeView() {
                     return (
                         <div
                             key={weapon.name}
-                            ref={el => weaponRefs.current[weapon.name] = el}
+                            ref={el => { weaponRefs.current[weapon.name] = el; }}
                             className={`transition-all duration-500 ${isHighlighted ? 'ring-2 ring-purple-500 ring-offset-2 ring-offset-neutral-950' : ''}`}
                         >
                             <WPMilestoneRow
