@@ -42,19 +42,29 @@ export function useProgress() {
         }
     });
 
+    // Debounce storage updates to prevent performance hit during rapid changes
     useEffect(() => {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+        const timeout = setTimeout(() => {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+        }, 500); // 500ms debounce
+        return () => clearTimeout(timeout);
     }, [progress]);
 
     useEffect(() => {
-        localStorage.setItem(PRESTIGE_KEY, JSON.stringify(prestige));
+        const timeout = setTimeout(() => {
+            localStorage.setItem(PRESTIGE_KEY, JSON.stringify(prestige));
+        }, 500);
+        return () => clearTimeout(timeout);
     }, [prestige]);
 
     useEffect(() => {
-        localStorage.setItem(WP_STORAGE_KEY, JSON.stringify(wpProgress));
+        const timeout = setTimeout(() => {
+            localStorage.setItem(WP_STORAGE_KEY, JSON.stringify(wpProgress));
+        }, 500);
+        return () => clearTimeout(timeout);
     }, [wpProgress]);
 
-    const toggleCamo = (weaponName: string, camo: CamoName) => {
+    const toggleCamo = useCallback((weaponName: string, camo: CamoName) => {
         setProgress((prev: UserProgress) => {
             const weaponProgress = prev[weaponName] || {};
             const newStatus = !weaponProgress[camo];
@@ -67,9 +77,9 @@ export function useProgress() {
                 }
             };
         });
-    };
+    }, []);
 
-    const updatePrestige = (weaponName: string, level: PrestigeLevel, masterLevel: number = 1) => {
+    const updatePrestige = useCallback((weaponName: string, level: PrestigeLevel, masterLevel: number = 1) => {
         setPrestige((prev: UserPrestige) => ({
             ...prev,
             [weaponName]: {
@@ -77,9 +87,9 @@ export function useProgress() {
                 masterLevel
             }
         }));
-    };
+    }, []);
 
-    const toggleWPMilestone = (weaponName: string, milestone: WPMilestone) => {
+    const toggleWPMilestone = useCallback((weaponName: string, milestone: WPMilestone) => {
         setWPProgress((prev: UserWPProgress) => {
             const weaponProgress = prev[weaponName] || {} as Record<WPMilestone, boolean>;
             const newStatus = !weaponProgress[milestone];
@@ -92,61 +102,87 @@ export function useProgress() {
                 }
             };
         });
-    };
+    }, []);
 
-    const resetProgress = () => {
+    const resetProgress = useCallback(() => {
         if (confirm("Are you sure you want to reset all progress? This includes Camos and Weapon Prestige.")) {
             setProgress({});
             setPrestige({});
             setWPProgress({});
         }
-    }
+    }, []);
 
-    const exportProgress = () => {
+    const exportProgress = useCallback(() => {
         const payload = {
+            version: 1, // Add versioning for future migrations
+            timestamp: new Date().toISOString(),
             camos: progress,
             prestige: prestige,
             wp: wpProgress
         };
-        const dataStr = JSON.stringify(payload);
-        const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
 
-        const exportFileDefaultName = 'bo6_tracker_data.json';
+        try {
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
 
-        const linkElement = document.createElement('a');
-        linkElement.setAttribute('href', dataUri);
-        linkElement.setAttribute('download', exportFileDefaultName);
-        linkElement.click();
-    };
+            const linkElement = document.createElement('a');
+            linkElement.href = url;
+            linkElement.download = `bo6_tracker_backup_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(linkElement);
+            linkElement.click();
 
-    const importProgress = (file: File) => {
+            // Cleanup
+            document.body.removeChild(linkElement);
+            URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Export failed:', error);
+            alert('Failed to export data. See console for details.');
+        }
+    }, [progress, prestige, wpProgress]);
+
+    const importProgress = useCallback((file: File) => {
         const reader = new FileReader();
         reader.onload = (event) => {
             try {
-                const json = JSON.parse(event.target?.result as string);
+                const content = event.target?.result as string;
+                if (!content) throw new Error("Empty file");
 
-                if (typeof json === 'object' && json !== null) {
-                    if (confirm("This will overwrite your current progress. Continue?")) {
-                        // Handle legacy (just camos) or new structure
-                        if (json.camos && typeof json.camos === 'object') setProgress(json.camos);
-                        if (json.prestige && typeof json.prestige === 'object') setPrestige(json.prestige);
-                        if (json.wp && typeof json.wp === 'object') setWPProgress(json.wp);
+                const json = JSON.parse(content);
 
-                        // Legacy handling
-                        if (!json.camos && !json.prestige && !json.wp) {
-                            // Assume legacy file is just camo progress if it's a flat object
-                            setProgress(json);
-                        }
-                    }
-                } else {
-                    alert("Invalid progress file.");
+                if (typeof json !== 'object' || json === null) {
+                    throw new Error("Invalid JSON structure");
                 }
-            } catch {
-                alert("Error reading file.");
+
+                if (confirm("This will overwrite your current progress. Continue?")) {
+                    let imported = false;
+
+                    // Handle v1 structure
+                    if ('version' in json || ('camos' in json && 'prestige' in json)) {
+                        if (json.camos) { setProgress(json.camos); imported = true; }
+                        if (json.prestige) { setPrestige(json.prestige); imported = true; }
+                        if (json.wp) { setWPProgress(json.wp); imported = true; }
+                    }
+                    // Handle Legacy (Flat Object)
+                    else if (Object.keys(json).length > 0) {
+                        // Basic heuristic: check if values look like weapon progress
+                        // Safe to assume it's likely camo progress if it doesn't match above keys
+                        setProgress(json);
+                        imported = true;
+                    }
+
+                    if (imported) {
+                        alert("Progress imported successfully!");
+                    } else {
+                        alert("No valid data found in file.");
+                    }
+                }
+            } catch (error) {
+                console.error('Import Error:', error);
+                alert("Error importing file. Unrecognized format.");
             }
         };
         reader.readAsText(file);
-    };
+    }, []);
 
     return {
         progress,

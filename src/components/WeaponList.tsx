@@ -17,6 +17,29 @@ interface Props {
 }
 
 import { useRef, useEffect } from 'react';
+import type { Weapon, UserProgress, CamoName } from '../types';
+import { WeaponCard } from './WeaponCard';
+import { ClassMasteryCard } from './ClassMasteryCard';
+import {
+    getClassShatteredGoldCount,
+    ARCLIGHT_CLASS_REQUIREMENTS,
+    isArclightAvailable,
+    isTempestAvailable,
+    isSingularityUnlocked
+} from '../logic/progression';
+
+interface Props {
+    className: string;
+    weapons: Weapon[];
+    progress: UserProgress;
+    onToggle: (weaponName: string, camo: CamoName) => void;
+    displayMode: 'fraction' | 'percentage';
+    onHoverStart?: () => void;
+    onHoverEnd?: () => void;
+    onNavigateToWP?: (weaponName: string) => void;
+    scrollToWeapon?: string;
+    onScrollComplete?: () => void;
+}
 
 export function WeaponList({
     className,
@@ -40,9 +63,13 @@ export function WeaponList({
             }, 100);
         }
     }, [scrollToWeapon, onScrollComplete]);
+
     const shatteredGoldCount = getClassShatteredGoldCount(className, progress);
     const requiredForArclight = ARCLIGHT_CLASS_REQUIREMENTS[className] || 0;
     const isActualClass = requiredForArclight > 0 && !className.includes('weapons found');
+
+    // Global singular unlock check (same for all weapons, calculated once)
+    const singularityUnlocked = isSingularityUnlocked(progress);
 
     return (
         <div className="space-y-6 animate-fade-in">
@@ -69,22 +96,32 @@ export function WeaponList({
 
             {/* Weapons Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {weapons.map(weapon => (
-                    <div
-                        key={weapon.name}
-                        ref={el => { weaponRefs.current[weapon.name] = el; }}
-                    >
-                        <WeaponCard
-                            weapon={weapon}
-                            progress={progress}
-                            onToggle={onToggle}
-                            displayMode={displayMode}
-                            onHoverStart={onHoverStart}
-                            onHoverEnd={onHoverEnd}
-                            onNavigateToWP={onNavigateToWP}
-                        />
-                    </div>
-                ))}
+                {weapons.map((weapon, index) => {
+                    // Calculated per weapon but primitives are stable across renders if values don't change
+                    const arclightUnlocked = isArclightAvailable(weapon, progress);
+                    const tempestUnlocked = isTempestAvailable(weapon.name, progress);
+
+                    return (
+                        <div
+                            key={weapon.name}
+                            ref={el => { weaponRefs.current[weapon.name] = el; }}
+                        >
+                            <WeaponCard
+                                weapon={weapon}
+                                weaponProgress={progress[weapon.name] || {}}
+                                arclightUnlocked={arclightUnlocked}
+                                tempestUnlocked={tempestUnlocked}
+                                singularityUnlocked={singularityUnlocked}
+                                onToggle={onToggle}
+                                displayMode={displayMode}
+                                onHoverStart={onHoverStart}
+                                onHoverEnd={onHoverEnd}
+                                onNavigateToWP={onNavigateToWP}
+                                index={index}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

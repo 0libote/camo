@@ -1,21 +1,60 @@
-import type { Weapon, UserProgress, CamoName } from '../types';
+import type { Weapon, WeaponProgress, CamoName } from '../types';
 import { CAMO_ORDER, CAMO_IMAGES } from '../data';
-import { getCamoStatus } from '../logic/progression';
 
 interface Props {
     weapon: Weapon;
-    progress: UserProgress;
+    weaponProgress: WeaponProgress;
+    arclightUnlocked: boolean;
+    tempestUnlocked: boolean;
+    singularityUnlocked: boolean;
     onToggle: (weaponName: string, camo: CamoName) => void;
 }
 
-export function CamoGrid({ weapon, progress, onToggle }: Props) {
+export function CamoGrid({ weapon, weaponProgress, arclightUnlocked, tempestUnlocked, singularityUnlocked, onToggle }: Props) {
+
+    // Local helper to determine status without full UserProgress dependency
+    const getLocalStatus = (camo: CamoName): "locked" | "available" | "completed" => {
+        // If it's checked, it's completed (except Singularity which might be handled differently in some logic, but usually yes)
+        if (weaponProgress[camo]) return "completed";
+
+        // Singularity Logic (Auto-complete based on global count)
+        if (camo === 'Singularity') {
+            return singularityUnlocked ? "completed" : "locked";
+        }
+
+        switch (camo) {
+            case "Military":
+                return "available";
+
+            case "Diamondback":
+            case "Raptor":
+            case "Mainframe":
+                return weaponProgress["Military"] ? "available" : "locked";
+
+            case "Shattered Gold":
+                const specialsDone = ["Diamondback", "Raptor", "Mainframe"].every(
+                    c => weaponProgress[c as CamoName]
+                );
+                return specialsDone ? "available" : "locked";
+
+            case "Arclight":
+                return arclightUnlocked ? "available" : "locked";
+
+            case "Tempest":
+                return tempestUnlocked ? "available" : "locked";
+
+            default:
+                return "locked";
+        }
+    };
+
     return (
         <div className="grid grid-cols-4 gap-2 overflow-visible">
             {CAMO_ORDER.map((camoName, index) => {
                 const camoData = weapon.camos.mp[camoName];
                 if (!camoData) return null;
 
-                const status = getCamoStatus(weapon, camoName, progress);
+                const status = getLocalStatus(camoName);
                 const isCompleted = status === "completed";
                 const isLocked = status === "locked";
                 const isInteractive = camoName !== "Singularity";
@@ -29,12 +68,12 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                             disabled={isLocked || !isInteractive}
                             onClick={() => onToggle(weapon.name, camoName)}
                             className={`
-                                w-full aspect-square rounded-lg overflow-hidden relative transition-all
+                                w-full aspect-square rounded-lg overflow-hidden relative transition-all duration-200
                                 ${isCompleted
                                     ? 'ring-2 ring-green-500 ring-offset-1 ring-offset-neutral-900'
                                     : isLocked
                                         ? 'opacity-30 cursor-not-allowed'
-                                        : 'hover:ring-2 hover:ring-neutral-600 hover:ring-offset-1 hover:ring-offset-neutral-900'
+                                        : 'hover:ring-2 hover:ring-neutral-600 hover:ring-offset-1 hover:ring-offset-neutral-900 hover:scale-105 active:scale-95'
                                 }
                             `}
                         >
@@ -47,7 +86,7 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
 
                             {/* Completed checkmark */}
                             {isCompleted && (
-                                <div className="absolute top-1 right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                                <div className="absolute top-1 right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center animate-scale-in">
                                     <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                     </svg>
@@ -67,10 +106,10 @@ export function CamoGrid({ weapon, progress, onToggle }: Props) {
                         {/* Tooltip - shows below for top row, above for bottom row */}
                         <div className={`
                             opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                            transition-opacity absolute left-1/2 -translate-x-1/2 
+                            transition-all duration-200 absolute left-1/2 -translate-x-1/2 
                             px-3 py-2 bg-neutral-800 border border-neutral-700 
                             text-xs text-white pointer-events-none z-[100] w-40 rounded-lg shadow-lg
-                            ${isTopRow ? 'top-full mt-2' : 'bottom-full mb-2'}
+                            ${isTopRow ? 'top-full mt-2 translate-y-[-5px] group-hover:translate-y-0' : 'bottom-full mb-2 translate-y-[5px] group-hover:translate-y-0'}
                         `}>
                             <div className="font-medium text-blue-400 mb-1">{camoName}</div>
                             <div className="text-neutral-400 text-[11px] leading-relaxed">
