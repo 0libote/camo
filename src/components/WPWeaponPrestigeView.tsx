@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { CAMO_DATA, WEAPON_CLASSES } from '../data';
 import { WP_WEAPON_DATA } from '../data/wpIndex';
 import { WeaponList } from './WeaponList';

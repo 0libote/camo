@@ -117,7 +117,7 @@ function App() {
                     className={selectedClass}
                     weapons={CAMO_DATA.weapons.filter((w: Weapon) => w.class === selectedClass)}
                     progress={progress}
-                    onToggle={toggleCamo}
+                    onToggle={(name, id) => toggleCamo(name, id as any)}
                     mode="mp"
                     displayMode={displayMode}
                     onNavigate={handleNavigateToWP}

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import type { Weapon, WeaponProgress, CamoName, WPMilestone, WPCamoInfo, UserWPProgress } from '../types';
+import type { Weapon, WeaponProgress, CamoName, WPMilestone } from '../types';
 import { CamoGrid } from './CamoGrid';
 import { WPMilestoneGrid } from './WPMilestoneGrid';
 import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
@@ -150,11 +150,11 @@ export const WeaponCard = memo(function WeaponCard({
                         {mode === 'mp' ? (
                             <CamoGrid
                                 weapon={weapon}
-                                weaponProgress={weaponProgress || {}}
+                                weaponProgress={weaponProgress || {} as WeaponProgress}
                                 arclightUnlocked={!!arclightUnlocked}
                                 tempestUnlocked={!!tempestUnlocked}
                                 singularityUnlocked={!!singularityUnlocked}
-                                onToggle={onToggle}
+                                onToggle={onToggle as (weaponName: string, camo: CamoName) => void}
                             />
                         ) : (
                             <WPMilestoneGrid

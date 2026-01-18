@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import type { Weapon, UserProgress, UserWPProgress, WPMilestone, CamoName } from '../types';
+import type { Weapon, UserProgress, UserWPProgress } from '../types';
 import { WeaponCard } from './WeaponCard';
 import { ClassMasteryCard } from './ClassMasteryCard';
 import {
