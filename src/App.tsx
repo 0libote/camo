@@ -118,8 +118,9 @@ function App() {
                     weapons={CAMO_DATA.weapons.filter((w: Weapon) => w.class === selectedClass)}
                     progress={progress}
                     onToggle={toggleCamo}
+                    mode="mp"
                     displayMode={displayMode}
-                    onNavigateToWP={handleNavigateToWP}
+                    onNavigate={handleNavigateToWP}
                     scrollToWeapon={scrollToWeapon === null ? undefined : (mainTab === 'mp' ? scrollToWeapon : undefined)}
                     onScrollComplete={() => setScrollToWeapon(null)}
                   />
