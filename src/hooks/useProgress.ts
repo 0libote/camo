@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { UserProgress, CamoName } from '../types';
 
 const STORAGE_KEY = 'bo6_camo_tracker_progress';

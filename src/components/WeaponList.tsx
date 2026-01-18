@@ -1,21 +1,3 @@
-import type { Weapon, UserProgress, CamoName } from '../types';
-import { WeaponCard } from './WeaponCard';
-import { ClassMasteryCard } from './ClassMasteryCard';
-import { getClassShatteredGoldCount, ARCLIGHT_CLASS_REQUIREMENTS } from '../logic/progression';
-
-interface Props {
-    className: string;
-    weapons: Weapon[];
-    progress: UserProgress;
-    onToggle: (weaponName: string, camo: CamoName) => void;
-    displayMode: 'fraction' | 'percentage';
-    onHoverStart?: () => void;
-    onHoverEnd?: () => void;
-    onNavigateToWP?: (weaponName: string) => void;
-    scrollToWeapon?: string;
-    onScrollComplete?: () => void;
-}
-
 import { useRef, useEffect } from 'react';
 import type { Weapon, UserProgress, CamoName } from '../types';
 import { WeaponCard } from './WeaponCard';
