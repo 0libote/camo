@@ -2,12 +2,11 @@
     {
         "class": "Submachine Guns",
         "name": "Ryden 45K",
-        "unlock_level": 0,
         "image": "weapons/Submachine Guns/Ryden 45K.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills with 0 Attachments"
@@ -19,16 +18,16 @@
                     "requirement": "30 kills without taking damage"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -36,12 +35,11 @@
     {
         "class": "Submachine Guns",
         "name": "RK-9",
-        "unlock_level": 7,
         "image": "weapons/Submachine Guns/RK-9.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills while Moving"
@@ -53,16 +51,16 @@
                     "requirement": "50 Kills with 0 Attachments"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -70,12 +68,11 @@
     {
         "class": "Submachine Guns",
         "name": "Razor 9mm",
-        "unlock_level": 19,
         "image": "weapons/Submachine Guns/Razor 9mm.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "30 Hipfire Kills"
@@ -87,16 +84,16 @@
                     "requirement": "50 Kills while Moving"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -104,12 +101,11 @@
     {
         "class": "Submachine Guns",
         "name": "Dravec 45",
-        "unlock_level": 34,
         "image": "weapons/Submachine Guns/Dravec 45.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "30 Objective Kills"
@@ -121,16 +117,16 @@
                     "requirement": "15x - 1 Kill after sliding, diving, walljumping"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -138,12 +134,11 @@
     {
         "class": "Submachine Guns",
         "name": "Carbon 57",
-        "unlock_level": 46,
         "image": "weapons/Submachine Guns/Carbon 57.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "30 Hipfire Kills"
@@ -155,16 +150,16 @@
                     "requirement": "50 Kills w/ Gunfighter Wildcard"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -172,12 +167,11 @@
     {
         "class": "Submachine Guns",
         "name": "MPC-25",
-        "unlock_level": 55,
         "image": "weapons/Submachine Guns/MPC-25.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills with Supressor"
@@ -189,16 +183,16 @@
                     "requirement": "50 Kills w/ Gunfighter Wildcard"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -206,12 +200,11 @@
     {
         "class": "Submachine Guns",
         "name": "KOGOT-7",
-        "unlock_level": 61,
         "image": "weapons/Submachine Guns/Kogot-7.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills with Supressor"
@@ -223,16 +216,16 @@
                     "requirement": "30 Hipfire Kills"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -240,15 +233,67 @@
     {
         "class": "Submachine Guns",
         "name": "STURMWOLF 45",
-        "unlock_level": 0,
         "image": "weapons/Submachine Guns/STURMWOLF 45.webp",
-        "camos": {}
+        "camos": {
+            "mp": {
+                "Military": {
+                    "requirement": "Kills (80x)"
+                },
+                "Diamondback": {
+                    "requirement": "Kills While Sliding/Diving/Wall-Jumping (15x)"
+                },
+                "Raptor": {
+                    "requirement": "Kills While Moving (50x)"
+                },
+                "Mainframe": {
+                    "requirement": "Kills Shortly After Sprinting (30x)"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills Without Dying (10x)"
+                },
+                "Arclight": {
+                    "requirement": "Double Kills (10x)"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying (3x)"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest (30x)"
+                }
+            }
+        }
     },
     {
         "class": "Submachine Guns",
         "name": "REV-46",
-        "unlock_level": 0,
         "image": "weapons/Submachine Guns/REV-46.webp",
-        "camos": {}
+        "camos": {
+            "mp": {
+                "Military": {
+                    "requirement": "Kills (80x)"
+                },
+                "Diamondback": {
+                    "requirement": "Suppressor Kills (50x)"
+                },
+                "Raptor": {
+                    "requirement": "Kills While Sliding/Diving/Wall-Jumping (15x)"
+                },
+                "Mainframe": {
+                    "requirement": "Kills Shortly After Sprinting (30x)"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills Without Dying (10x)"
+                },
+                "Arclight": {
+                    "requirement": "Double Kills (10x)"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying (3x)"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest (30x)"
+                }
+            }
+        }
     }
 ]

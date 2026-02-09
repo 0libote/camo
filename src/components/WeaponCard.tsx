@@ -2,7 +2,7 @@ import { memo } from 'react';
 import type { Weapon, WeaponProgress, CamoName, WPMilestone } from '../types';
 import { CamoGrid } from './CamoGrid';
 import { WPMilestoneGrid } from './WPMilestoneGrid';
-import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
+import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS, CAMO_ORDER } from '../data';
 
 interface Props {
     weapon: Weapon;
@@ -43,30 +43,19 @@ export const WeaponCard = memo(function WeaponCard({
     let totalItems = 0;
     let completedCount = 0;
 
-    // Check if data is missing (for "Coming Soon" state)
-    let isDataMissing = false;
-
     if (mode === 'mp') {
-        const availableCamos = weapon.camos.mp ? (Object.keys(weapon.camos.mp) as CamoName[]) : [];
+        const availableCamos = CAMO_ORDER;
         totalItems = availableCamos.length;
 
-        if (totalItems === 0) isDataMissing = true;
-        else {
-            completedCount = availableCamos.reduce((count, camo) => {
-                if (camo === 'Singularity') return count + (singularityUnlocked ? 1 : 0);
-                return count + (weaponProgress?.[camo] ? 1 : 0);
-            }, 0);
-        }
+        completedCount = availableCamos.reduce((count, camo) => {
+            if (camo === 'Singularity') return count + (singularityUnlocked ? 1 : 0);
+            return count + (weaponProgress?.[camo] ? 1 : 0);
+        }, 0);
     } else {
         // WP Mode
-        const hasWPData = !!WP_WEAPON_DATA[weapon.name];
-        if (!hasWPData) {
-            isDataMissing = true;
-        } else {
-            totalItems = 6; // Fixed number of milestones
-            const currentProgress = wpProgress || {};
-            completedCount = Object.values(currentProgress).filter(Boolean).length;
-        }
+        totalItems = 6; // Fixed number of milestones
+        const currentProgress = wpProgress || {};
+        completedCount = Object.values(currentProgress).filter(Boolean).length;
     }
 
     const isMastered = totalItems > 0 && completedCount === totalItems;
@@ -131,44 +120,36 @@ export const WeaponCard = memo(function WeaponCard({
                         <img
                             src={`${import.meta.env.BASE_URL}${weapon.image}`}
                             alt={weapon.name}
-                            className={`h-24 object-contain ${isDataMissing ? 'grayscale opacity-50' : ''}`}
+                            className="h-24 object-contain"
                             loading="lazy"
                         />
                     </div>
                 )}
 
-                {/* Progress Bar or Data Missing */}
-                {!isDataMissing ? (
-                    <>
-                        <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
-                            <div
-                                className={`h-full transition-all duration-500 ease-out ${isMastered ? 'bg-green-500' : primaryColor}`}
-                                style={{ width: `${progressPercent}%` }}
-                            />
-                        </div>
+                {/* Progress Bar */}
+                <div className="mb-4 h-1 bg-neutral-800 rounded-full overflow-hidden">
+                    <div
+                        className={`h-full transition-all duration-500 ease-out ${isMastered ? 'bg-green-500' : primaryColor}`}
+                        style={{ width: `${progressPercent}%` }}
+                    />
+                </div>
 
-                        {mode === 'mp' ? (
-                            <CamoGrid
-                                weapon={weapon}
-                                weaponProgress={weaponProgress || {} as WeaponProgress}
-                                arclightUnlocked={!!arclightUnlocked}
-                                tempestUnlocked={!!tempestUnlocked}
-                                singularityUnlocked={!!singularityUnlocked}
-                                onToggle={onToggle as (weaponName: string, camo: CamoName) => void}
-                            />
-                        ) : (
-                            <WPMilestoneGrid
-                                weaponCamos={WP_WEAPON_DATA[weapon.name] || {}}
-                                universalCamos={WP_UNIVERSAL_CAMOS}
-                                completedMilestones={wpProgress || {} as Record<WPMilestone, boolean>}
-                                onToggle={(milestone) => onToggle(weapon.name, milestone)}
-                            />
-                        )}
-                    </>
+                {mode === 'mp' ? (
+                    <CamoGrid
+                        weapon={weapon}
+                        weaponProgress={weaponProgress || {} as WeaponProgress}
+                        arclightUnlocked={!!arclightUnlocked}
+                        tempestUnlocked={!!tempestUnlocked}
+                        singularityUnlocked={!!singularityUnlocked}
+                        onToggle={onToggle as (weaponName: string, camo: CamoName) => void}
+                    />
                 ) : (
-                    <div className="flex flex-col items-center justify-center py-8 text-neutral-500">
-                        <p className="text-sm font-medium">Data coming soon</p>
-                    </div>
+                    <WPMilestoneGrid
+                        weaponCamos={WP_WEAPON_DATA[weapon.name] || {}}
+                        universalCamos={WP_UNIVERSAL_CAMOS}
+                        completedMilestones={wpProgress || {} as Record<WPMilestone, boolean>}
+                        onToggle={(milestone) => onToggle(weapon.name, milestone)}
+                    />
                 )}
             </div>
         </div>

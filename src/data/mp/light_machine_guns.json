@@ -2,12 +2,11 @@
     {
         "class": "Light Machine Guns",
         "name": "MK.78",
-        "unlock_level": 0,
         "image": "weapons/Light Machine Gun/MK.78.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "30 Objective Kills"
@@ -19,16 +18,16 @@
                     "requirement": "50 Kills with 5+ Attachments"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -36,12 +35,11 @@
     {
         "class": "Light Machine Guns",
         "name": "XM325",
-        "unlock_level": 31,
         "image": "weapons/Light Machine Gun/XM325.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "30 Kills affected by your equipment/non-lethal streak"
@@ -53,16 +51,16 @@
                     "requirement": "50 Kills with Gunfighter Wildcard"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -70,7 +68,6 @@
     {
         "class": "Light Machine Guns",
         "name": "SOKOL 545",
-        "unlock_level": 0,
         "image": "weapons/Light Machine Gun/SOKOL 545.webp",
         "camos": {}
     }

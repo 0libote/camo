@@ -2,15 +2,14 @@
     {
         "class": "Assault Rifles",
         "name": "M15 Mod 0",
-        "unlock_level": 0,
         "image": "weapons/Assault rifle/M15 Mod 0.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
-                    "requirement": "Get 50 Kills While Moving"
+                    "requirement": "Kills While Moving (50x)"
                 },
                 "Raptor": {
                     "requirement": "Get 30 Objective kills"
@@ -19,16 +18,16 @@
                     "requirement": "Get 20 kills with an underbarrel launcher equipped"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -36,15 +35,14 @@
     {
         "class": "Assault Rifles",
         "name": "AK-27",
-        "unlock_level": 4,
         "image": "weapons/Assault rifle/AK-27.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
-                    "requirement": "Get 30 Hipfire Kills"
+                    "requirement": "Hipfire Kills (30x)"
                 },
                 "Raptor": {
                     "requirement": "10x - 2 kills without Reloading"
@@ -53,16 +51,16 @@
                     "requirement": "20 Kills with an underbarrel launcher equipped"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -70,15 +68,14 @@
     {
         "class": "Assault Rifles",
         "name": "MXR-17",
-        "unlock_level": 16,
         "image": "weapons/Assault rifle/MXR-17.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
-                    "requirement": "Get 50 Kills with 5+ attachments"
+                    "requirement": "Kills With 5+ Attachments (50x)"
                 },
                 "Raptor": {
                     "requirement": "30 Kills while or shortly after sprinting"
@@ -87,16 +84,16 @@
                     "requirement": "20 Kills with an underbarrel launcher equipped"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -104,12 +101,11 @@
     {
         "class": "Assault Rifles",
         "name": "X9 Maverick",
-        "unlock_level": 28,
         "image": "weapons/Assault rifle/X9 Maverick.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "30 Kills affected by your equipment/non-lethal streak"
@@ -121,16 +117,16 @@
                     "requirement": "30 kills without taking damage"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -138,12 +134,11 @@
     {
         "class": "Assault Rifles",
         "name": "DS20 Mirage",
-        "unlock_level": 37,
         "image": "weapons/Assault rifle/DS20 Mirage.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills with 4.0x Magnification Scope"
@@ -155,16 +150,16 @@
                     "requirement": "50 Kills w/ Gunfighter Wildcard"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -172,15 +167,14 @@
     {
         "class": "Assault Rifles",
         "name": "PeaceKeeper MK1",
-        "unlock_level": 52,
         "image": "weapons/Assault rifle/Peacekeeper Mk1.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
-                    "requirement": "Get 50 Kills with 5+ attachments"
+                    "requirement": "Kills With 5+ Attachments (50x)"
                 },
                 "Raptor": {
                     "requirement": "30 kills without taking damage"
@@ -189,16 +183,16 @@
                     "requirement": "20 Kills with an underbarrel launcher equipped"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -206,12 +200,11 @@
     {
         "class": "Assault Rifles",
         "name": "MADDOX RFB",
-        "unlock_level": 58,
         "image": "weapons/Assault rifle/Maddox RFB.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills with 0 Attachments"
@@ -223,16 +216,16 @@
                     "requirement": "50 Kills while Moving"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -240,8 +233,34 @@
     {
         "class": "Assault Rifles",
         "name": "EGRT 17",
-        "unlock_level": 0,
         "image": "weapons/Assault rifle/EGRT 17.webp",
-        "camos": {}
+        "camos": {
+            "mp": {
+                "Military": {
+                    "requirement": "Kills (80x)"
+                },
+                "Diamondback": {
+                    "requirement": "Kills Without Taking Damage (30x)"
+                },
+                "Raptor": {
+                    "requirement": "Kills While Moving (50x)"
+                },
+                "Mainframe": {
+                    "requirement": "Kills on Affected Enemies (30x)"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills Without Dying (10x)"
+                },
+                "Arclight": {
+                    "requirement": "Double Kills (10x)"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying (3x)"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest (30x)"
+                }
+            }
+        }
     }
 ]

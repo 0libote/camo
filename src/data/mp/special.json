@@ -2,17 +2,58 @@
     {
         "class": "Special",
         "name": "NX RAVAGER",
-        "unlock_level": 0,
         "image": "weapons/Special/NX Ravager.webp",
         "camos": {
-            "mp": {}
+            "mp": {
+                "Military": {
+                    "requirement": "Kills (80x)"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills Without Dying (10x)"
+                },
+                "Arclight": {
+                    "requirement": "Double Kills (10x)"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying (3x)"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest (30x)"
+                }
+            }
         }
     },
     {
         "class": "Special",
         "name": "GDL HAVOC",
-        "unlock_level": 0,
         "image": "weapons/Special/GDL HAVOC.webp",
-        "camos": {}
+        "camos": {
+            "mp": {
+                "Military": {
+                    "requirement": "Kills (80x)"
+                },
+                "Diamondback": {
+                    "requirement": "Challenge Unavailable (Check In-Game)"
+                },
+                "Raptor": {
+                    "requirement": "Challenge Unavailable (Check In-Game)"
+                },
+                "Mainframe": {
+                    "requirement": "Challenge Unavailable (Check In-Game)"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills Without Dying (10x)"
+                },
+                "Arclight": {
+                    "requirement": "Double Kills (10x)"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying (3x)"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest (30x)"
+                }
+            }
+        }
     }
 ]

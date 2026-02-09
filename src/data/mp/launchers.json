@@ -2,12 +2,11 @@
     {
         "class": "Launchers",
         "name": "AAROW 109",
-        "unlock_level": 0,
         "image": "weapons/Launchers/AAROW 109.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "50 Kills or Scorestreak Destructions"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "10 Aerial Scorestreak"
@@ -19,16 +18,16 @@
                     "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -36,12 +35,11 @@
     {
         "class": "Launchers",
         "name": "A.R.C. M1",
-        "unlock_level": 25,
         "image": "weapons/Launchers/A.R.C. M1.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "50 Kills or Scorestreak Destructions"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "10 Aerial Scorestreak"
@@ -53,16 +51,16 @@
                     "requirement": "10 Scorestreak, equipment/non-lethal streak, Vehicle or Field Upgrade"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }

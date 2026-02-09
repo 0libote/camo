@@ -2,12 +2,11 @@
     {
         "class": "Sniper Rifles",
         "name": "VS Recon",
-        "unlock_level": 0,
         "image": "weapons/Sniper Rifles/VS Recon.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills with 4.0x Magnification Scope"
@@ -19,16 +18,16 @@
                     "requirement": "10x - 2 Kills without Reloading"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -36,12 +35,11 @@
     {
         "class": "Sniper Rifles",
         "name": "Shadow SK",
-        "unlock_level": 13,
         "image": "weapons/Sniper Rifles/Shadow SK.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "15 Long Shot Kills"
@@ -53,16 +51,16 @@
                     "requirement": "10x - 2 Kills without Reloading"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -70,12 +68,11 @@
     {
         "class": "Sniper Rifles",
         "name": "XR-3 Ion",
-        "unlock_level": 43,
         "image": "weapons/Sniper Rifles/XR-3 Ion.webp",
         "camos": {
             "mp": {
                 "Military": {
-                    "requirement": "80 Headshots"
+                    "requirement": "Kills (80x)"
                 },
                 "Diamondback": {
                     "requirement": "50 Kills with a Supressor"
@@ -87,16 +84,16 @@
                     "requirement": "10x - 2 Kills without Reloading"
                 },
                 "Shattered Gold": {
-                    "requirement": "3 Kills 10x Without Dying"
+                    "requirement": "3 Kills Without Dying (10x)"
                 },
                 "Arclight": {
-                    "requirement": "10x Double Kills"
+                    "requirement": "Double Kills (10x)"
                 },
                 "Tempest": {
-                    "requirement": "5 Kills Without Dying 3x"
+                    "requirement": "5 Kills Without Dying (3x)"
                 },
                 "Singularity": {
-                    "requirement": "Unlock Tempest on 30 Weapons"
+                    "requirement": "Unlock Tempest (30x)"
                 }
             }
         }
@@ -104,8 +101,34 @@
     {
         "class": "Sniper Rifles",
         "name": "HAWKER HX",
-        "unlock_level": 0,
         "image": "weapons/Sniper Rifles/HAWKER HX.webp",
-        "camos": {}
+        "camos": {
+            "mp": {
+                "Military": {
+                    "requirement": "Kills (80x)"
+                },
+                "Diamondback": {
+                    "requirement": "Objective Kills (30x)"
+                },
+                "Raptor": {
+                    "requirement": "Longshot Kills (15x)"
+                },
+                "Mainframe": {
+                    "requirement": "Suppressor Kills (50x)"
+                },
+                "Shattered Gold": {
+                    "requirement": "3 Kills Without Dying (10x)"
+                },
+                "Arclight": {
+                    "requirement": "Double Kills (10x)"
+                },
+                "Tempest": {
+                    "requirement": "5 Kills Without Dying (3x)"
+                },
+                "Singularity": {
+                    "requirement": "Unlock Tempest (30x)"
+                }
+            }
+        }
     }
 ]
