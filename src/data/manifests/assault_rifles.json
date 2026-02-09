@@ -26,5 +26,9 @@
     {
         "name": "MADDOX RFB",
         "image": "weapons/Assault rifle/Maddox RFB.webp"
+    },
+    {
+        "name": "EGRT 17",
+        "image": "weapons/Assault rifle/EGRT 17.webp"
     }
 ]

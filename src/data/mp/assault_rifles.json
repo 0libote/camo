@@ -236,5 +236,12 @@
                 }
             }
         }
+    },
+    {
+        "class": "Assault Rifles",
+        "name": "EGRT 17",
+        "unlock_level": 0,
+        "image": "weapons/Assault rifle/EGRT 17.webp",
+        "camos": {}
     }
 ]

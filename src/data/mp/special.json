@@ -7,5 +7,12 @@
         "camos": {
             "mp": {}
         }
+    },
+    {
+        "class": "Special",
+        "name": "GDL HAVOC",
+        "unlock_level": 0,
+        "image": "weapons/Special/GDL HAVOC.webp",
+        "camos": {}
     }
 ]

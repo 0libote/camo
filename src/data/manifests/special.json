@@ -2,5 +2,9 @@
     {
         "name": "NX RAVAGER",
         "image": "weapons/Special/NX Ravager.webp"
+    },
+    {
+        "name": "GDL HAVOC",
+        "image": "weapons/Special/GDL HAVOC.webp"
     }
 ]

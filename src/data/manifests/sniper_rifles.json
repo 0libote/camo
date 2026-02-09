@@ -10,5 +10,9 @@
     {
         "name": "XR-3 Ion",
         "image": "weapons/Sniper Rifles/XR-3 Ion.webp"
+    },
+    {
+        "name": "HAWKER HX",
+        "image": "weapons/Sniper Rifles/HAWKER HX.webp"
     }
 ]

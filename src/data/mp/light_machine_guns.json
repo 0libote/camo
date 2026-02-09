@@ -66,5 +66,12 @@
                 }
             }
         }
+    },
+    {
+        "class": "Light Machine Guns",
+        "name": "SOKOL 545",
+        "unlock_level": 0,
+        "image": "weapons/Light Machine Gun/SOKOL 545.webp",
+        "camos": {}
     }
 ]

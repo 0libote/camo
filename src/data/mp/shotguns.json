@@ -100,5 +100,12 @@
                 }
             }
         }
+    },
+    {
+        "class": "Shotguns",
+        "name": "SG-12",
+        "unlock_level": 0,
+        "image": "weapons/Shotguns/SG-12.webp",
+        "camos": {}
     }
 ]

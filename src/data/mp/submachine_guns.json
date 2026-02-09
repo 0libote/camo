@@ -236,5 +236,19 @@
                 }
             }
         }
+    },
+    {
+        "class": "Submachine Guns",
+        "name": "STURMWOLF 45",
+        "unlock_level": 0,
+        "image": "weapons/Submachine Guns/STURMWOLF 45.webp",
+        "camos": {}
+    },
+    {
+        "class": "Submachine Guns",
+        "name": "REV-46",
+        "unlock_level": 0,
+        "image": "weapons/Submachine Guns/REV-46.webp",
+        "camos": {}
     }
 ]

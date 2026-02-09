@@ -10,5 +10,9 @@
     {
         "name": "Akita",
         "image": "weapons/Shotguns/Akita.webp"
+    },
+    {
+        "name": "SG-12",
+        "image": "weapons/Shotguns/SG-12.webp"
     }
 ]

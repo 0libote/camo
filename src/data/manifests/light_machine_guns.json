@@ -6,5 +6,9 @@
     {
         "name": "XM325",
         "image": "weapons/Light Machine Gun/XM325.webp"
+    },
+    {
+        "name": "SOKOL 545",
+        "image": "weapons/Light Machine Gun/SOKOL 545.webp"
     }
 ]

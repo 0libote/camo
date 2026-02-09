@@ -26,5 +26,13 @@
     {
         "name": "KOGOT-7",
         "image": "weapons/Submachine Guns/Kogot-7.webp"
+    },
+    {
+        "name": "STURMWOLF 45",
+        "image": "weapons/Submachine Guns/STURMWOLF 45.webp"
+    },
+    {
+        "name": "REV-46",
+        "image": "weapons/Submachine Guns/REV-46.webp"
     }
 ]

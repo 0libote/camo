@@ -100,5 +100,12 @@
                 }
             }
         }
+    },
+    {
+        "class": "Sniper Rifles",
+        "name": "HAWKER HX",
+        "unlock_level": 0,
+        "image": "weapons/Sniper Rifles/HAWKER HX.webp",
+        "camos": {}
     }
 ]
