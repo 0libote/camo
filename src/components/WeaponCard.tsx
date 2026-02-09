@@ -2,7 +2,8 @@ import { memo } from 'react';
 import type { Weapon, WeaponProgress, CamoName, WPMilestone } from '../types';
 import { CamoGrid } from './CamoGrid';
 import { WPMilestoneGrid } from './WPMilestoneGrid';
-import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS, CAMO_ORDER } from '../data';
+import { CAMO_ORDER } from '../data';
+import { WP_WEAPON_DATA, WP_UNIVERSAL_CAMOS } from '../data/wpIndex';
 
 interface Props {
     weapon: Weapon;
